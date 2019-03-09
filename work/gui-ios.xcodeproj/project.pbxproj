@@ -1,0 +1,575 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5722FD2E21B0C859002865A8 /* gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FD2D21B0C859002865A8 /* gui.c */; };
+		572B194A21B653F20015B163 /* gui_anim_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 572B194921B653F20015B163 /* gui_anim_mgr.c */; };
+		575F25D61FD1FFD90070B425 /* gui_anim.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25911FD1FFD90070B425 /* gui_anim.c */; };
+		575F25D71FD1FFD90070B425 /* gui_widget.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25941FD1FFD90070B425 /* gui_widget.c */; };
+		575F25D81FD1FFD90070B425 /* gui_aviewer.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25971FD1FFD90070B425 /* gui_aviewer.c */; };
+		575F25D91FD1FFD90070B425 /* g_widget_console.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25981FD1FFD90070B425 /* g_widget_console.c */; };
+		575F25DA1FD1FFD90070B425 /* gui_settings.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25991FD1FFD90070B425 /* gui_settings.c */; };
+		575F25DB1FD1FFD90070B425 /* g_widget_settings.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F259B1FD1FFD90070B425 /* g_widget_settings.c */; };
+		575F25DC1FD1FFD90070B425 /* gui_activity.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F259E1FD1FFD90070B425 /* gui_activity.c */; };
+		575F25DD1FD1FFD90070B425 /* gui_tooltip.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F259F1FD1FFD90070B425 /* gui_tooltip.c */; };
+		575F25DE1FD1FFD90070B425 /* gui_comp_rline.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25A31FD1FFD90070B425 /* gui_comp_rline.c */; };
+		575F25DF1FD1FFD90070B425 /* gui_menu_item.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25A71FD1FFD90070B425 /* gui_menu_item.c */; };
+		575F25E01FD1FFD90070B425 /* gui_menu_radial.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25A91FD1FFD90070B425 /* gui_menu_radial.c */; };
+		575F25E11FD1FFD90070B425 /* gui_menu.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25AA1FD1FFD90070B425 /* gui_menu.c */; };
+		575F25E21FD1FFD90070B425 /* gui_icon.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25AE1FD1FFD90070B425 /* gui_icon.c */; };
+		575F25E31FD1FFD90070B425 /* g_control_slider.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B11FD1FFD90070B425 /* g_control_slider.c */; };
+		575F25E41FD1FFD90070B425 /* g_control_label.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B51FD1FFD90070B425 /* g_control_label.c */; };
+		575F25E51FD1FFD90070B425 /* gui_control_seq.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B71FD1FFD90070B425 /* gui_control_seq.c */; };
+		575F25E61FD1FFD90070B425 /* g_control_textfield.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B81FD1FFD90070B425 /* g_control_textfield.c */; };
+		575F25E71FD1FFD90070B425 /* g_control_colorpicker.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B91FD1FFD90070B425 /* g_control_colorpicker.c */; };
+		575F25E81FD1FFD90070B425 /* r_control_onscreenbutton.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25BA1FD1FFD90070B425 /* r_control_onscreenbutton.c */; };
+		575F25E91FD1FFD90070B425 /* g_control_progress.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25BB1FD1FFD90070B425 /* g_control_progress.c */; };
+		575F25EA1FD1FFD90070B425 /* gui_control_vseq.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25BD1FD1FFD90070B425 /* gui_control_vseq.c */; };
+		575F25EB1FD1FFD90070B425 /* g_control_checkbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25BE1FD1FFD90070B425 /* g_control_checkbox.c */; };
+		575F25EC1FD1FFD90070B425 /* gui_button.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25C21FD1FFD90070B425 /* gui_button.c */; };
+		575F25ED1FD1FFD90070B425 /* gui_colorpick.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25C31FD1FFD90070B425 /* gui_colorpick.c */; };
+		575F25EE1FD1FFD90070B425 /* g_widget_clock.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25C61FD1FFD90070B425 /* g_widget_clock.c */; };
+		575F25EF1FD1FFD90070B425 /* gui_modal.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25CA1FD1FFD90070B425 /* gui_modal.c */; };
+		575F25F01FD1FFD90070B425 /* gui_panel.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25CB1FD1FFD90070B425 /* gui_panel.c */; };
+		575F25F11FD1FFD90070B425 /* gui_component.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25CC1FD1FFD90070B425 /* gui_component.c */; };
+		575F25F21FD1FFD90070B425 /* gui_notifications.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25CE1FD1FFD90070B425 /* gui_notifications.c */; };
+		575F25F31FD1FFD90070B425 /* g_gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25D01FD1FFD90070B425 /* g_gui.c */; };
+		575F25F41FD1FFD90070B425 /* g_debug_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25D41FD1FFD90070B425 /* g_debug_joystick.c */; };
+		57826D1B1FF61D2B00E1A5F4 /* gui_control.c in Sources */ = {isa = PBXBuildFile; fileRef = 57826D1A1FF61D2B00E1A5F4 /* gui_control.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D15E67FD1E94091E00412C42 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4928C38B1F68A6F000A16F96 /* gui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gui.h; path = ../gui.h; sourceTree = "<group>"; };
+		5722FD2D21B0C859002865A8 /* gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gui.c; path = ../gui.c; sourceTree = "<group>"; };
+		572B194821B653F10015B163 /* gui_anim_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_anim_mgr.h; sourceTree = "<group>"; };
+		572B194921B653F20015B163 /* gui_anim_mgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_anim_mgr.c; sourceTree = "<group>"; };
+		575F25901FD1FFD90070B425 /* gui_anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_anim.h; sourceTree = "<group>"; };
+		575F25911FD1FFD90070B425 /* gui_anim.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_anim.c; sourceTree = "<group>"; };
+		575F25931FD1FFD90070B425 /* g_widget_console.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_widget_console.h; sourceTree = "<group>"; };
+		575F25941FD1FFD90070B425 /* gui_widget.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_widget.c; sourceTree = "<group>"; };
+		575F25951FD1FFD90070B425 /* g_widget_settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_widget_settings.h; sourceTree = "<group>"; };
+		575F25961FD1FFD90070B425 /* gui_settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_settings.h; sourceTree = "<group>"; };
+		575F25971FD1FFD90070B425 /* gui_aviewer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_aviewer.c; sourceTree = "<group>"; };
+		575F25981FD1FFD90070B425 /* g_widget_console.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_widget_console.c; sourceTree = "<group>"; };
+		575F25991FD1FFD90070B425 /* gui_settings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_settings.c; sourceTree = "<group>"; };
+		575F259A1FD1FFD90070B425 /* gui_aviewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_aviewer.h; sourceTree = "<group>"; };
+		575F259B1FD1FFD90070B425 /* g_widget_settings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_widget_settings.c; sourceTree = "<group>"; };
+		575F259C1FD1FFD90070B425 /* gui_widget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_widget.h; sourceTree = "<group>"; };
+		575F259E1FD1FFD90070B425 /* gui_activity.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_activity.c; sourceTree = "<group>"; };
+		575F259F1FD1FFD90070B425 /* gui_tooltip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_tooltip.c; sourceTree = "<group>"; };
+		575F25A01FD1FFD90070B425 /* gui_activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_activity.h; sourceTree = "<group>"; };
+		575F25A11FD1FFD90070B425 /* gui_tooltip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_tooltip.h; sourceTree = "<group>"; };
+		575F25A31FD1FFD90070B425 /* gui_comp_rline.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_comp_rline.c; sourceTree = "<group>"; };
+		575F25A41FD1FFD90070B425 /* gui_comp_rline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_comp_rline.h; sourceTree = "<group>"; };
+		575F25A61FD1FFD90070B425 /* gui_menu_radial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_menu_radial.h; sourceTree = "<group>"; };
+		575F25A71FD1FFD90070B425 /* gui_menu_item.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_menu_item.c; sourceTree = "<group>"; };
+		575F25A81FD1FFD90070B425 /* gui_menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_menu.h; sourceTree = "<group>"; };
+		575F25A91FD1FFD90070B425 /* gui_menu_radial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_menu_radial.c; sourceTree = "<group>"; };
+		575F25AA1FD1FFD90070B425 /* gui_menu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_menu.c; sourceTree = "<group>"; };
+		575F25AB1FD1FFD90070B425 /* gui_menu_item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_menu_item.h; sourceTree = "<group>"; };
+		575F25AD1FD1FFD90070B425 /* g_control_progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_progress.h; sourceTree = "<group>"; };
+		575F25AE1FD1FFD90070B425 /* gui_icon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_icon.c; sourceTree = "<group>"; };
+		575F25AF1FD1FFD90070B425 /* g_control_colorpicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_colorpicker.h; sourceTree = "<group>"; };
+		575F25B01FD1FFD90070B425 /* r_control_onscreenbutton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = r_control_onscreenbutton.h; sourceTree = "<group>"; };
+		575F25B11FD1FFD90070B425 /* g_control_slider.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_slider.c; sourceTree = "<group>"; };
+		575F25B21FD1FFD90070B425 /* g_control_checkbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_checkbox.h; sourceTree = "<group>"; };
+		575F25B31FD1FFD90070B425 /* gui_control_vseq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_vseq.h; sourceTree = "<group>"; };
+		575F25B41FD1FFD90070B425 /* gui_colorpick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_colorpick.h; sourceTree = "<group>"; };
+		575F25B51FD1FFD90070B425 /* g_control_label.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_label.c; sourceTree = "<group>"; };
+		575F25B61FD1FFD90070B425 /* gui_button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_button.h; sourceTree = "<group>"; };
+		575F25B71FD1FFD90070B425 /* gui_control_seq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_seq.c; sourceTree = "<group>"; };
+		575F25B81FD1FFD90070B425 /* g_control_textfield.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_textfield.c; sourceTree = "<group>"; };
+		575F25B91FD1FFD90070B425 /* g_control_colorpicker.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_colorpicker.c; sourceTree = "<group>"; };
+		575F25BA1FD1FFD90070B425 /* r_control_onscreenbutton.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = r_control_onscreenbutton.c; sourceTree = "<group>"; };
+		575F25BB1FD1FFD90070B425 /* g_control_progress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_progress.c; sourceTree = "<group>"; };
+		575F25BC1FD1FFD90070B425 /* gui_icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_icon.h; sourceTree = "<group>"; };
+		575F25BD1FD1FFD90070B425 /* gui_control_vseq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_vseq.c; sourceTree = "<group>"; };
+		575F25BE1FD1FFD90070B425 /* g_control_checkbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_checkbox.c; sourceTree = "<group>"; };
+		575F25BF1FD1FFD90070B425 /* g_control_slider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_slider.h; sourceTree = "<group>"; };
+		575F25C01FD1FFD90070B425 /* g_control_textfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_textfield.h; sourceTree = "<group>"; };
+		575F25C11FD1FFD90070B425 /* gui_control_seq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_seq.h; sourceTree = "<group>"; };
+		575F25C21FD1FFD90070B425 /* gui_button.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_button.c; sourceTree = "<group>"; };
+		575F25C31FD1FFD90070B425 /* gui_colorpick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_colorpick.c; sourceTree = "<group>"; };
+		575F25C41FD1FFD90070B425 /* g_control_label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_label.h; sourceTree = "<group>"; };
+		575F25C61FD1FFD90070B425 /* g_widget_clock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_widget_clock.c; sourceTree = "<group>"; };
+		575F25C71FD1FFD90070B425 /* g_widget_clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_widget_clock.h; sourceTree = "<group>"; };
+		575F25C91FD1FFD90070B425 /* gui_notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_notifications.h; sourceTree = "<group>"; };
+		575F25CA1FD1FFD90070B425 /* gui_modal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_modal.c; sourceTree = "<group>"; };
+		575F25CB1FD1FFD90070B425 /* gui_panel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_panel.c; sourceTree = "<group>"; };
+		575F25CC1FD1FFD90070B425 /* gui_component.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_component.c; sourceTree = "<group>"; };
+		575F25CD1FD1FFD90070B425 /* g_gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_gui.h; sourceTree = "<group>"; };
+		575F25CE1FD1FFD90070B425 /* gui_notifications.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_notifications.c; sourceTree = "<group>"; };
+		575F25CF1FD1FFD90070B425 /* gui_modal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_modal.h; sourceTree = "<group>"; };
+		575F25D01FD1FFD90070B425 /* g_gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_gui.c; sourceTree = "<group>"; };
+		575F25D11FD1FFD90070B425 /* gui_component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_component.h; sourceTree = "<group>"; };
+		575F25D21FD1FFD90070B425 /* gui_panel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_panel.h; sourceTree = "<group>"; };
+		575F25D41FD1FFD90070B425 /* g_debug_joystick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_debug_joystick.c; sourceTree = "<group>"; };
+		575F25D51FD1FFD90070B425 /* g_debug_joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_debug_joystick.h; sourceTree = "<group>"; };
+		57826D191FF61D2B00E1A5F4 /* gui_control.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control.h; sourceTree = "<group>"; };
+		57826D1A1FF61D2B00E1A5F4 /* gui_control.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control.c; sourceTree = "<group>"; };
+		57F12E301F8190B400564D7C /* gui_config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gui_config.h; path = ../gui_config.h; sourceTree = "<group>"; };
+		D15E67FF1E94091E00412C42 /* libgui.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgui.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D15E67FC1E94091E00412C42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		575F258E1FD1FFD90070B425 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				575F258F1FD1FFD90070B425 /* anim */,
+				575F25C81FD1FFD90070B425 /* base */,
+				575F25A21FD1FFD90070B425 /* comp */,
+				575F25AC1FD1FFD90070B425 /* control */,
+				575F25D31FD1FFD90070B425 /* debug */,
+				575F259D1FD1FFD90070B425 /* etc */,
+				575F25A51FD1FFD90070B425 /* menu */,
+				575F25C51FD1FFD90070B425 /* vbl */,
+				575F25921FD1FFD90070B425 /* widget */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
+		575F258F1FD1FFD90070B425 /* anim */ = {
+			isa = PBXGroup;
+			children = (
+				572B194921B653F20015B163 /* gui_anim_mgr.c */,
+				572B194821B653F10015B163 /* gui_anim_mgr.h */,
+				575F25901FD1FFD90070B425 /* gui_anim.h */,
+				575F25911FD1FFD90070B425 /* gui_anim.c */,
+			);
+			path = anim;
+			sourceTree = "<group>";
+		};
+		575F25921FD1FFD90070B425 /* widget */ = {
+			isa = PBXGroup;
+			children = (
+				575F25981FD1FFD90070B425 /* g_widget_console.c */,
+				575F25931FD1FFD90070B425 /* g_widget_console.h */,
+				575F259B1FD1FFD90070B425 /* g_widget_settings.c */,
+				575F25951FD1FFD90070B425 /* g_widget_settings.h */,
+				575F25971FD1FFD90070B425 /* gui_aviewer.c */,
+				575F259A1FD1FFD90070B425 /* gui_aviewer.h */,
+				575F25991FD1FFD90070B425 /* gui_settings.c */,
+				575F25961FD1FFD90070B425 /* gui_settings.h */,
+				575F25941FD1FFD90070B425 /* gui_widget.c */,
+				575F259C1FD1FFD90070B425 /* gui_widget.h */,
+			);
+			path = widget;
+			sourceTree = "<group>";
+		};
+		575F259D1FD1FFD90070B425 /* etc */ = {
+			isa = PBXGroup;
+			children = (
+				575F259E1FD1FFD90070B425 /* gui_activity.c */,
+				575F259F1FD1FFD90070B425 /* gui_tooltip.c */,
+				575F25A01FD1FFD90070B425 /* gui_activity.h */,
+				575F25A11FD1FFD90070B425 /* gui_tooltip.h */,
+			);
+			path = etc;
+			sourceTree = "<group>";
+		};
+		575F25A21FD1FFD90070B425 /* comp */ = {
+			isa = PBXGroup;
+			children = (
+				575F25A31FD1FFD90070B425 /* gui_comp_rline.c */,
+				575F25A41FD1FFD90070B425 /* gui_comp_rline.h */,
+			);
+			path = comp;
+			sourceTree = "<group>";
+		};
+		575F25A51FD1FFD90070B425 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				575F25A71FD1FFD90070B425 /* gui_menu_item.c */,
+				575F25AB1FD1FFD90070B425 /* gui_menu_item.h */,
+				575F25A91FD1FFD90070B425 /* gui_menu_radial.c */,
+				575F25A61FD1FFD90070B425 /* gui_menu_radial.h */,
+				575F25AA1FD1FFD90070B425 /* gui_menu.c */,
+				575F25A81FD1FFD90070B425 /* gui_menu.h */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
+		575F25AC1FD1FFD90070B425 /* control */ = {
+			isa = PBXGroup;
+			children = (
+				575F25BE1FD1FFD90070B425 /* g_control_checkbox.c */,
+				575F25B21FD1FFD90070B425 /* g_control_checkbox.h */,
+				575F25B91FD1FFD90070B425 /* g_control_colorpicker.c */,
+				575F25AF1FD1FFD90070B425 /* g_control_colorpicker.h */,
+				575F25B51FD1FFD90070B425 /* g_control_label.c */,
+				575F25C41FD1FFD90070B425 /* g_control_label.h */,
+				575F25BB1FD1FFD90070B425 /* g_control_progress.c */,
+				575F25AD1FD1FFD90070B425 /* g_control_progress.h */,
+				575F25B11FD1FFD90070B425 /* g_control_slider.c */,
+				575F25BF1FD1FFD90070B425 /* g_control_slider.h */,
+				575F25B81FD1FFD90070B425 /* g_control_textfield.c */,
+				575F25C01FD1FFD90070B425 /* g_control_textfield.h */,
+				575F25C21FD1FFD90070B425 /* gui_button.c */,
+				575F25B61FD1FFD90070B425 /* gui_button.h */,
+				575F25C31FD1FFD90070B425 /* gui_colorpick.c */,
+				575F25B41FD1FFD90070B425 /* gui_colorpick.h */,
+				575F25B71FD1FFD90070B425 /* gui_control_seq.c */,
+				575F25C11FD1FFD90070B425 /* gui_control_seq.h */,
+				575F25BD1FD1FFD90070B425 /* gui_control_vseq.c */,
+				575F25B31FD1FFD90070B425 /* gui_control_vseq.h */,
+				575F25AE1FD1FFD90070B425 /* gui_icon.c */,
+				575F25BC1FD1FFD90070B425 /* gui_icon.h */,
+				575F25BA1FD1FFD90070B425 /* r_control_onscreenbutton.c */,
+				575F25B01FD1FFD90070B425 /* r_control_onscreenbutton.h */,
+			);
+			path = control;
+			sourceTree = "<group>";
+		};
+		575F25C51FD1FFD90070B425 /* vbl */ = {
+			isa = PBXGroup;
+			children = (
+				575F25C61FD1FFD90070B425 /* g_widget_clock.c */,
+				575F25C71FD1FFD90070B425 /* g_widget_clock.h */,
+			);
+			path = vbl;
+			sourceTree = "<group>";
+		};
+		575F25C81FD1FFD90070B425 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				575F25CC1FD1FFD90070B425 /* gui_component.c */,
+				575F25D11FD1FFD90070B425 /* gui_component.h */,
+				57826D1A1FF61D2B00E1A5F4 /* gui_control.c */,
+				57826D191FF61D2B00E1A5F4 /* gui_control.h */,
+				575F25CA1FD1FFD90070B425 /* gui_modal.c */,
+				575F25CF1FD1FFD90070B425 /* gui_modal.h */,
+				575F25CE1FD1FFD90070B425 /* gui_notifications.c */,
+				575F25C91FD1FFD90070B425 /* gui_notifications.h */,
+				575F25CB1FD1FFD90070B425 /* gui_panel.c */,
+				575F25D21FD1FFD90070B425 /* gui_panel.h */,
+				575F25D01FD1FFD90070B425 /* g_gui.c */,
+				575F25CD1FD1FFD90070B425 /* g_gui.h */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		575F25D31FD1FFD90070B425 /* debug */ = {
+			isa = PBXGroup;
+			children = (
+				575F25D41FD1FFD90070B425 /* g_debug_joystick.c */,
+				575F25D51FD1FFD90070B425 /* g_debug_joystick.h */,
+			);
+			path = debug;
+			sourceTree = "<group>";
+		};
+		D15E67F61E94091E00412C42 = {
+			isa = PBXGroup;
+			children = (
+				4928C38B1F68A6F000A16F96 /* gui.h */,
+				5722FD2D21B0C859002865A8 /* gui.c */,
+				57F12E301F8190B400564D7C /* gui_config.h */,
+				575F258E1FD1FFD90070B425 /* src */,
+				D15E68001E94091E00412C42 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D15E68001E94091E00412C42 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D15E67FF1E94091E00412C42 /* libgui.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D15E67FE1E94091E00412C42 /* gui */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D15E68081E94091E00412C42 /* Build configuration list for PBXNativeTarget "gui" */;
+			buildPhases = (
+				D15E67FB1E94091E00412C42 /* Sources */,
+				D15E67FC1E94091E00412C42 /* Frameworks */,
+				D15E67FD1E94091E00412C42 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gui;
+			productName = gui;
+			productReference = D15E67FF1E94091E00412C42 /* libgui.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D15E67F71E94091E00412C42 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = ruminant;
+				TargetAttributes = {
+					D15E67FE1E94091E00412C42 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 42R5XUY266;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D15E67FA1E94091E00412C42 /* Build configuration list for PBXProject "gui-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D15E67F61E94091E00412C42;
+			productRefGroup = D15E68001E94091E00412C42 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D15E67FE1E94091E00412C42 /* gui */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D15E67FB1E94091E00412C42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5722FD2E21B0C859002865A8 /* gui.c in Sources */,
+				575F25E61FD1FFD90070B425 /* g_control_textfield.c in Sources */,
+				575F25D81FD1FFD90070B425 /* gui_aviewer.c in Sources */,
+				575F25ED1FD1FFD90070B425 /* gui_colorpick.c in Sources */,
+				575F25F31FD1FFD90070B425 /* g_gui.c in Sources */,
+				575F25DC1FD1FFD90070B425 /* gui_activity.c in Sources */,
+				575F25F21FD1FFD90070B425 /* gui_notifications.c in Sources */,
+				575F25DA1FD1FFD90070B425 /* gui_settings.c in Sources */,
+				575F25EF1FD1FFD90070B425 /* gui_modal.c in Sources */,
+				575F25F41FD1FFD90070B425 /* g_debug_joystick.c in Sources */,
+				575F25DE1FD1FFD90070B425 /* gui_comp_rline.c in Sources */,
+				572B194A21B653F20015B163 /* gui_anim_mgr.c in Sources */,
+				575F25F11FD1FFD90070B425 /* gui_component.c in Sources */,
+				57826D1B1FF61D2B00E1A5F4 /* gui_control.c in Sources */,
+				575F25E11FD1FFD90070B425 /* gui_menu.c in Sources */,
+				575F25EB1FD1FFD90070B425 /* g_control_checkbox.c in Sources */,
+				575F25E81FD1FFD90070B425 /* r_control_onscreenbutton.c in Sources */,
+				575F25DB1FD1FFD90070B425 /* g_widget_settings.c in Sources */,
+				575F25E31FD1FFD90070B425 /* g_control_slider.c in Sources */,
+				575F25E51FD1FFD90070B425 /* gui_control_seq.c in Sources */,
+				575F25E71FD1FFD90070B425 /* g_control_colorpicker.c in Sources */,
+				575F25DF1FD1FFD90070B425 /* gui_menu_item.c in Sources */,
+				575F25EC1FD1FFD90070B425 /* gui_button.c in Sources */,
+				575F25D61FD1FFD90070B425 /* gui_anim.c in Sources */,
+				575F25F01FD1FFD90070B425 /* gui_panel.c in Sources */,
+				575F25E41FD1FFD90070B425 /* g_control_label.c in Sources */,
+				575F25EA1FD1FFD90070B425 /* gui_control_vseq.c in Sources */,
+				575F25DD1FD1FFD90070B425 /* gui_tooltip.c in Sources */,
+				575F25EE1FD1FFD90070B425 /* g_widget_clock.c in Sources */,
+				575F25E21FD1FFD90070B425 /* gui_icon.c in Sources */,
+				575F25E91FD1FFD90070B425 /* g_control_progress.c in Sources */,
+				575F25E01FD1FFD90070B425 /* gui_menu_radial.c in Sources */,
+				575F25D71FD1FFD90070B425 /* gui_widget.c in Sources */,
+				575F25D91FD1FFD90070B425 /* g_widget_console.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D15E68061E94091E00412C42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(r4_root)/contrib",
+					"$(r4_root)/libs",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				r4_root = "$(HOME)/art/r4";
+			};
+			name = Debug;
+		};
+		D15E68071E94091E00412C42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(r4_root)/contrib",
+					"$(r4_root)/libs",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				r4_root = "$(HOME)/art/r4";
+			};
+			name = Release;
+		};
+		D15E68091E94091E00412C42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 42R5XUY266;
+				HEADER_SEARCH_PATHS = (
+					"$(r4_root)/contrib",
+					"$(r4_root)/libs",
+					../../../contrib/deps,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SYMROOT = ../../../build;
+			};
+			name = Debug;
+		};
+		D15E680A1E94091E00412C42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 42R5XUY266;
+				HEADER_SEARCH_PATHS = (
+					"$(r4_root)/contrib",
+					"$(r4_root)/libs",
+					../../../contrib/deps,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SYMROOT = ../../../build;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D15E67FA1E94091E00412C42 /* Build configuration list for PBXProject "gui-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D15E68061E94091E00412C42 /* Debug */,
+				D15E68071E94091E00412C42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D15E68081E94091E00412C42 /* Build configuration list for PBXNativeTarget "gui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D15E68091E94091E00412C42 /* Debug */,
+				D15E680A1E94091E00412C42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D15E67F71E94091E00412C42 /* Project object */;
+}

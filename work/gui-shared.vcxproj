@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{79FC14C9-CD7F-4D22-ACFF-60E40F91BA38}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>gui</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)../../../build/$(Platform)/</OutDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)../../../contrib;$(ProjectDir)../../../contrib/platform/win/include;$(ProjectDir)../../../libs;$(ProjectDir)../../../contrib/include;$(HOME)\AppData\Local\Programs\Python\Python36-32\include;</IncludePath>
+    <TargetName>gui</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(ProjectDir)../../../contrib/platform/win/32;$(ProjectDir)../../../contrib/build/$(Platform);$(ProjectDir)../../../build/$(Platform)</LibraryPath>
+    <IntDir>build\shared\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)../../../build/$(Platform)/</OutDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)../../../contrib;$(ProjectDir)../../../contrib/platform/win/include;$(ProjectDir)../../../libs;$(ProjectDir)../../../contrib/include;$(HOME)\AppData\Local\Programs\Python\Python36-32\include;</IncludePath>
+    <TargetExt>.dll</TargetExt>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(ProjectDir)../../../contrib/platform/win/32;$(ProjectDir)../../../contrib/build/$(Platform);$(ProjectDir)../../../build/$(Platform)</LibraryPath>
+    <TargetName>gui</TargetName>
+    <IntDir>build\shared\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)../../../build/$(Platform)/</OutDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)../../../contrib;$(ProjectDir)../../../contrib/platform/win/include;$(ProjectDir)../../../libs;$(ProjectDir)../../../contrib/include;$(HOME)\AppData\Local\Programs\Python\Python36-32\include;</IncludePath>
+    <TargetName>gui</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(ProjectDir)../../../contrib/platform/win/64;$(ProjectDir)../../../contrib/build/$(Platform);$(ProjectDir)../../../build/$(Platform)</LibraryPath>
+    <IntDir>build\shared\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)../../../build/$(Platform)/</OutDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)../../../contrib;$(ProjectDir)../../../contrib/platform/win/include;$(ProjectDir)../../../libs;$(ProjectDir)../../../contrib/include;$(HOME)\AppData\Local\Programs\Python\Python36-32\include;</IncludePath>
+    <TargetExt>.dll</TargetExt>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(ProjectDir)../../../contrib/platform/win/64;$(ProjectDir)../../../contrib/build/$(Platform);$(ProjectDir)../../../build/$(Platform)</LibraryPath>
+    <TargetName>gui</TargetName>
+    <IntDir>build\shared\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RemoveUnreferencedCodeData>false</RemoveUnreferencedCodeData>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);drw.lib;drw.lib;r4.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>gui.def</ModuleDefinitionFile>
+    </Link>
+    <Lib>
+      <ModuleDefinitionFile>gui.def</ModuleDefinitionFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RemoveUnreferencedCodeData>false</RemoveUnreferencedCodeData>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);drw.lib;drw.lib;r4.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>gui.def</ModuleDefinitionFile>
+    </Link>
+    <Lib>
+      <ModuleDefinitionFile>gui.def</ModuleDefinitionFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RemoveUnreferencedCodeData>false</RemoveUnreferencedCodeData>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);drw.lib;drw.lib;r4.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>gui.def</ModuleDefinitionFile>
+    </Link>
+    <Lib>
+      <ModuleDefinitionFile>gui.def</ModuleDefinitionFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RemoveUnreferencedCodeData>false</RemoveUnreferencedCodeData>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);drw.lib;drw.lib;r4.lib</AdditionalDependencies>
+      <ModuleDefinitionFile>gui.def</ModuleDefinitionFile>
+    </Link>
+    <Lib>
+      <ModuleDefinitionFile>gui.def</ModuleDefinitionFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\contrib\deps\cmap\map.h" />
+    <ClInclude Include="..\src\control\g_control_checkbox.h" />
+    <ClInclude Include="..\src\control\g_control_colorpicker.h" />
+    <ClInclude Include="..\src\control\g_control_label.h" />
+    <ClInclude Include="..\src\control\g_control_slider.h" />
+    <ClInclude Include="..\src\g_gui.h" />
+    <ClInclude Include="..\src\gui_aviewer.h" />
+    <ClInclude Include="..\src\gui_button.h" />
+    <ClInclude Include="..\src\gui_colorpick.h" />
+    <ClInclude Include="..\src\gui_component.h" />
+    <ClInclude Include="..\src\gui_control_seq.h" />
+    <ClInclude Include="..\src\gui_control_vseq.h" />
+    <ClInclude Include="..\src\gui_icon.h" />
+    <ClInclude Include="..\src\gui_menu_radial.h" />
+    <ClInclude Include="..\src\gui_modal.h" />
+    <ClInclude Include="..\src\gui_notifications.h" />
+    <ClInclude Include="..\src\gui_panel.h" />
+    <ClInclude Include="..\src\g_control_progress.h" />
+    <ClInclude Include="..\src\gui_settings.h" />
+    <ClInclude Include="..\src\g_control_textfield.h" />
+    <ClInclude Include="..\src\gui_widget.h" />
+    <ClInclude Include="..\src\vbl\g_widget_clock.h" />
+    <ClInclude Include="..\src\widget\g_widget_console.h" />
+    <ClInclude Include="..\src\widget\g_widget_settings.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\contrib\deps\cmap\map.c" />
+    <ClCompile Include="..\src\control\g_control_checkbox.c" />
+    <ClCompile Include="..\src\control\g_control_colorpicker.c" />
+    <ClCompile Include="..\src\control\g_control_label.c" />
+    <ClCompile Include="..\src\control\g_control_slider.c" />
+    <ClCompile Include="..\src\g_gui.c" />
+    <ClCompile Include="..\src\gui_aviewer.c" />
+    <ClCompile Include="..\src\gui_button.c" />
+    <ClCompile Include="..\src\gui_colorpick.c" />
+    <ClCompile Include="..\src\gui_component.c" />
+    <ClCompile Include="..\src\gui_control_seq.c" />
+    <ClCompile Include="..\src\gui_control_vseq.c" />
+    <ClCompile Include="..\src\gui_icon.c" />
+    <ClCompile Include="..\src\gui_menu_radial.c" />
+    <ClCompile Include="..\src\gui_modal.c" />
+    <ClCompile Include="..\src\gui_notifications.c" />
+    <ClCompile Include="..\src\gui_panel.c" />
+    <ClCompile Include="..\src\g_control_progress.c" />
+    <ClCompile Include="..\src\gui_settings.c" />
+    <ClCompile Include="..\src\g_control_textfield.c" />
+    <ClCompile Include="..\src\gui_widget.c" />
+    <ClCompile Include="..\src\vbl\g_widget_clock.c" />
+    <ClCompile Include="..\src\widget\g_widget_console.c" />
+    <ClCompile Include="..\src\widget\g_widget_settings.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="gui.def" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
