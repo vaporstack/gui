@@ -81,6 +81,8 @@
 		575E7C0C204D018E00C80D64 /* g_debug_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 575E7BCC204D018E00C80D64 /* g_debug_joystick.c */; };
 		575E7C0D204D018E00C80D64 /* g_debug_joystick.h in Headers */ = {isa = PBXBuildFile; fileRef = 575E7BCD204D018E00C80D64 /* g_debug_joystick.h */; };
 		575E7C15204D0B7B00C80D64 /* gui_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 575E7C14204D0B7B00C80D64 /* gui_types.h */; };
+		579F9A962234B00500BF3880 /* gui_grdn_entinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 579F9A942234B00500BF3880 /* gui_grdn_entinfo.h */; };
+		579F9A972234B00500BF3880 /* gui_grdn_entinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 579F9A952234B00500BF3880 /* gui_grdn_entinfo.c */; };
 		57F8E2A82128F691005614E7 /* gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 57F8E2A72128F691005614E7 /* gui.c */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +162,8 @@
 		575E7BCC204D018E00C80D64 /* g_debug_joystick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_debug_joystick.c; sourceTree = "<group>"; };
 		575E7BCD204D018E00C80D64 /* g_debug_joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_debug_joystick.h; sourceTree = "<group>"; };
 		575E7C14204D0B7B00C80D64 /* gui_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gui_types.h; path = ../gui_types.h; sourceTree = "<group>"; };
+		579F9A942234B00500BF3880 /* gui_grdn_entinfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_grdn_entinfo.h; sourceTree = "<group>"; };
+		579F9A952234B00500BF3880 /* gui_grdn_entinfo.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_grdn_entinfo.c; sourceTree = "<group>"; };
 		57F8E2A72128F691005614E7 /* gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gui.c; path = ../gui.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +181,7 @@
 		5708A9FA208FF28F00A9E776 /* ext */ = {
 			isa = PBXGroup;
 			children = (
+				579F9A932234AFF600BF3880 /* grdn */,
 				5708A9FB208FF28F00A9E776 /* vblit */,
 			);
 			path = ext;
@@ -361,6 +366,15 @@
 			path = debug;
 			sourceTree = "<group>";
 		};
+		579F9A932234AFF600BF3880 /* grdn */ = {
+			isa = PBXGroup;
+			children = (
+				579F9A942234B00500BF3880 /* gui_grdn_entinfo.h */,
+				579F9A952234B00500BF3880 /* gui_grdn_entinfo.c */,
+			);
+			path = grdn;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -377,6 +391,7 @@
 				575E7BE2204D018E00C80D64 /* gui_menu.h in Headers */,
 				575E7C05204D018E00C80D64 /* g_gui.h in Headers */,
 				575E7BFF204D018E00C80D64 /* g_widget_clock.h in Headers */,
+				579F9A962234B00500BF3880 /* gui_grdn_entinfo.h in Headers */,
 				575E7C15204D0B7B00C80D64 /* gui_types.h in Headers */,
 				575E7BDD204D018E00C80D64 /* gui_tooltip.h in Headers */,
 				575E7BF5204D018E00C80D64 /* gui_icon.h in Headers */,
@@ -472,6 +487,7 @@
 				573DDF5B20E32A84008CD64B /* gui_widget_valueviewer.c in Sources */,
 				575E7C06204D018E00C80D64 /* gui_control.c in Sources */,
 				57319AE021B35EDF00DDB8C5 /* gui_anim_mgr.c in Sources */,
+				579F9A972234B00500BF3880 /* gui_grdn_entinfo.c in Sources */,
 				575E7BDA204D018E00C80D64 /* gui_activity.c in Sources */,
 				575E7BD6204D018E00C80D64 /* gui_settings.c in Sources */,
 				575E7C02204D018E00C80D64 /* gui_modal.c in Sources */,
