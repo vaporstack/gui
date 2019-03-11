@@ -7,7 +7,7 @@ EXPORTS
 	gui_init
 	gui_layout
 	gui_notify_resize
-	gui_register_component
+	gui_component_register
 	gui_render
 	gui_set_debug
 	gui_set_retina

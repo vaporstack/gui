@@ -413,7 +413,7 @@ double gui_default_ui(Gui* gui)
 	return gui->scale_retina * 2 * G_UI_BTN_SIZE;
 }
 
-int gui_register_component(Gui* gui, const char* ident, GuiComponent* cmp)
+int gui_component_register(Gui* gui, const char* ident, GuiComponent* cmp)
 {
 	if (!ident)
 	{

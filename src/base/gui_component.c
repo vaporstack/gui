@@ -266,7 +266,7 @@ GuiComponent* gui_component_group_create(void* data, int num,
 
 		gui_component_child_add(base, sub);
 		gui_log("adding component: %s", name);
-		gui_register_component(gui, name, sub);
+		gui_component_register(gui, name, sub);
 		// sub->type = GUI_TYPE_TOGGLEBUTTON;
 	}
 

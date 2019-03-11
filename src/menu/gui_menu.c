@@ -175,9 +175,15 @@ static void mouse_button(struct InputDelegate* del, int button, int action,
 static void draw(GuiComponent* cmp, GuiComponent* gui)
 {
 	gui_component_draw_bordered(cmp, gui);
-
+	gui_component_draw(cmp, gui);
 	GMenu* menu = (GMenu*)cmp->data;
-
+	if ( !cmp->children )
+	{
+		l_warning("no children, can't draw menu");
+		return;
+	}
+	
+		
 	GuiComponent* child = cmp->children[menu->selected_item];
 	if (!child)
 	{

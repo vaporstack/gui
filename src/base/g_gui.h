@@ -30,7 +30,7 @@ enum
 
 
 
-//TODO: this appears to be for DrawTarget 
+//TODO: this appears to be for DrawTarget
 #include <r4/src/app/r_app.h>
 
 
@@ -49,11 +49,11 @@ typedef struct Gui
 	// ResizeTarget* target;
 	bool	  debug_visibility_override;
 	InputDelegate del;
-	
+
 } Gui;
 
 GuiComponent* gui_find_component(Gui* gui, const char* ident);
-int	   gui_register_component(Gui* gui, const char* ident, GuiComponent* cmp);
+int	   gui_component_register(Gui* gui, const char* ident, GuiComponent* cmp);
 
 Gui* gui_create(const char* name);
 void gui_destroy(Gui*);
