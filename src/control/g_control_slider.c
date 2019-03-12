@@ -207,7 +207,9 @@ static void layout(struct GuiComponent* cmp)
 	double x = 0;
 	//	here is a hack that makes all sliders float one button width above the bottom of the damn screen
 	
+	//double y = (h * -.5) + 0;
 	double y = (h * -.5) + cmp->bounds.size.y;
+
 	switch (cmp->orientation.horizontal) {
 		case -1:
 			x = w * -.5;

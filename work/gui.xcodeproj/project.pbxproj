@@ -83,6 +83,8 @@
 		575E7C15204D0B7B00C80D64 /* gui_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 575E7C14204D0B7B00C80D64 /* gui_types.h */; };
 		579F9A962234B00500BF3880 /* gui_grdn_entinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 579F9A942234B00500BF3880 /* gui_grdn_entinfo.h */; };
 		579F9A972234B00500BF3880 /* gui_grdn_entinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 579F9A952234B00500BF3880 /* gui_grdn_entinfo.c */; };
+		579F9BD0223750F300BF3880 /* gui_log.h in Headers */ = {isa = PBXBuildFile; fileRef = 579F9BCE223750F300BF3880 /* gui_log.h */; };
+		579F9BD1223750F300BF3880 /* gui_log.c in Sources */ = {isa = PBXBuildFile; fileRef = 579F9BCF223750F300BF3880 /* gui_log.c */; };
 		57F8E2A82128F691005614E7 /* gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 57F8E2A72128F691005614E7 /* gui.c */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +166,8 @@
 		575E7C14204D0B7B00C80D64 /* gui_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gui_types.h; path = ../gui_types.h; sourceTree = "<group>"; };
 		579F9A942234B00500BF3880 /* gui_grdn_entinfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_grdn_entinfo.h; sourceTree = "<group>"; };
 		579F9A952234B00500BF3880 /* gui_grdn_entinfo.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_grdn_entinfo.c; sourceTree = "<group>"; };
+		579F9BCE223750F300BF3880 /* gui_log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_log.h; sourceTree = "<group>"; };
+		579F9BCF223750F300BF3880 /* gui_log.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_log.c; sourceTree = "<group>"; };
 		57F8E2A72128F691005614E7 /* gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gui.c; path = ../gui.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -272,6 +276,8 @@
 				5723445D223308A100EC1DBC /* gui_draggable.h */,
 				575E7B95204D018E00C80D64 /* gui_tooltip.c */,
 				575E7B97204D018E00C80D64 /* gui_tooltip.h */,
+				579F9BCE223750F300BF3880 /* gui_log.h */,
+				579F9BCF223750F300BF3880 /* gui_log.c */,
 			);
 			path = etc;
 			sourceTree = "<group>";
@@ -419,6 +425,7 @@
 				575E7C01204D018E00C80D64 /* gui_control.h in Headers */,
 				575E7BE6204D018E00C80D64 /* r_control_onscreenbutton.h in Headers */,
 				575E7BFD204D018E00C80D64 /* g_control_label.h in Headers */,
+				579F9BD0223750F300BF3880 /* gui_log.h in Headers */,
 				575E7BD2204D018E00C80D64 /* g_widget_settings.h in Headers */,
 				575E7BED204D018E00C80D64 /* gui_colorpick.h in Headers */,
 			);
@@ -508,6 +515,7 @@
 				575E7C03204D018E00C80D64 /* gui_panel.c in Sources */,
 				575E7BDB204D018E00C80D64 /* gui_tooltip.c in Sources */,
 				575E7BF6204D018E00C80D64 /* gui_control_vseq.c in Sources */,
+				579F9BD1223750F300BF3880 /* gui_log.c in Sources */,
 				575E7C09204D018E00C80D64 /* g_gui.c in Sources */,
 				575E7BE8204D018E00C80D64 /* gui_icon.c in Sources */,
 				575E7BFE204D018E00C80D64 /* g_widget_clock.c in Sources */,

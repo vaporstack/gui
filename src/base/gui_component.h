@@ -98,6 +98,7 @@ typedef struct GuiComponent
 	void*		      data;
 	void*		      art;
 	void*		      drag;
+	//CPoint*			offset;
 	int		      num_children;
 	struct GuiComponent** children;
 	struct vector_t*      children_vec;

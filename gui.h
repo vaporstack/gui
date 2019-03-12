@@ -36,7 +36,6 @@ static inline char* gui_get_version_string_header(void)
 }
 #include <r4/r4.h>
 
-void gui_log(char* fmt, ...);
 
 #include "gui_config.h"
 

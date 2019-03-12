@@ -7,28 +7,15 @@
 
 #include "gui.h"
 
+#include "src/etc/gui_log.h"
+
 //TODO:
 //	remove this shit
 #include <r4/r4.h>
 extern AppSettings app_settings;
-#include <stdarg.h>
 
-#define GUI_LOG_MAX 256
-void gui_log(char* format, ...)
-{
+static bool screenspace = false;
 
-	char buf[GUI_LOG_MAX];
-	sprintf(buf, "%s", format);
-	va_list args;
-	va_start(args, format);
-	vsprintf(buf, format, args);
-	va_end(args);
-#ifdef DEBUG
-	printf("[gui ]: %s\n", buf);
-#else
-	printf("DO NOTHING LATER: %s\n", buf);
-#endif
-}
 
 int gui_check_version_match(const char* header_generated_version)
 {
