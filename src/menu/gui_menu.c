@@ -8,7 +8,8 @@
 
 #include "gui_menu.h"
 #include "../control/gui_button.h"
-#include <gui/gui.h>
+#include <gui/src/etc/gui_log.h>
+
 //#include <gui/gui_types.h>
 
 #include <drw/drw.h>

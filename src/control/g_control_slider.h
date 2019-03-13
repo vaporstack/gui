@@ -17,8 +17,12 @@ typedef int (*my_slider_func)(GuiComponent* cmp, double v);
 typedef struct
 {
 	char* name;
-	//RRect* bounds;
 	double*	target;
+	double lower;
+	double upper;
+	bool constrain_to_int;
+	bool vertical;
+	//bool show_value;
 	my_slider_func function;
 } GuiSliderD;
 

@@ -32,6 +32,7 @@ static void do_slider(InputDelegate* del, double x, double y, double r)
 	
 	GuiComponent* cmp = del->parent;
 	GuiSliderD* attr = cmp->data;
+	cmp->interacting = true;
 	
 	if ( !attr->function )
 	{
@@ -59,13 +60,15 @@ static void update(GuiComponent* cmp )
 static void end(GuiComponent* cmp )
 {
 	
-	
+	//GuiComponent* cmp = del->parent;
+	cmp->interacting = false;
+	r_input_delegate_pop();
 	
 }
 
 static void touch_cancel(struct InputDelegate* del, double x, double y, double r)
 {
-	r_input_delegate_pop();
+	end(del->parent);
 
 }
 
@@ -119,10 +122,7 @@ static void touch_move(struct InputDelegate* del, double x, double y, double r)
 static void touch_ended(struct InputDelegate* del, double x, double y, double r)
 {
 	do_slider(del, x, y, r);
-	gui_log("slider done");
-	r_input_delegate_pop();
-	
-	
+	end(del->parent);
 }
 
 static void tablet_down_rich(struct InputDelegate* del, double x, double y, int button, double pressure, double rotation, double tilt_x, double tilt_y, double tangential)
@@ -149,8 +149,7 @@ static void mouse_button(InputDelegate* del, int btn, int action, int mods )
 	//do_slider(del, app_settings., y, -1);
 	if ( btn == 0 && action == 0 )
 	{
-		gui_log("done");
-		r_input_delegate_pop();
+		end(del->parent);
 	}
 }
 
@@ -227,9 +226,11 @@ static void layout(struct GuiComponent* cmp)
 	gui_component_set(cmp, x, y);
 }
 
-//static void update(GuiComponent* cmp)
-//{
-//}
+static void destroy(GuiComponent* cmp)
+{
+	GuiSliderD* info = cmp->data;
+	free(info);
+}
 
 static void draw(struct GuiComponent* cmp, struct GuiComponent* gui)
 {
@@ -241,18 +242,23 @@ static void draw(struct GuiComponent* cmp, struct GuiComponent* gui)
 	drw_translate2f(cmp->bounds.pos.x, cmp->bounds.pos.y);
 	drw_translate2f(0, cmp->bounds.size.y * .5);
 	drw_line(margin, 0, cmp->bounds.size.x - margin, 0);
+	drw_push();
 	drw_translate2f(margin + (*d * (cmp->bounds.size.x - margin * 2)), 0);
-	//	this is horrible and I hate it but I'm in a hurry for results dammit
 	double v = gui_default_ui(cmp->root) * PHI * .25;
-//#ifndef RPLATFORM_IOS
-//	v *= .5;
-//#endif
-	//drw_circle(v );
-	
-	drw_circle(v ); //todo: this is Odd, wth
 
+	drw_circle(v );
 	drw_pop();
-	//printf(".");
+	if ( cmp->interacting )
+	{
+		drw_push();
+		drw_translate2f(cmp->bounds.size.x * .5, 0);
+		drw_circle(v);
+		drw_type_set_align(DRW_TYPE_ALIGN_H_CENTER, DRW_TYPE_ALIGN_V_CENTER);
+		drw_type_draw("%.2f", *d);
+		drw_pop();
+	}
+	drw_pop();
+	
 }
 
 static void setup_delegate(InputDelegate* del )
@@ -282,12 +288,13 @@ GuiComponent* g_control_slider_create_d(double* data, void* guidata)
 	cmp->update	  = update;
 	cmp->layout	  = layout;
 	cmp->name	    = "an_unnamed_slider";
-	cmp->bounds.size.x *= 3;
+	cmp->bounds.size.x *= 4;
 	
 	cmp->delegate.name = "slider delegate";
 	cmp->delegate.parent = cmp;
 	setup_delegate(&cmp->delegate);
-
+	cmp->destroy = destroy;
+	
 	return cmp;
 }
 
@@ -297,13 +304,15 @@ GuiComponent* g_control_slider_create_cb(double* addr, my_slider_func cb, void* 
 	GuiSliderD*   slider = calloc(1, sizeof(GuiSliderD));
 	slider->function     = cb;
 	slider->target       = addr;
+	cmp->destroy = destroy;
+
 	cmp->data	    = slider;
 	cmp->draw	    = draw;
 	cmp->update	  = update;
 	cmp->layout	  = layout;
 	cmp->name	    = "an_unnamed_slider";
 	cmp->bounds.size.x *= 3;
-	
+
 	setup_delegate(&cmp->delegate);
 
 	
@@ -312,6 +321,7 @@ GuiComponent* g_control_slider_create_cb(double* addr, my_slider_func cb, void* 
 	//gui_component_move(gui, cmp, <#double x#>, <#double y#>)
 	return cmp;
 }
+
 /*
  GuiButton* g_create_slider(char* name, RRect *bounds, myfunc f )
 {

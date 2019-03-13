@@ -39,6 +39,7 @@ static inline char* gui_get_version_string_header(void)
 
 #include "gui_config.h"
 
+#include "src/etc/gui_log.h"
 void gui_get_default_bounds(double* x, double* y);
 
 #include "src/base/g_gui.h"

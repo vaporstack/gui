@@ -41,6 +41,14 @@ enum GuiOrientationTypesVertical
 	GUI_V_ORIENTATION_BOTTOM
 };
 
+enum GuiAlignmentType
+{
+	GUI_ALIGN_COLUMN,
+	GUI_ALIGN_ROW,
+	GUI_ALIGN_STACK,
+	GUI_ALINE_NONE
+};
+
 typedef struct GuiOrientationAttrs
 {
 	int horizontal;
@@ -69,6 +77,7 @@ typedef struct GuiComponent
 
 	const char*	 name;
 	RRect		    bounds;
+	bool			interacting;
 	bool		    container;
 	bool		    focus;
 	bool		    locked;

@@ -41,6 +41,8 @@
 		575F25F31FD1FFD90070B425 /* g_gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25D01FD1FFD90070B425 /* g_gui.c */; };
 		575F25F41FD1FFD90070B425 /* g_debug_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25D41FD1FFD90070B425 /* g_debug_joystick.c */; };
 		57826D1B1FF61D2B00E1A5F4 /* gui_control.c in Sources */ = {isa = PBXBuildFile; fileRef = 57826D1A1FF61D2B00E1A5F4 /* gui_control.c */; };
+		57A4ADAC22384FEA00C7699D /* gui_draggable.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A4ADA822384FEA00C7699D /* gui_draggable.c */; };
+		57A4ADAD22384FEA00C7699D /* gui_log.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A4ADAA22384FEA00C7699D /* gui_log.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -124,6 +126,10 @@
 		575F25D51FD1FFD90070B425 /* g_debug_joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_debug_joystick.h; sourceTree = "<group>"; };
 		57826D191FF61D2B00E1A5F4 /* gui_control.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control.h; sourceTree = "<group>"; };
 		57826D1A1FF61D2B00E1A5F4 /* gui_control.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control.c; sourceTree = "<group>"; };
+		57A4ADA822384FEA00C7699D /* gui_draggable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_draggable.c; sourceTree = "<group>"; };
+		57A4ADA922384FEA00C7699D /* gui_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_log.h; sourceTree = "<group>"; };
+		57A4ADAA22384FEA00C7699D /* gui_log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_log.c; sourceTree = "<group>"; };
+		57A4ADAB22384FEA00C7699D /* gui_draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_draggable.h; sourceTree = "<group>"; };
 		57F12E301F8190B400564D7C /* gui_config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gui_config.h; path = ../gui_config.h; sourceTree = "<group>"; };
 		D15E67FF1E94091E00412C42 /* libgui.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgui.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -188,8 +194,12 @@
 			isa = PBXGroup;
 			children = (
 				575F259E1FD1FFD90070B425 /* gui_activity.c */,
-				575F259F1FD1FFD90070B425 /* gui_tooltip.c */,
 				575F25A01FD1FFD90070B425 /* gui_activity.h */,
+				57A4ADA822384FEA00C7699D /* gui_draggable.c */,
+				57A4ADAB22384FEA00C7699D /* gui_draggable.h */,
+				57A4ADAA22384FEA00C7699D /* gui_log.c */,
+				57A4ADA922384FEA00C7699D /* gui_log.h */,
+				575F259F1FD1FFD90070B425 /* gui_tooltip.c */,
 				575F25A11FD1FFD90070B425 /* gui_tooltip.h */,
 			);
 			path = etc;
@@ -367,12 +377,14 @@
 				575F25D81FD1FFD90070B425 /* gui_aviewer.c in Sources */,
 				575F25ED1FD1FFD90070B425 /* gui_colorpick.c in Sources */,
 				575F25F31FD1FFD90070B425 /* g_gui.c in Sources */,
+				57A4ADAC22384FEA00C7699D /* gui_draggable.c in Sources */,
 				575F25DC1FD1FFD90070B425 /* gui_activity.c in Sources */,
 				575F25F21FD1FFD90070B425 /* gui_notifications.c in Sources */,
 				575F25DA1FD1FFD90070B425 /* gui_settings.c in Sources */,
 				575F25EF1FD1FFD90070B425 /* gui_modal.c in Sources */,
 				575F25F41FD1FFD90070B425 /* g_debug_joystick.c in Sources */,
 				575F25DE1FD1FFD90070B425 /* gui_comp_rline.c in Sources */,
+				57A4ADAD22384FEA00C7699D /* gui_log.c in Sources */,
 				572B194A21B653F20015B163 /* gui_anim_mgr.c in Sources */,
 				575F25F11FD1FFD90070B425 /* gui_component.c in Sources */,
 				57826D1B1FF61D2B00E1A5F4 /* gui_control.c in Sources */,

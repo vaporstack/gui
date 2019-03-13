@@ -11,7 +11,7 @@
 #include <stdlib.h>
 
 #include "../control/gui_button.h"
-#include <gui/gui.h> // entirely for gui_log oops
+#include <gui/src/etc/gui_log.h> // entirely for gui_log oops
 
 //	probably don't need these then huh
 //#include "g_gui.h"
