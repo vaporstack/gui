@@ -144,6 +144,7 @@ void	  gui_component_show(GuiComponent* cmp);
 void	  gui_component_layout(GuiComponent* cmp);
 void	  gui_component_layout_vertical(GuiComponent* cmp);
 void	  gui_component_layout_horizontal(GuiComponent* cmp);
+void	gui_component_fit_to_children(GuiComponent* cmp);
 //void	gui_component_activate(GuiComponent* cmp, void* input_delegate);
 //void gui_component_deactivate(GuiComponent* cmp);
 //double g_default_ui_size(void* gui);

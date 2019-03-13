@@ -144,15 +144,16 @@ void gui_component_draw(GuiComponent* cmp, GuiComponent* gui)
 	{
 		if (!cmp->bypass)
 		{
+			if ( gui->debug && cmp->name)
 			// if(_gui_debug)
-			if (cmp->name)
+//			if (cmp->name)
 			{
 				drw_type_draw(cmp->name);
 			}
-			else
-			{
-				gui_log("Tried to render null text");
-			}
+//			else
+//			{
+//				gui_log("Tried to render null text");
+//			}
 		}
 	}
 
@@ -299,7 +300,7 @@ GuiComponent* gui_component_create(void* data)
 	comp->type		   = 0;
 	comp->num_children	 = 0;
 	comp->art		   = NULL;
-	comp->draw		   = &gui_component_draw;
+	comp->draw		   = gui_component_draw;
 	comp->alignment.h	  = GUI_H_ORIENTATION_NONE;
 	comp->alignment.v	  = GUI_V_ORIENTATION_NONE;
 	comp->alignment.children_h = GUI_H_ORIENTATION_NONE;
@@ -413,6 +414,7 @@ void gui_component_size(GuiComponent* cmp, double x, double y)
 	cmp->bounds.size.x = x;
 	cmp->bounds.size.y = y;
 }
+
 
 void gui_component_child_remove(GuiComponent* parent, GuiComponent* child)
 {
@@ -640,6 +642,31 @@ void gui_component_layout_horizontal(GuiComponent* comp)
 
 void gui_component_layout_vertical(GuiComponent* comp)
 {
+}
+
+void	gui_component_fit_to_children(GuiComponent* cmp)
+{
+	//	something about this is fucked, forgetting a delta somewhere
+	double minx, miny, maxx, maxy;
+	minx = miny = INFINITY;
+	maxx = maxy = -1 * INFINITY;
+	
+	for ( int i = 0 ; i < cmp->num_children; i++ )
+	{
+		GuiComponent* ch = cmp->children[i];
+		if ( ch->bounds.pos.x < minx )
+			minx = ch->bounds.pos.x;
+		if ( ch->bounds.pos.y < miny )
+			miny = ch->bounds.pos.x;
+		if ( ch->bounds.pos.x + ch->bounds.size.x > maxx )
+			maxx = ch->bounds.pos.x + ch->bounds.size.x;
+		if ( ch->bounds.pos.y + ch->bounds.size.y > maxy )
+			maxy = ch->bounds.pos.y + ch->bounds.size.y;
+	}
+	
+	gui_component_set(cmp, minx, miny);
+	gui_component_size(cmp, maxx - minx, maxy - miny);
+	
 }
 
 void gui_component_render_children(GuiComponent* comp, GuiComponent* gui)
