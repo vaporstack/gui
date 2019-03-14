@@ -10,7 +10,14 @@
 
 #include "../base/gui_component.h"
 //#include <stdbool.h>
+#include "../base/g_gui.h"
 
-GuiComponent* gui_checkbox_create(const char* label, bool* data);
+typedef struct GCheckbox
+{
+	const char* label;
+	bool* value;
+}GCheckbox;
+
+GuiComponent* gui_control_checkbox_create(const char* label, bool* data, Gui* gui);
 
 #endif
