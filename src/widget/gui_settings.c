@@ -13,6 +13,7 @@ GuiComponent* gui_settings_create(void* gui)
 	cmp->name	 = "gui settings";
 	cmp->enabled      = false;
 	cmp->visible      = false;
+	cmp->container = true;
 	return cmp;
 }
 

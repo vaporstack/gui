@@ -114,8 +114,8 @@ static void commit(GuiComponent* cmp)
 
 static void cancel(GuiComponent* cmp)
 {
-	GTextField* field = cmp->data;
-	free(field->edit);
+	//GTextField* field = cmp->data;
+	//free(field->edit);
 	printf("cancel!!\n");
 	end(cmp);
 }
@@ -181,6 +181,7 @@ static void mouse_button(InputDelegate* del, int btn, int action, int mods )
 
 static void key(struct InputDelegate* del, int key, int scan, int action, int mods)
 {
+#ifndef RPLATFORM_IOS
 	printf("%d %d\n", key, action);
 	if ( action == 1 )
 		return;
@@ -213,6 +214,7 @@ static void key(struct InputDelegate* del, int key, int scan, int action, int mo
 		default:
 			break;
 	}
+#endif
 	
 }
 
@@ -228,6 +230,7 @@ static void charcb(struct InputDelegate* del, unsigned int c)
 	
 	
 }
+
 static void mouse_motion(InputDelegate* del, double x, double y )
 {
 

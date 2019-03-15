@@ -185,6 +185,11 @@ static int click(GuiComponent* cmp, double d)
 	//printf("res: %f\n", loc);
 	GuiSliderD* attr   = cmp->data;
 	double*     target = attr->target;
+	if ( !d )
+	{
+		printf("Can't set, no data!\n");
+		return 7;
+	}
 	*target		   = d;
 //	if ( attr->function )
 //		attr->function(cmp, *target);
@@ -238,10 +243,18 @@ static void draw(struct GuiComponent* cmp, struct GuiComponent* gui)
 	double margin = cmp->bounds.size.y * .5;
 	GuiSliderD* attr = cmp->data;
 	double*     d    = attr->target;
+
 	drw_push();
 	drw_translate2f(cmp->bounds.pos.x, cmp->bounds.pos.y);
 	drw_translate2f(0, cmp->bounds.size.y * .5);
 	drw_line(margin, 0, cmp->bounds.size.x - margin, 0);
+	if ( !d)
+	{
+		printf("Slider created with NULL data\n");
+		drw_pop();
+		return;;
+		
+	}
 	drw_push();
 	drw_translate2f(margin + (*d * (cmp->bounds.size.x - margin * 2)), 0);
 	double v = gui_default_ui(cmp->root) * PHI * .25;

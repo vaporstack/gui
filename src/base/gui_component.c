@@ -640,8 +640,27 @@ void gui_component_layout_horizontal(GuiComponent* comp)
 	 */
 }
 
-void gui_component_layout_vertical(GuiComponent* comp)
+void gui_component_layout_vertical(GuiComponent* cmp)
 {
+	double w = cmp->bounds.size.x;
+	double h = cmp->bounds.size.y;
+	double pad = PHI_I * gui_default_ui(cmp->root);
+	
+	//	assuming all elements are the same height lol
+	int num = cmp->num_children;
+	GuiComponent* ch = cmp->children[0];
+	double stack = num * ch->bounds.size.y;
+	double diff = h - stack;
+	
+	double pad2 = diff / (num);
+	double offset = (h - 0) / num;
+	for ( int i = 0; i < num; i++ )
+	{
+		GuiComponent* ch = cmp->children[i];
+		ch->bounds.pos.y = cmp->bounds.pos.y + cmp->bounds.size.y -( i * offset + ch->bounds.size.y) - pad2 * .5;
+	}
+	
+	
 }
 
 void	gui_component_fit_to_children(GuiComponent* cmp)
