@@ -76,20 +76,18 @@ static void tablet_down_rich(struct InputDelegate* del, double x, double y, int 
 
 static void tablet_up_rich(struct InputDelegate* del, double x, double y, int button, double pressure, double rotation, double tilt_x, double tilt_y, double tangential)
 {
-	
 	touch_ended(del, x, y, -1);
 }
 
 static void tablet_drag_rich(struct InputDelegate* del, double x, double y, int button, double pressure, double rotation, double tilt_x, double tilt_y, double tangential)
 {
-	
 	touch_move(del, x, y, -1);
 }
 
 
 static void draw(GuiComponent* cmp, GuiComponent* gui)
 {
-	gui_component_draw(cmp, gui);
+	//gui_component_draw(cmp, gui);
 	GCheckbox* info = cmp->data;
 	drw_push();
 	drw_translate(cmp->bounds.pos.x + cmp->bounds.size.x * .5, cmp->bounds.pos.y + cmp->bounds.size.y * .5, 0);
