@@ -36,6 +36,7 @@ typedef struct
 
 GuiComponent* g_control_slider_create_d(double* data, void* gui);
 GuiComponent* g_control_slider_create_cb(double* addr, my_slider_func cb, void* gui);
+void g_control_slider_draw(struct GuiComponent* cmp, struct GuiComponent* gui);
 
 // void g_slider_update_i(GuiSliderI* slider, float val);
 // void g_slider_update_f(GuiSliderD* slider, float val);

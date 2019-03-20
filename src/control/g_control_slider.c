@@ -76,46 +76,11 @@ static void touch_cancel(struct InputDelegate* del, double x, double y, double r
 static void touch_began(struct InputDelegate* del, double x, double y, double r)
 {
 	do_slider(del, x, y, r);
-//
-//	printf("SLIDER BEGIN\n");
-//	GuiComponent* cmp = del->parent;
-//
-//	printf("%f %f\n", x, y);
-//	double w = cmp->bounds.size.x;
-//	double loc = (x - cmp->bounds.pos.x) / w;
-//	if ( loc < 0 ) loc = 0;
-//	if ( loc > 1 ) loc = 1;
-//	printf("res: %f\n", loc);
-//	GuiSliderD* attr   = cmp->data;
-//	double*     target = attr->target;
-//	*target		   = loc;
-//	if ( attr->function )
-//		attr->function(cmp, *target);
-//
-//	printf("Brush width is now %f\n", loc);
-	
-	
 }
 
 static void touch_move(struct InputDelegate* del, double x, double y, double r)
 {
 	do_slider(del, x, y, r);
-//	GuiComponent* cmp = del->parent;
-//
-//	printf("%f %f\n", x, y);
-//	double w = cmp->bounds.size.x;
-//	double loc = (x - cmp->bounds.pos.x) / w;
-//	if ( loc < 0 ) loc = 0;
-//	if ( loc > 1 ) loc = 1;
-//	printf("res: %f\n", loc);
-//	GuiSliderD* attr   = cmp->data;
-//	double*     target = attr->target;
-//	*target		   = loc;
-//	if ( attr->function )
-//		attr->function(cmp, *target);
-//
-//	printf("Brush width is now %f\n", loc);
-	
 	
 }
 
@@ -132,7 +97,6 @@ static void tablet_down_rich(struct InputDelegate* del, double x, double y, int 
 
 static void tablet_up_rich(struct InputDelegate* del, double x, double y, int button, double pressure, double rotation, double tilt_x, double tilt_y, double tangential)
 {
-	
 	touch_ended(del, x, y, -1);
 }
 
@@ -145,8 +109,6 @@ static void tablet_drag_rich(struct InputDelegate* del, double x, double y, int 
 
 static void mouse_button(InputDelegate* del, int btn, int action, int mods )
 {
-	
-	//do_slider(del, app_settings., y, -1);
 	if ( btn == 0 && action == 0 )
 	{
 		end(del->parent);
@@ -156,33 +118,12 @@ static void mouse_button(InputDelegate* del, int btn, int action, int mods )
 
 static void mouse_motion(InputDelegate* del, double x, double y )
 {
-	/*GuiComponent* cmp = del->parent;
-	
-	printf("%f %f\n", x, y);
-	double w = cmp->bounds.size.x;
-	double loc = (x - cmp->bounds.pos.x) / w;
-	if ( loc < 0 ) loc = 0;
-	if ( loc > 1 ) loc = 1;
-	printf("res: %f\n", loc);
-	GuiSliderD* attr   = cmp->data;
-	double*     target = attr->target;
-	*target		   = loc;
-	*/
 	do_slider(del, x, y, -1);
-	
-	
-	//printf("Brush width is now %f\n", loc);
-	
 }
 
 static int click(GuiComponent* cmp, double d)
 {
-	
-	//double p = calculate_position(cmp, d, -1);
-	//printf("click! %f\n", d);
-	//double w = cmp->bounds.size.x;
-	//double loc = (d - cmp->bounds.pos.x) / w;
-	//printf("res: %f\n", loc);
+
 	GuiSliderD* attr   = cmp->data;
 	double*     target = attr->target;
 	if ( !d )
@@ -191,10 +132,7 @@ static int click(GuiComponent* cmp, double d)
 		return 7;
 	}
 	*target		   = d;
-//	if ( attr->function )
-//		attr->function(cmp, *target);
-//
-//	printf("Brush width is now %f\n", p);
+
 	return 0;
 }
 
@@ -206,13 +144,9 @@ static void layout(struct GuiComponent* cmp)
 	double w = gui->bounds.size.x;
 	double h = gui->bounds.size.y;
 	
-	
-	//if ( cmp->orientation.h)
 	double x = 0;
-	//	here is a hack that makes all sliders float one button width above the bottom of the damn screen
-	
-	//double y = (h * -.5) + 0;
-	double y = (h * -.5) + cmp->bounds.size.y;
+
+	double y = (h * -.5);// + cmp->bounds.size.y;
 
 	switch (cmp->orientation.horizontal) {
 		case -1:
@@ -228,6 +162,8 @@ static void layout(struct GuiComponent* cmp)
 		default:
 			break;
 	}
+	x += cmp->offset.x;
+	y += cmp->offset.y;
 	gui_component_set(cmp, x, y);
 }
 
@@ -237,7 +173,7 @@ static void destroy(GuiComponent* cmp)
 	free(info);
 }
 
-static void draw(struct GuiComponent* cmp, struct GuiComponent* gui)
+void g_control_slider_draw(struct GuiComponent* cmp, struct GuiComponent* gui)
 {
 	gui_component_draw(cmp, gui);
 	double margin = cmp->bounds.size.y * .5;
@@ -297,11 +233,11 @@ GuiComponent* g_control_slider_create_d(double* data, void* guidata)
 	slider->function     = click;
 	slider->target       = data;
 	cmp->data	    = slider;
-	cmp->draw	    = draw;
+	cmp->draw	    = g_control_slider_draw;
 	cmp->update	  = update;
 	cmp->layout	  = layout;
 	cmp->name	    = "an_unnamed_slider";
-	cmp->bounds.size.x *= 4;
+	cmp->bounds.size.x *= 3;
 	
 	cmp->delegate.name = "slider delegate";
 	cmp->delegate.parent = cmp;
@@ -320,7 +256,7 @@ GuiComponent* g_control_slider_create_cb(double* addr, my_slider_func cb, void* 
 	cmp->destroy = destroy;
 
 	cmp->data	    = slider;
-	cmp->draw	    = draw;
+	cmp->draw	    = g_control_slider_draw;
 	cmp->update	  = update;
 	cmp->layout	  = layout;
 	cmp->name	    = "an_unnamed_slider";
@@ -329,23 +265,5 @@ GuiComponent* g_control_slider_create_cb(double* addr, my_slider_func cb, void* 
 	setup_delegate(&cmp->delegate);
 
 	
-	//double w = app_settings.framebuffer_width;
-	
-	//gui_component_move(gui, cmp, <#double x#>, <#double y#>)
 	return cmp;
 }
-
-/*
- GuiButton* g_create_slider(char* name, RRect *bounds, myfunc f )
-{
-	GuiButton* btn = malloc(sizeof(GuiButton));
-	btn->name = name;
-	//if( !bounds )
-	//{
-	//	bounds = g_create_default_bounds();
-	//}
-	btn->bounds = g_create_default_bounds();
-	btn->func = f;
-	return btn;
-}
-*/
