@@ -76,6 +76,7 @@ typedef struct GuiComponent
 	//double y;
 
 	const char*	 name;
+	const char* nice_name;
 	RRect		    bounds;
 	bool			interacting;
 	bool		    container;

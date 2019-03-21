@@ -206,15 +206,17 @@ void _gui_update_components(Gui* gui, GuiComponent* cont)
 	}
 }
 
-#define GUI_INSET_DIST 2
+//#define GUI_INSET_DIST
 static void draw_inset(GuiComponent* cmp)
 {
+	double idist = gui_default_ui	(cmp->root);
+	idist *= PHI_I * .25;
 	RRect insetb = cmp->bounds;
 
-	insetb.pos.x += GUI_INSET_DIST;
-	insetb.pos.y += GUI_INSET_DIST;
-	insetb.size.x -= GUI_INSET_DIST * 2;
-	insetb.size.y -= GUI_INSET_DIST * 2;
+	insetb.pos.x += idist;
+	insetb.pos.y += idist;
+	insetb.size.x -= idist * 2;
+	insetb.size.y -= idist * 2;
 	drw_rect(insetb.pos.x, insetb.pos.y, insetb.pos.x + insetb.size.x,
 		 insetb.pos.y + insetb.size.y);
 }
@@ -355,7 +357,8 @@ void gui_notify_resize(void* data, unsigned int w, unsigned int h)
 
 	gui_set_retina(gui, app_settings.scale_retina);
 	gui_layout(gui);
-
+	
+	
 	// gui_component_align_children(_root);
 	// if ( debug_settings.gui )
 	printf("Resized gui to %d %d %u %u\n", 0, 0, w, h);

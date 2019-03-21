@@ -41,6 +41,7 @@
 		575F25F31FD1FFD90070B425 /* g_gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25D01FD1FFD90070B425 /* g_gui.c */; };
 		575F25F41FD1FFD90070B425 /* g_debug_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25D41FD1FFD90070B425 /* g_debug_joystick.c */; };
 		57826D1B1FF61D2B00E1A5F4 /* gui_control.c in Sources */ = {isa = PBXBuildFile; fileRef = 57826D1A1FF61D2B00E1A5F4 /* gui_control.c */; };
+		578E88D82243340200786792 /* gui_control_dropdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 578E88D72243340200786792 /* gui_control_dropdown.c */; };
 		57A4ADAC22384FEA00C7699D /* gui_draggable.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A4ADA822384FEA00C7699D /* gui_draggable.c */; };
 		57A4ADAD22384FEA00C7699D /* gui_log.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A4ADAA22384FEA00C7699D /* gui_log.c */; };
 /* End PBXBuildFile section */
@@ -126,6 +127,8 @@
 		575F25D51FD1FFD90070B425 /* g_debug_joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_debug_joystick.h; sourceTree = "<group>"; };
 		57826D191FF61D2B00E1A5F4 /* gui_control.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control.h; sourceTree = "<group>"; };
 		57826D1A1FF61D2B00E1A5F4 /* gui_control.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control.c; sourceTree = "<group>"; };
+		578E88D62243340200786792 /* gui_control_dropdown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_control_dropdown.h; sourceTree = "<group>"; };
+		578E88D72243340200786792 /* gui_control_dropdown.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_control_dropdown.c; sourceTree = "<group>"; };
 		57A4ADA822384FEA00C7699D /* gui_draggable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_draggable.c; sourceTree = "<group>"; };
 		57A4ADA922384FEA00C7699D /* gui_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_log.h; sourceTree = "<group>"; };
 		57A4ADAA22384FEA00C7699D /* gui_log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_log.c; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 				575F25B11FD1FFD90070B425 /* g_control_slider.c */,
 				575F25BF1FD1FFD90070B425 /* g_control_slider.h */,
 				575F25B81FD1FFD90070B425 /* g_control_textfield.c */,
+				578E88D62243340200786792 /* gui_control_dropdown.h */,
+				578E88D72243340200786792 /* gui_control_dropdown.c */,
 				575F25C01FD1FFD90070B425 /* g_control_textfield.h */,
 				575F25C21FD1FFD90070B425 /* gui_button.c */,
 				575F25B61FD1FFD90070B425 /* gui_button.h */,
@@ -372,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				578E88D82243340200786792 /* gui_control_dropdown.c in Sources */,
 				5722FD2E21B0C859002865A8 /* gui.c in Sources */,
 				575F25E61FD1FFD90070B425 /* g_control_textfield.c in Sources */,
 				575F25D81FD1FFD90070B425 /* gui_aviewer.c in Sources */,

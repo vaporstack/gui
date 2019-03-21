@@ -147,7 +147,7 @@ static void draw(struct GuiComponent* comp, struct GuiComponent* gui)
 	// drw_color(0,.2,.1,1);
 	drw_fill_set(true);
 	drw_circle(ptr->ina_radius);
-	drw_fill_set(false);
+	drw_fill_pop();
 	// printf("%d", num);
 
 	drw_pop();

@@ -99,7 +99,6 @@ static void draw(GuiComponent* cmp, GuiComponent* gui)
 		{
 			drw_fill_set(*info->value);
 			drw_square(cmp->bounds.size.y * .5 * PHI_I);
-			
 			drw_fill_pop();
 		}
 	}

@@ -41,6 +41,12 @@ extern AppSettings app_settings;
 
 void gui_component_draw(GuiComponent* cmp, GuiComponent* gui)
 {
+	//	snoopin around
+//	if (0 == strcmp(cmp->name, "colorpicker_palette"))
+//	{
+//		printf("AHHA\n");
+//
+//	}
 
 	if (cmp->debug)
 	{
@@ -104,27 +110,16 @@ void gui_component_draw(GuiComponent* cmp, GuiComponent* gui)
 		// drw_color(0,1,0,1);
 	}
 
-	//drw_line(0, 0, 0, sz);
-
-	//performance hacks
-	drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
+	//if ( !cmp->bypass )
+	//	drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
 
 	if (cmp->art)
 	{
 		drw_push();
-
-		// drw_color_push();
-		// drw_color(1.,0.,1.,1.);
-		//	performance hacks
-		drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
-
 		drw_translate2f(s * .5, s * .5);
 
 		drw_scale_u(cmp->bounds.size.x * .76);
 
-		// drw_rect(cmp->bounds.pos.x, cmp->bounds.pos.y,
-		// cmp->bounds.pos.x + cmp->bounds.size.x, cmp->bounds.pos.y +
-		// cmp->bounds.size.y);
 		drw_set_colorbypass(true);
 		WObject* art = cmp->art;
 
@@ -134,29 +129,31 @@ void gui_component_draw(GuiComponent* cmp, GuiComponent* gui)
 			WLine* line = art->lines[i];
 			drw_poly(line);
 		}
-		//drw_wobject(cmp->art);
+		
 		drw_set_colorbypass(false);
-		// drw_color_pop();
 
 		drw_pop();
 	}
 	else
 	{
+		
 		if (!cmp->bypass)
 		{
 			if ( gui->debug && cmp->name)
-			// if(_gui_debug)
-//			if (cmp->name)
 			{
 				drw_type_draw(cmp->name);
 			}
-//			else
-//			{
-//				gui_log("Tried to render null text");
-//			}
+			else
+			{
+				
+				//gui_log("Tried to render null text");
+			}
+			
+		}else{
+			
 		}
 	}
-
+	drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
 	drw_pop();
 
 	gui_component_render_children(cmp, gui);
@@ -286,6 +283,7 @@ GuiComponent* gui_component_create(void* data)
 	comp->animation_attrs      = NULL;
 	comp->animating		   = false;
 	comp->name		   = "unnamed_gui_component";
+	comp->nice_name		= "Unnamed Gui Component";
 	comp->bypass		   = false;
 	comp->enabled		   = true;
 	comp->target		   = NULL;
