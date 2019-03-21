@@ -220,6 +220,14 @@ static void draw_horizontal(GuiComponent* cmp)
 	{
 		drw_push();
 		drw_translate2f(cmp->bounds.size.x * .5, 0);
+		drw_color_c16(r_app_color_get_bg());
+		drw_fill_set(true);
+		drw_alpha(.75);
+		drw_circle(v);
+		drw_fill_pop();
+		drw_alpha_pop();
+		drw_color_pop();
+		
 		drw_circle(v);
 		drw_type_set_align(DRW_TYPE_ALIGN_H_CENTER, DRW_TYPE_ALIGN_V_CENTER);
 		drw_type_draw("%.2f", *d);

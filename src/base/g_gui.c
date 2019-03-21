@@ -233,8 +233,8 @@ void gui_draw(Gui* gui)
 
 	if (!gui->root->visible)
 	{
-		if (!gui->borderless)
-			draw_inset(gui->root);
+		//if (!gui->borderless)
+		//	draw_inset(gui->root);
 	}
 
 	if (gui->root->hidden)

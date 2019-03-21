@@ -43,7 +43,7 @@ void gui_colorpick_draw(GuiComponent* cmp, GuiComponent* gui)
 	drw_push();
 
 	drw_translate2f(cmp->bounds.pos.x + cmp->bounds.size.x * .5, cmp->bounds.pos.y + cmp->bounds.size.y * .5);
-	drw_circle_precision_set(12);
+	drw_circle_precision_set(32);
 
 	//	this is horrible and I hate it but I'm in a hurry for results dammit
 	double v = gui_default_ui(cmp->root) * PHI * .25;
@@ -55,8 +55,6 @@ void gui_colorpick_draw(GuiComponent* cmp, GuiComponent* gui)
 
 	drw_pop();
 	return;
-
-	
 }
 
 GuiComponent* gui_colorpick_create(void* gui, RColor16* color_ref, click_func onclick)
