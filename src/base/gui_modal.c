@@ -29,11 +29,11 @@ extern AppSettings app_settings;
 // extern double _gui_w;
 // extern double _gui_h;
 
-static void draw(GuiComponent* cmp, GuiComponent* gui)
+static void draw(GuiComponent* cmp)
 {
 	// GuiComponent* comp = (GuiComponent*) data;
 
-	gui_component_draw(cmp, gui);
+	gui_component_draw(cmp);
 
 	GuiModalExtra* ext = (GuiModalExtra*)cmp->data;
 

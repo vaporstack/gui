@@ -8,6 +8,14 @@
 #ifndef gui_label_h_
 #define gui_label_h_
 
+#include "../base/g_gui.h"
 #include "../base/gui_component.h"
+typedef struct GLabel
+{
+	const char* text;
+
+} GLabel;
+
+GuiComponent* g_control_label_create(Gui* gui, const char* label);
 
 #endif

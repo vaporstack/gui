@@ -45,9 +45,11 @@ typedef struct Gui
 	struct map_t* items;
 	DrawTarget    dtarget;
 	void* anim_mgr;
+	GuiComponent* notifications;
 	// resize_func resize;
 	// ResizeTarget* target;
 	bool	  debug_visibility_override;
+	
 	InputDelegate del;
 
 } Gui;

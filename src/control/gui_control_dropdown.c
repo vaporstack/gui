@@ -8,15 +8,14 @@
 
 #include "gui_control_dropdown.h"
 
-static void draw(GuiComponent* cmp, GuiComponent* gui)
+static void draw(GuiComponent* cmp)
 {
-	
 }
 
 GuiComponent* gui_control_dropdown_create(Gui* gui, const char** fields, unsigned num)
 {
 	GuiComponent* cmp = gui_component_create(gui);
-	cmp->draw = draw;
-	
+	cmp->draw	 = draw;
+
 	return cmp;
 }

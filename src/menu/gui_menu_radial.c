@@ -107,7 +107,7 @@ void _update(GuiComponent* comp)
 	// printf("+");
 }
 
-static void draw(struct GuiComponent* comp, struct GuiComponent* gui)
+static void draw(struct GuiComponent* comp)
 {
 	GuiMenuRadial* ptr =
 	    (GuiMenuRadial*)comp->data; //(GuiMenuRadial*) comp;

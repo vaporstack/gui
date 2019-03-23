@@ -18,61 +18,59 @@
 
 #pragma mark centralized
 
-static double calculate_position(GuiComponent* cmp, double x, double y )
+static void update(GuiComponent* cmp)
+{
+	if ( cmp->parent )
+		if ( cmp->parent->update)
+			cmp->parent->update(cmp->parent);
+}
+
+static double calculate_position(GuiComponent* cmp, double x, double y)
 {
 	GuiSliderD* attr = cmp->data;
-	double w = cmp->bounds.size.x;
-	double loc = (x - cmp->bounds.pos.x) / w;
-	if ( loc < attr->lower ) loc = attr->lower;
-	if ( loc > attr->upper ) loc = attr->upper;
+	double      w    = cmp->bounds.size.x;
+	double      loc  = (x - cmp->bounds.pos.x) / w;
+	if (loc < attr->lower)
+		loc = attr->lower;
+	if (loc > attr->upper)
+		loc = attr->upper;
 	return loc;
 }
 
 static void do_slider(InputDelegate* del, double x, double y, double r)
 {
-	
-	GuiComponent* cmp = del->parent;
-	GuiSliderD* attr = cmp->data;
-	cmp->interacting = true;
-	
-	if ( !attr->function )
+
+	GuiComponent* cmp  = del->parent;
+	GuiSliderD*   attr = cmp->data;
+	cmp->interacting   = true;
+
+	if (!attr->function)
 	{
 		gui_log("Bad pathway (no function) %s", __func__);
 		return;
 	}
-	
+
 	double loc = calculate_position(cmp, x, y);
 	attr->function(cmp, loc);
+	update(cmp);
 }
 
-
-static void start(GuiComponent* cmp )
+static void start(GuiComponent* cmp)
 {
-	
-	
-	
 }
 
-static void update(GuiComponent* cmp )
+static void end(GuiComponent* cmp)
 {
-	
-}
 
-static void end(GuiComponent* cmp )
-{
-	
 	//GuiComponent* cmp = del->parent;
 	cmp->interacting = false;
 	r_input_delegate_pop();
-	
 }
 
 static void touch_cancel(struct InputDelegate* del, double x, double y, double r)
 {
 	end(del->parent);
-
 }
-
 
 static void touch_began(struct InputDelegate* del, double x, double y, double r)
 {
@@ -82,7 +80,6 @@ static void touch_began(struct InputDelegate* del, double x, double y, double r)
 static void touch_move(struct InputDelegate* del, double x, double y, double r)
 {
 	do_slider(del, x, y, r);
-	
 }
 
 static void touch_ended(struct InputDelegate* del, double x, double y, double r)
@@ -103,21 +100,19 @@ static void tablet_up_rich(struct InputDelegate* del, double x, double y, int bu
 
 static void tablet_drag_rich(struct InputDelegate* del, double x, double y, int button, double pressure, double rotation, double tilt_x, double tilt_y, double tangential)
 {
-	
+
 	touch_move(del, x, y, -1);
 }
 
-
-static void mouse_button(InputDelegate* del, int btn, int action, int mods )
+static void mouse_button(InputDelegate* del, int btn, int action, int mods)
 {
-	if ( btn == 0 && action == 0 )
+	if (btn == 0 && action == 0)
 	{
 		end(del->parent);
 	}
 }
 
-
-static void mouse_motion(InputDelegate* del, double x, double y )
+static void mouse_motion(InputDelegate* del, double x, double y)
 {
 	do_slider(del, x, y, -1);
 }
@@ -127,12 +122,12 @@ static int click(GuiComponent* cmp, double d)
 
 	GuiSliderD* attr   = cmp->data;
 	double*     target = attr->target;
-	if ( !d )
+	if (!d)
 	{
 		printf("Can't set, no data!\n");
 		return 7;
 	}
-	*target		   = d;
+	*target = d;
 
 	return 0;
 }
@@ -146,39 +141,42 @@ static void layout(struct GuiComponent* cmp)
 	double h = gui->bounds.size.y;
 
 	GuiSliderD* info = cmp->data;
-	
+
 	double sz = gui_default_ui(cmp->root);
-	double sw,sh;
-	if ( info->vertical )
+	double sw, sh;
+	if (info->vertical)
 	{
-		
+
 		sw = sz;
 		sh = sz * 3;
-	}else{
+	}
+	else
+	{
 		sw = sz * 3;
 		sh = sz;
 	}
-	
+
 	//cmp->bounds.size.x = sw;
 	//..cmp->bounds.size.y = sh;
-	
+
 	gui_component_size(cmp, sw, sh);
 	double x = 0;
-	double y = (h * -.5);// + cmp->bounds.size.y;
+	double y = (h * -.5); // + cmp->bounds.size.y;
 
-	switch (cmp->orientation.horizontal) {
-		case -1:
-			x = w * -.5;
-			break;
-		case 0:
-			x = 0;
-			break;
-		case 1:
-			x = w * .5 - cmp->bounds.size.x;
-			break;
-			
-		default:
-			break;
+	switch (cmp->orientation.horizontal)
+	{
+	case -1:
+		x = w * -.5;
+		break;
+	case 0:
+		x = 0;
+		break;
+	case 1:
+		x = w * .5 - cmp->bounds.size.x;
+		break;
+
+	default:
+		break;
 	}
 	x += cmp->offset.x;
 	y += cmp->offset.y;
@@ -194,29 +192,29 @@ static void destroy(GuiComponent* cmp)
 static void draw_horizontal(GuiComponent* cmp)
 {
 	//GuiSliderD* info = cmp->data;
-	
-	GuiSliderD* attr = cmp->data;
-	double margin = cmp->bounds.size.y * .5;
-	double*     d    = attr->target;
-	
+
+	GuiSliderD* attr   = cmp->data;
+	double      margin = cmp->bounds.size.y * .5;
+	double*     d      = attr->target;
+
 	drw_push();
 	drw_translate2f(cmp->bounds.pos.x, cmp->bounds.pos.y);
 	drw_translate2f(0, cmp->bounds.size.y * .5);
 	drw_line(margin, 0, cmp->bounds.size.x - margin, 0);
-	if ( !d)
+	if (!d)
 	{
 		printf("Slider created with NULL data\n");
 		drw_pop();
-		return;;
-		
+		return;
+		;
 	}
 	drw_push();
 	drw_translate2f(margin + (*d * (cmp->bounds.size.x - margin * 2)), 0);
 	double v = gui_default_ui(cmp->root) * PHI * .25;
-	
-	drw_circle(v );
+
+	drw_circle(v);
 	drw_pop();
-	if ( cmp->interacting )
+	if (cmp->interacting)
 	{
 		drw_push();
 		drw_translate2f(cmp->bounds.size.x * .5, 0);
@@ -227,7 +225,7 @@ static void draw_horizontal(GuiComponent* cmp)
 		drw_fill_pop();
 		drw_alpha_pop();
 		drw_color_pop();
-		
+
 		drw_circle(v);
 		drw_type_set_align(DRW_TYPE_ALIGN_H_CENTER, DRW_TYPE_ALIGN_V_CENTER);
 		drw_type_draw("%.2f", *d);
@@ -238,28 +236,28 @@ static void draw_horizontal(GuiComponent* cmp)
 
 static void draw_vertical(GuiComponent* cmp)
 {
-	GuiSliderD* attr = cmp->data;
-	double margin = cmp->bounds.size.y * .5;
-	double*     d    = attr->target;
-	
+	GuiSliderD* attr   = cmp->data;
+	double      margin = cmp->bounds.size.y * .5;
+	double*     d      = attr->target;
+
 	drw_push();
 	drw_translate2f(cmp->bounds.pos.x, cmp->bounds.pos.y);
 	drw_translate2f(0, cmp->bounds.size.y * .5);
 	drw_line(margin, 0, cmp->bounds.size.x - margin, 0);
-	if ( !d)
+	if (!d)
 	{
 		printf("Slider created with NULL data\n");
 		drw_pop();
-		return;;
-		
+		return;
+		;
 	}
 	drw_push();
 	drw_translate2f(margin + (*d * (cmp->bounds.size.x - margin * 2)), 0);
 	double v = gui_default_ui(cmp->root) * PHI * .25;
-	
-	drw_circle(v );
+
+	drw_circle(v);
 	drw_pop();
-	if ( cmp->interacting )
+	if (cmp->interacting)
 	{
 		drw_push();
 		drw_translate2f(cmp->bounds.size.x * .5, 0);
@@ -271,33 +269,33 @@ static void draw_vertical(GuiComponent* cmp)
 	drw_pop();
 }
 
-void g_control_slider_draw(struct GuiComponent* cmp, struct GuiComponent* gui)
+void g_control_slider_draw(struct GuiComponent* cmp)
 {
-	gui_component_draw(cmp, gui);
+	gui_component_draw(cmp);
 	GuiSliderD* attr = cmp->data;
-	if ( attr->vertical )
+	if (attr->vertical)
 	{
 		draw_horizontal(cmp);
-	}else{
+	}
+	else
+	{
 		draw_horizontal(cmp);
 	}
-
 }
 
-static void setup_delegate(InputDelegate* del )
+static void setup_delegate(InputDelegate* del)
 {
-	del->mouse_button = mouse_button;
-	del->mouse_motion = mouse_motion;
-	del->touch_move = touch_move;
-	del->touch_began = touch_began;
-	del->touch_cancel = touch_cancel;
-	del->touch_ended = touch_ended;
+	del->mouse_button     = mouse_button;
+	del->mouse_motion     = mouse_motion;
+	del->touch_move       = touch_move;
+	del->touch_began      = touch_began;
+	del->touch_cancel     = touch_cancel;
+	del->touch_ended      = touch_ended;
 	del->tablet_down_rich = tablet_down_rich;
-	del->tablet_up_rich = tablet_up_rich;
+	del->tablet_up_rich   = tablet_up_rich;
 	del->tablet_drag_rich = tablet_drag_rich;
 	del->supports_handoff = true;
-	del->name = "a slider delegate";
-	
+	del->name	     = "a slider delegate";
 }
 
 GuiComponent* g_control_slider_create_d(double* data, void* guidata)
@@ -306,21 +304,21 @@ GuiComponent* g_control_slider_create_d(double* data, void* guidata)
 	GuiSliderD*   slider = calloc(1, sizeof(GuiSliderD));
 	slider->function     = click;
 	slider->target       = data;
-	slider->vertical = false;
-	slider->lower = 0;
-	slider->upper = 1;
+	slider->vertical     = false;
+	slider->lower	= 0;
+	slider->upper	= 1;
 	cmp->data	    = slider;
 	cmp->draw	    = g_control_slider_draw;
 	cmp->update	  = update;
 	cmp->layout	  = layout;
 	cmp->name	    = "an_unnamed_slider";
 	cmp->bounds.size.x *= 3;
-	
-	cmp->delegate.name = "slider delegate";
+
+	cmp->delegate.name   = "slider delegate";
 	cmp->delegate.parent = cmp;
 	setup_delegate(&cmp->delegate);
 	cmp->destroy = destroy;
-	
+
 	return cmp;
 }
 
@@ -330,20 +328,19 @@ GuiComponent* g_control_slider_create_cb(double* addr, my_slider_func cb, void* 
 	GuiSliderD*   slider = calloc(1, sizeof(GuiSliderD));
 	slider->function     = cb;
 	slider->target       = addr;
-	slider->vertical = false;
-	slider->lower = 0;
-	slider->upper = 1;
-	cmp->destroy = destroy;
+	slider->vertical     = false;
+	slider->lower	= 0;
+	slider->upper	= 1;
+	cmp->destroy	 = destroy;
 
-	cmp->data	    = slider;
-	cmp->draw	    = g_control_slider_draw;
-	cmp->update	  = update;
-	cmp->layout	  = layout;
-	cmp->name	    = "an_unnamed_slider";
+	cmp->data   = slider;
+	cmp->draw   = g_control_slider_draw;
+	cmp->update = update;
+	cmp->layout = layout;
+	cmp->name   = "an_unnamed_slider";
 	cmp->bounds.size.x *= 3;
 
 	setup_delegate(&cmp->delegate);
 
-	
 	return cmp;
 }

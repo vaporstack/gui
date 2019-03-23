@@ -12,12 +12,17 @@
 #include <gui/src/base/g_gui.h>
 #include <r4/r4.h>
 
+#include "../control/g_control_label.h"
+#include "gui_notification.h"
+
+#include "../anim/gui_anim_mgr.h"
+/*
 static GuiComponent* notif_center = NULL;
 static void	  update(GuiComponent* cmp)
 {
 }
 
-static void draw(struct GuiComponent* comp, struct GuiComponent* gui)
+static void draw(struct GuiComponent* comp)
 {
 }
 
@@ -49,4 +54,86 @@ void gui_notifications_lazycheck(void* gui)
 		notif_center = gui_notifications_create(gui);
 		gui_component_add(gui, notif_center);
 	}
+}
+*/
+
+static void update(GuiComponent* cmp)
+{
+	Gui* g = cmp->root;
+	double sz = gui_default_ui(g);
+	double w = g->root->bounds.size.x;
+	double h = g->root->bounds.size.y;
+	double prev = 0;
+	double x = w * -.5 + (4 * sz);
+	double y = h * .5;
+	y -= sz;
+	double pad = sz * PHI_I * .5;
+	y -= pad;
+	x += pad;
+	for ( unsigned i = 0; i < cmp->num_children;  i++ )
+	{
+		
+		GuiComponent* child = cmp->children[i];
+		
+		GNotification* info = child->data;
+
+		
+		if ( !info)
+			continue;
+		child->bounds.pos.x = x;
+		child->bounds.pos.y = y;
+		gui_component_set(info->sub, x, y);
+		
+		prev = child->bounds.size.y;
+		y -= pad;
+		y -= prev;
+		
+		
+		//gui_component_set(child, x, y);
+		//gui_component_set(child->data, x, y);
+		
+	}
+}
+
+
+static void draw(GuiComponent* cmp)
+{
+
+	
+	for ( unsigned i = 0; i < cmp->num_children;  i++ )
+	{
+		GuiComponent* child = cmp->children[i];
+		( child->draw ) ? child->draw(child) : gui_component_draw(child);
+	}
+}
+
+
+GuiComponent* gui_notifications_create(Gui* gui)
+{
+	GuiComponent* cmp = gui_component_create(gui);
+	cmp->container = true;
+	cmp->bypass = true;
+	cmp->name = "notification_center";
+	cmp->draw = draw;
+	cmp->update = update;
+	gui_component_child_add(gui->root, cmp);
+	
+	return cmp;
+}
+
+void gui_notifications_post(Gui* gui, const char* text)
+{
+	if ( !gui->notifications )
+		gui->notifications = gui_notifications_create(gui);
+	
+	gui_component_child_add(gui->notifications, gui_notification_create(gui, text));
+	
+}
+
+void gui_notifications_post_custom(Gui* gui, GuiComponent* cmp)
+{
+	if ( !gui->notifications )
+		gui->notifications = gui_notifications_create(gui);
+	gui_component_child_add(gui->notifications, cmp);
+
 }

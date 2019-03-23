@@ -9,60 +9,50 @@
 #include <drw/drw.h>
 
 static void move_cursor(GuiComponent* cmp, int pos);
-static void update(GuiComponent* cmp );
+static void update(GuiComponent* cmp);
 
-static void toggle(GuiComponent* cmp )
+static void toggle(GuiComponent* cmp)
 {
 	GCheckbox* info = cmp->data;
-	if ( !info->value )
+	if (!info->value)
 	{
 		printf("Can't toggle NULL data\n");
 		return;
 	}
 	*(info->value) = !*(info->value);
 
+	if (info->callback)
+		info->callback(cmp);
 }
 
-static void start(GuiComponent* cmp )
+static void start(GuiComponent* cmp)
 {
-	
-	
-	
 }
 
-static void end(GuiComponent* cmp )
+static void end(GuiComponent* cmp)
 {
-	
+
 	r_input_delegate_pop();
-	
 }
-
-
-
-
 
 static void touch_cancel(struct InputDelegate* del, double x, double y, double r)
 {
-	
+
 	end(del->parent);
 }
 
-
 static void touch_began(struct InputDelegate* del, double x, double y, double r)
 {
-	
 }
 
 static void touch_move(struct InputDelegate* del, double x, double y, double r)
 {
-	
-
 }
 
 static void touch_ended(struct InputDelegate* del, double x, double y, double r)
 {
 	GuiComponent* cmp = del->parent;
-	if ( r_rect_within(cmp->bounds, x, y))
+	if (r_rect_within(cmp->bounds, x, y))
 	{
 		toggle(cmp);
 	}
@@ -84,18 +74,17 @@ static void tablet_drag_rich(struct InputDelegate* del, double x, double y, int 
 	touch_move(del, x, y, -1);
 }
 
-
-static void draw(GuiComponent* cmp, GuiComponent* gui)
+static void draw(GuiComponent* cmp)
 {
-	//gui_component_draw(cmp, gui);
+	//gui_component_draw(cmp);
 	GCheckbox* info = cmp->data;
 	drw_push();
 	drw_translate(cmp->bounds.pos.x + cmp->bounds.size.x * .5, cmp->bounds.pos.y + cmp->bounds.size.y * .5, 0);
-	
+
 	drw_square(cmp->bounds.size.y * .5);
-	if (info->value )
+	if (info->value)
 	{
-		if ( *info->value )
+		if (*info->value)
 		{
 			drw_fill_set(*info->value);
 			drw_square(cmp->bounds.size.y * .5 * PHI_I);
@@ -110,45 +99,43 @@ static void draw(GuiComponent* cmp, GuiComponent* gui)
 static void mouse_button(InputDelegate* delegate, int button, int action, int mods)
 {
 	printf("%d %d %d\n", button, action, mods);
-	if ( button != 0)
+	if (button != 0)
 		return;
-	if ( action != 0)
+	if (action != 0)
 		return;
-	
+
 	GuiComponent* cmp = delegate->parent;
 	toggle(cmp);
 	end(cmp);
 }
 
-static void setup_delegate(InputDelegate* del )
+static void setup_delegate(InputDelegate* del)
 {
 	del->mouse_button = mouse_button;
 	//del->mouse_motion = mouse_motion;
-	del->touch_move = touch_move;
-	del->touch_began = touch_began;
-	del->touch_cancel = touch_cancel;
-	del->touch_ended = touch_ended;
+	del->touch_move       = touch_move;
+	del->touch_began      = touch_began;
+	del->touch_cancel     = touch_cancel;
+	del->touch_ended      = touch_ended;
 	del->tablet_down_rich = tablet_down_rich;
-	del->tablet_up_rich = tablet_up_rich;
+	del->tablet_up_rich   = tablet_up_rich;
 	del->tablet_drag_rich = tablet_drag_rich;
 	del->supports_handoff = true;
 	//del->char_cb = charcb;
 	//del->key = key;
 	del->name = "a checkbox delegate";
-	
 }
-
 
 GuiComponent* gui_control_checkbox_create(const char* label, bool* data, Gui* gui)
 {
-	
-	GuiComponent* cmp = gui_component_create(gui);
-	GCheckbox* info = calloc(1, sizeof(GCheckbox));
-	
+
+	GuiComponent* cmp  = gui_component_create(gui);
+	GCheckbox*    info = calloc(1, sizeof(GCheckbox));
+
 	info->label = label;
 	info->value = data;
-	cmp->data = info;
-	cmp->draw = draw;
+	cmp->data   = info;
+	cmp->draw   = draw;
 	setup_delegate(&cmp->delegate);
 	return cmp;
 }

@@ -81,6 +81,8 @@
 		575E7C0C204D018E00C80D64 /* g_debug_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 575E7BCC204D018E00C80D64 /* g_debug_joystick.c */; };
 		575E7C0D204D018E00C80D64 /* g_debug_joystick.h in Headers */ = {isa = PBXBuildFile; fileRef = 575E7BCD204D018E00C80D64 /* g_debug_joystick.h */; };
 		575E7C15204D0B7B00C80D64 /* gui_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 575E7C14204D0B7B00C80D64 /* gui_types.h */; };
+		577A0CF62245A2490064CAA2 /* gui_notification.h in Headers */ = {isa = PBXBuildFile; fileRef = 577A0CF42245A2490064CAA2 /* gui_notification.h */; };
+		577A0CF72245A2490064CAA2 /* gui_notification.c in Sources */ = {isa = PBXBuildFile; fileRef = 577A0CF52245A2490064CAA2 /* gui_notification.c */; };
 		579F9A962234B00500BF3880 /* gui_grdn_entinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 579F9A942234B00500BF3880 /* gui_grdn_entinfo.h */; };
 		579F9A972234B00500BF3880 /* gui_grdn_entinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 579F9A952234B00500BF3880 /* gui_grdn_entinfo.c */; };
 		579F9BD0223750F300BF3880 /* gui_log.h in Headers */ = {isa = PBXBuildFile; fileRef = 579F9BCE223750F300BF3880 /* gui_log.h */; };
@@ -164,6 +166,8 @@
 		575E7BCC204D018E00C80D64 /* g_debug_joystick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_debug_joystick.c; sourceTree = "<group>"; };
 		575E7BCD204D018E00C80D64 /* g_debug_joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_debug_joystick.h; sourceTree = "<group>"; };
 		575E7C14204D0B7B00C80D64 /* gui_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gui_types.h; path = ../gui_types.h; sourceTree = "<group>"; };
+		577A0CF42245A2490064CAA2 /* gui_notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_notification.h; sourceTree = "<group>"; };
+		577A0CF52245A2490064CAA2 /* gui_notification.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_notification.c; sourceTree = "<group>"; };
 		579F9A942234B00500BF3880 /* gui_grdn_entinfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_grdn_entinfo.h; sourceTree = "<group>"; };
 		579F9A952234B00500BF3880 /* gui_grdn_entinfo.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_grdn_entinfo.c; sourceTree = "<group>"; };
 		579F9BCE223750F300BF3880 /* gui_log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_log.h; sourceTree = "<group>"; };
@@ -355,6 +359,8 @@
 				575E7BC0204D018E00C80D64 /* gui_control.h */,
 				575E7BC1204D018E00C80D64 /* gui_modal.c */,
 				575E7BC7204D018E00C80D64 /* gui_modal.h */,
+				577A0CF52245A2490064CAA2 /* gui_notification.c */,
+				577A0CF42245A2490064CAA2 /* gui_notification.h */,
 				575E7BC6204D018E00C80D64 /* gui_notifications.c */,
 				575E7BBF204D018E00C80D64 /* gui_notifications.h */,
 				575E7BC2204D018E00C80D64 /* gui_panel.c */,
@@ -424,6 +430,7 @@
 				575E7BD7204D018E00C80D64 /* gui_aviewer.h in Headers */,
 				575E7C01204D018E00C80D64 /* gui_control.h in Headers */,
 				575E7BE6204D018E00C80D64 /* r_control_onscreenbutton.h in Headers */,
+				577A0CF62245A2490064CAA2 /* gui_notification.h in Headers */,
 				575E7BFD204D018E00C80D64 /* g_control_label.h in Headers */,
 				579F9BD0223750F300BF3880 /* gui_log.h in Headers */,
 				575E7BD2204D018E00C80D64 /* g_widget_settings.h in Headers */,
@@ -526,6 +533,7 @@
 				575E7BD1204D018E00C80D64 /* gui_widget.c in Sources */,
 				575E7BD5204D018E00C80D64 /* g_widget_console.c in Sources */,
 				57234460223308A100EC1DBC /* gui_draggable.c in Sources */,
+				577A0CF72245A2490064CAA2 /* gui_notification.c in Sources */,
 				575E7C0C204D018E00C80D64 /* g_debug_joystick.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

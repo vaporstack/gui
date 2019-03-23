@@ -40,6 +40,7 @@
 		575F25F21FD1FFD90070B425 /* gui_notifications.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25CE1FD1FFD90070B425 /* gui_notifications.c */; };
 		575F25F31FD1FFD90070B425 /* g_gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25D01FD1FFD90070B425 /* g_gui.c */; };
 		575F25F41FD1FFD90070B425 /* g_debug_joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25D41FD1FFD90070B425 /* g_debug_joystick.c */; };
+		577A0CFA2245BB3E0064CAA2 /* gui_notification.c in Sources */ = {isa = PBXBuildFile; fileRef = 577A0CF82245BB3E0064CAA2 /* gui_notification.c */; };
 		57826D1B1FF61D2B00E1A5F4 /* gui_control.c in Sources */ = {isa = PBXBuildFile; fileRef = 57826D1A1FF61D2B00E1A5F4 /* gui_control.c */; };
 		578E88D82243340200786792 /* gui_control_dropdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 578E88D72243340200786792 /* gui_control_dropdown.c */; };
 		57A4ADAC22384FEA00C7699D /* gui_draggable.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A4ADA822384FEA00C7699D /* gui_draggable.c */; };
@@ -125,6 +126,8 @@
 		575F25D21FD1FFD90070B425 /* gui_panel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_panel.h; sourceTree = "<group>"; };
 		575F25D41FD1FFD90070B425 /* g_debug_joystick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_debug_joystick.c; sourceTree = "<group>"; };
 		575F25D51FD1FFD90070B425 /* g_debug_joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_debug_joystick.h; sourceTree = "<group>"; };
+		577A0CF82245BB3E0064CAA2 /* gui_notification.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_notification.c; sourceTree = "<group>"; };
+		577A0CF92245BB3E0064CAA2 /* gui_notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_notification.h; sourceTree = "<group>"; };
 		57826D191FF61D2B00E1A5F4 /* gui_control.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control.h; sourceTree = "<group>"; };
 		57826D1A1FF61D2B00E1A5F4 /* gui_control.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control.c; sourceTree = "<group>"; };
 		578E88D62243340200786792 /* gui_control_dropdown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_control_dropdown.h; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 				57826D191FF61D2B00E1A5F4 /* gui_control.h */,
 				575F25CA1FD1FFD90070B425 /* gui_modal.c */,
 				575F25CF1FD1FFD90070B425 /* gui_modal.h */,
+				577A0CF82245BB3E0064CAA2 /* gui_notification.c */,
+				577A0CF92245BB3E0064CAA2 /* gui_notification.h */,
 				575F25CE1FD1FFD90070B425 /* gui_notifications.c */,
 				575F25C91FD1FFD90070B425 /* gui_notifications.h */,
 				575F25CB1FD1FFD90070B425 /* gui_panel.c */,
@@ -405,6 +410,7 @@
 				575F25EC1FD1FFD90070B425 /* gui_button.c in Sources */,
 				575F25D61FD1FFD90070B425 /* gui_anim.c in Sources */,
 				575F25F01FD1FFD90070B425 /* gui_panel.c in Sources */,
+				577A0CFA2245BB3E0064CAA2 /* gui_notification.c in Sources */,
 				575F25E41FD1FFD90070B425 /* g_control_label.c in Sources */,
 				575F25EA1FD1FFD90070B425 /* gui_control_vseq.c in Sources */,
 				575F25DD1FD1FFD90070B425 /* gui_tooltip.c in Sources */,

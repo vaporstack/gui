@@ -72,6 +72,7 @@ Gui* gui_create(const char* name)
 	root->container    = true;
 	gui->items	 = new_map();
 	gui->root	  = root;
+	gui->notifications = NULL;
 	gui->anim_mgr      = gui_anim_mgr_create(root);
 
 	// gui->resize = &on_resize;
@@ -155,7 +156,7 @@ void _gui_render_component(Gui* gui, struct GuiComponent* cmp)
 		//printf("hi!\n");
 	}*/
 
-	(cmp->draw)(cmp, gui->root);
+	(cmp->draw)(cmp);
 	int cur = drw_checkmatrix();
 
 	if (last != cur)
@@ -178,6 +179,28 @@ void _gui_render_components(Gui* gui, GuiComponent* cont)
 		{
 			printf("!");
 		}
+	}
+}
+
+void _gui_update_components_invasively(Gui* gui, GuiComponent* cont)
+{
+	for (int i = 0; i < cont->num_children; ++i)
+	{
+		GuiComponent* child = cont->children[i];
+		if (!child)
+		{
+			printf("!");
+			continue;
+		}
+		else
+		{
+			if (!child->update)
+			{
+				continue;
+			}
+			child->update(child);
+		}
+		_gui_update_components_invasively(gui, child);
 	}
 }
 
@@ -249,7 +272,8 @@ void gui_update(Gui* gui)
 	if (gui->anim_mgr)
 		gui_anim_mgr_update(gui->anim_mgr);
 
-	_gui_update_components(gui, gui->root);
+	if ( gui->root )
+		_gui_update_components_invasively(gui, gui->root);
 }
 
 void gui_set_retina(Gui* gui, double f)
@@ -321,8 +345,17 @@ bool gui_remove_component(Gui* gui, GuiComponent* comp)
 GuiComponent* gui_find_pointerfocus(Gui* gui, double x, double y)
 {
 	GuiComponent* sub = gui_component_find_pointerfocus(gui->root, x, y);
+#ifdef DEBUG
 	if (sub)
+	{
+		if ( 0 == strcmp("unnamed_gui_component", sub->name))
+		{
+			printf("Naughty!\n");
+		}
 		printf("[%s]\n", sub->name);
+	
+	}
+#endif
 	return sub;
 
 	//	the gui is root level so we return nothing if we found ourself

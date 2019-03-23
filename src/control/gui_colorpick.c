@@ -32,7 +32,7 @@ static void _scroll(struct InputDelegate* delegate, double x, double y,
 }
 #include <gui/gui.h>
 
-void gui_colorpick_draw(GuiComponent* cmp, GuiComponent* gui)
+void gui_colorpick_draw(GuiComponent* cmp)
 {
 
 	ColorPicker* pik = (ColorPicker*)cmp->data;

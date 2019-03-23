@@ -60,7 +60,7 @@ static void key(struct InputDelegate* delegate, int key, int scan, int action,
 		break;
 	}
 	gui_log("menu %p got key %d %d %d %d", delegate, key, scan, action,
-	       mods);
+		mods);
 #endif
 }
 
@@ -173,18 +173,17 @@ static void mouse_button(struct InputDelegate* del, int button, int action,
 	}
 }
 
-static void draw(GuiComponent* cmp, GuiComponent* gui)
+static void draw(GuiComponent* cmp)
 {
-	gui_component_draw_bordered(cmp, gui);
-	gui_component_draw(cmp, gui);
+	gui_component_draw_bordered(cmp);
+	gui_component_draw(cmp);
 	GMenu* menu = (GMenu*)cmp->data;
-	if ( !cmp->children )
+	if (!cmp->children)
 	{
 		l_warning("no children, can't draw menu");
 		return;
 	}
-	
-		
+
 	GuiComponent* child = cmp->children[menu->selected_item];
 	if (!child)
 	{

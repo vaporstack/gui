@@ -11,12 +11,12 @@ static void update(GuiComponent* cmp)
 {
 }
 
-static void draw(GuiComponent* cmp, GuiComponent* gui)
+static void draw(GuiComponent* cmp)
 {
-	gui_component_draw(cmp, gui);
+	gui_component_draw(cmp);
 	GuiWidget*    wrec = (GuiWidget*)cmp->data;
 	GuiComponent* bar  = wrec->bar;
-	gui_component_draw(bar, gui);
+	gui_component_draw(bar);
 }
 
 static void layout(GuiComponent* cmp)

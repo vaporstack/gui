@@ -76,9 +76,9 @@ typedef struct GuiComponent
 	//double y;
 
 	const char*	 name;
-	const char* nice_name;
+	const char*	 nice_name;
 	RRect		    bounds;
-	bool			interacting;
+	bool		    interacting;
 	bool		    container;
 	bool		    focus;
 	bool		    locked;
@@ -93,25 +93,26 @@ typedef struct GuiComponent
 	bool		    debug;
 	bool		    animating;
 	int		    type;
+	double	opacity;
 	RPoint		    offset;
 	GuiAlignmentAttrs   alignment;
 	GuiOrientationAttrs orientation;
-	void (*draw)(struct GuiComponent* cmp, struct GuiComponent* gui);
+	void (*draw)(struct GuiComponent* cmp);
 	void (*update)(struct GuiComponent*);
 	void (*layout)(struct GuiComponent*);
 	void (*activate)(struct GuiComponent*);
 	bool (*find_focus)(struct GuiComponent*, double x, double y);
 	void (*destroy)(struct GuiComponent*);
-	void*		      animation_attrs;
-	InputDelegate	 delegate;
-	void*		      target;
-	void*		      data;
-	void*		      art;
-	void*		      drag;
+	void*	 animation_attrs;
+	InputDelegate delegate;
+	void*	 target;
+	void*	 data;
+	void*	 art;
+	void*	 drag;
 	//CPoint*			offset;
 	int		      num_children;
 	struct GuiComponent** children;
-	struct vector_t*      children_vec;
+	//struct vector_t*      children_vec;
 	struct GuiComponent*  parent;
 	void*		      root;
 
@@ -126,8 +127,8 @@ typedef void (*click_func)(void);
 typedef void (*resize_func)(void*, double, double);
 
 void gui_component_set_children_type(GuiComponent* cmp, int type);
-void gui_component_draw(GuiComponent* cmp, GuiComponent* gui);
-void gui_component_draw_bordered(GuiComponent* cmp, GuiComponent* gui);
+void gui_component_draw(GuiComponent* cmp);
+void gui_component_draw_bordered(GuiComponent* cmp);
 
 GuiComponent* gui_component_group_create(void* gui, int num,
 					 const char** names,
@@ -145,7 +146,7 @@ void	  gui_component_show(GuiComponent* cmp);
 void	  gui_component_layout(GuiComponent* cmp);
 void	  gui_component_layout_vertical(GuiComponent* cmp);
 void	  gui_component_layout_horizontal(GuiComponent* cmp);
-void	gui_component_fit_to_children(GuiComponent* cmp);
+void	  gui_component_fit_to_children(GuiComponent* cmp);
 //void	gui_component_activate(GuiComponent* cmp, void* input_delegate);
 //void gui_component_deactivate(GuiComponent* cmp);
 //double g_default_ui_size(void* gui);
@@ -153,6 +154,6 @@ RRect g_create_default_bounds(void* gui);
 
 GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double,
 					      double);
-void	  gui_component_render_children(GuiComponent* cmp, GuiComponent* gui);
+void	  gui_component_render_children(GuiComponent* cmp);
 
 #endif /* gui_component_h */

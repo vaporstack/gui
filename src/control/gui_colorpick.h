@@ -24,6 +24,6 @@ GuiComponent* gui_colorpick_create(void* gui, RColor16* color_ref,
 				   click_func onclick);
 void	  gui_colorpick_destroy(GuiComponent* cmp);
 
-void gui_colorpick_draw(GuiComponent* cmp, GuiComponent* gui);
+void gui_colorpick_draw(GuiComponent* cmp);
 
 #endif

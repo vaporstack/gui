@@ -19,9 +19,9 @@ void update(GuiComponent* cmp)
 	target->history[0] = value;
 }
 
-void draw(GuiComponent* gui, GuiComponent* cmp)
+void draw(GuiComponent* gui)
 {
-	gui_component_draw(gui, cmp);
+	gui_component_draw(gui);
 	printf("Custom draw for valueviewer\n");
 }
 

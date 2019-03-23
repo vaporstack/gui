@@ -39,14 +39,14 @@ extern AppSettings app_settings;
  }
  */
 
-void gui_component_draw(GuiComponent* cmp, GuiComponent* gui)
+void gui_component_draw(GuiComponent* cmp)
 {
 	//	snoopin around
-//	if (0 == strcmp(cmp->name, "colorpicker_palette"))
-//	{
-//		printf("AHHA\n");
-//
-//	}
+	//	if (0 == strcmp(cmp->name, "colorpicker_palette"))
+	//	{
+	//		printf("AHHA\n");
+	//
+	//	}
 
 	if (cmp->debug)
 	{
@@ -72,7 +72,6 @@ void gui_component_draw(GuiComponent* cmp, GuiComponent* gui)
 
 	drw_translate2f(cmp->bounds.pos.x, cmp->bounds.pos.y);
 	double sz = cmp->bounds.size.x;
-
 
 	if (cmp->type == GUI_TYPE_PUSHBUTTON)
 	{
@@ -129,42 +128,42 @@ void gui_component_draw(GuiComponent* cmp, GuiComponent* gui)
 			WLine* line = art->lines[i];
 			drw_poly(line);
 		}
-		
+
 		drw_set_colorbypass(false);
 
 		drw_pop();
 	}
 	else
 	{
-		
+
 		if (!cmp->bypass)
 		{
-			if ( gui->debug && cmp->name)
+			Gui* gui = cmp->root;
+			if (gui->debug && cmp->name)
 			{
 				drw_type_draw(cmp->name);
 			}
 			else
 			{
-				
+
 				//gui_log("Tried to render null text");
 			}
-			
-		}else{
-			
+		}
+		else
+		{
 		}
 	}
 	drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
 	drw_pop();
 
-	gui_component_render_children(cmp, gui);
+	gui_component_render_children(cmp);
 	drw_alpha_pop();
 }
 
-void gui_component_draw_bordered(GuiComponent* cmp, GuiComponent* gui)
+void gui_component_draw_bordered(GuiComponent* cmp)
 {
 	if (!cmp->visible)
 		return;
-
 
 	int pad = gui_default_ui(cmp->root) * .3333;
 
@@ -194,7 +193,7 @@ void gui_component_draw_bordered(GuiComponent* cmp, GuiComponent* gui)
 
 	drw_pop();
 	drw_alpha_pop();
-	gui_component_render_children(cmp, gui);
+	gui_component_render_children(cmp);
 }
 //
 //double g_default_ui_size(void* gdata)
@@ -208,7 +207,7 @@ RRect g_create_default_bounds(void* data)
 	// Gui* gui = (Gui*)data;
 	RRect  b;
 	double sz = gui_default_ui(data);
-//	double sz = R_UI_BTN_SIZE * app_settings.scale_retina * HC_RET;
+	//	double sz = R_UI_BTN_SIZE * app_settings.scale_retina * HC_RET;
 
 	b.pos.x  = 0;
 	b.pos.y  = 0;
@@ -227,7 +226,7 @@ GuiComponent* gui_component_group_create(void* data, int num,
 
 	gui_log("Creating group!");
 	//double sz = R_UI_BTN_SIZE * gui->scale_retina * HC_RET;
-	double sz =  gui_default_ui(gui);
+	double sz = gui_default_ui(gui);
 
 	GuiComponent* base  = gui_component_create(gui);
 	base->draw	  = &gui_component_draw_bordered;
@@ -283,7 +282,7 @@ GuiComponent* gui_component_create(void* data)
 	comp->animation_attrs      = NULL;
 	comp->animating		   = false;
 	comp->name		   = "unnamed_gui_component";
-	comp->nice_name		= "Unnamed Gui Component";
+	comp->nice_name		   = "Unnamed Gui Component";
 	comp->bypass		   = false;
 	comp->enabled		   = true;
 	comp->target		   = NULL;
@@ -304,18 +303,18 @@ GuiComponent* gui_component_create(void* data)
 	comp->alignment.children_h = GUI_H_ORIENTATION_NONE;
 	comp->alignment.children_v = GUI_V_ORIENTATION_NONE;
 	comp->offset.x = comp->offset.y = 0;
-	comp->draggable  = false;
-	comp->find_focus = NULL;
+	comp->draggable			= false;
+	comp->find_focus		= NULL;
 	// comp->alignment.orientation = 0;
 	comp->alignment.child_orientation = 0;
 	comp->update			  = NULL;
 	comp->layout			  = NULL;
-	comp->children_vec		  = calloc(1, sizeof(struct vector_t));
-	vector_init(comp->children_vec, 8, sizeof(GuiComponent));
+	//comp->children_vec		  = calloc(1, sizeof(struct vector_t));
+	//vector_init(comp->children_vec, 8, sizeof(GuiComponent));
 	//#ifndef RPLATFORM_WIN
 	r_input_delegate_clear(&comp->delegate);
 	comp->delegate.parent = comp;
-	comp->root = gui;
+	comp->root	    = gui;
 
 	//#endif
 
@@ -331,7 +330,7 @@ void gui_component_destroy(GuiComponent* comp)
 		gui_component_destroy(child);
 	}
 
-	vector_uninit(comp->children_vec);
+	//vector_uninit(comp->children_vec);
 	//free(comp);
 }
 
@@ -371,7 +370,7 @@ void gui_component_set(GuiComponent* cmp, double x, double y)
 		GuiComponent* child = cmp->children[i];
 		double	dx2   = dx + child->bounds.pos.x;
 		double	dy2   = dy + child->bounds.pos.y;
-
+		
 		gui_component_set(child, dx2, dy2);
 	}
 
@@ -413,11 +412,10 @@ void gui_component_size(GuiComponent* cmp, double x, double y)
 	cmp->bounds.size.y = y;
 }
 
-
 void gui_component_child_remove(GuiComponent* parent, GuiComponent* child)
 {
 	//printf("TODO IMPLEMENT THIS\n");
-	void* test_item = calloc(1, sizeof(GuiComponent));
+	/*void* test_item = calloc(1, sizeof(GuiComponent));
 	for (int i = 0; i < parent->children_vec->length; i++)
 	{
 		vector_get(parent->children_vec, i, test_item);
@@ -427,7 +425,7 @@ void gui_component_child_remove(GuiComponent* parent, GuiComponent* child)
 			gui_log("FOUND IT");
 		}
 	}
-
+	 */
 	int index = -1;
 	for (int i = 0; i < parent->num_children; i++)
 	{
@@ -443,15 +441,17 @@ void gui_component_child_remove(GuiComponent* parent, GuiComponent* child)
 	{
 		gui_log("deleting");
 		GuiComponent* victim = parent->children[index];
-		gui_component_destroy(victim);
+		
+		//gui_component_destroy(victim);
 		victim = NULL;
+		
 		for (int i = index; i < parent->num_children - 1; i++)
 		{
 			parent->children[index] = parent->children[index + 1];
 		}
 		parent->num_children--;
 	}
-	free(test_item);
+	//free(test_item);
 }
 
 void gui_component_child_add(GuiComponent* parent, GuiComponent* child)
@@ -471,7 +471,7 @@ void gui_component_child_add(GuiComponent* parent, GuiComponent* child)
 	parent->children[parent->num_children - 1] = child;
 	child->parent				   = parent;
 
-	vector_push_back(parent->children_vec, child);
+	//vector_push_back(parent->children_vec, child);
 	// printf("Added child vec %lu\n", parent->children_vec->length);
 	// cont->num_children++;
 	// if(debug_settings.gui )
@@ -640,53 +640,50 @@ void gui_component_layout_horizontal(GuiComponent* comp)
 
 void gui_component_layout_vertical(GuiComponent* cmp)
 {
-	double w = cmp->bounds.size.x;
-	double h = cmp->bounds.size.y;
+	double w   = cmp->bounds.size.x;
+	double h   = cmp->bounds.size.y;
 	double pad = PHI_I * gui_default_ui(cmp->root);
-	
+
 	//	assuming all elements are the same height lol
-	int num = cmp->num_children;
-	GuiComponent* ch = cmp->children[0];
-	double stack = num * ch->bounds.size.y;
-	double diff = h - stack;
-	
-	double pad2 = diff / (num);
+	int	   num   = cmp->num_children;
+	GuiComponent* ch    = cmp->children[0];
+	double	stack = num * ch->bounds.size.y;
+	double	diff  = h - stack;
+
+	double pad2   = diff / (num);
 	double offset = (h - 0) / num;
-	for ( int i = 0; i < num; i++ )
+	for (int i = 0; i < num; i++)
 	{
 		GuiComponent* ch = cmp->children[i];
-		ch->bounds.pos.y = cmp->bounds.pos.y + cmp->bounds.size.y -( i * offset + ch->bounds.size.y) - pad2 * .5;
+		ch->bounds.pos.y = cmp->bounds.pos.y + cmp->bounds.size.y - (i * offset + ch->bounds.size.y) - pad2 * .5;
 	}
-	
-	
 }
 
-void	gui_component_fit_to_children(GuiComponent* cmp)
+void gui_component_fit_to_children(GuiComponent* cmp)
 {
 	//	something about this is fucked, forgetting a delta somewhere
 	double minx, miny, maxx, maxy;
 	minx = miny = INFINITY;
 	maxx = maxy = -1 * INFINITY;
-	
-	for ( int i = 0 ; i < cmp->num_children; i++ )
+
+	for (int i = 0; i < cmp->num_children; i++)
 	{
 		GuiComponent* ch = cmp->children[i];
-		if ( ch->bounds.pos.x < minx )
+		if (ch->bounds.pos.x < minx)
 			minx = ch->bounds.pos.x;
-		if ( ch->bounds.pos.y < miny )
+		if (ch->bounds.pos.y < miny)
 			miny = ch->bounds.pos.x;
-		if ( ch->bounds.pos.x + ch->bounds.size.x > maxx )
+		if (ch->bounds.pos.x + ch->bounds.size.x > maxx)
 			maxx = ch->bounds.pos.x + ch->bounds.size.x;
-		if ( ch->bounds.pos.y + ch->bounds.size.y > maxy )
+		if (ch->bounds.pos.y + ch->bounds.size.y > maxy)
 			maxy = ch->bounds.pos.y + ch->bounds.size.y;
 	}
-	
+
 	gui_component_set(cmp, minx, miny);
 	gui_component_size(cmp, maxx - minx, maxy - miny);
-	
 }
 
-void gui_component_render_children(GuiComponent* comp, GuiComponent* gui)
+void gui_component_render_children(GuiComponent* comp)
 {
 	for (int i = 0; i < comp->num_children; ++i)
 	{
@@ -700,7 +697,7 @@ void gui_component_render_children(GuiComponent* comp, GuiComponent* gui)
 			if (child->draw != NULL)
 			{
 				RColor8 c = drw_checkcolor();
-				child->draw(child, gui);
+				child->draw(child);
 				RColor8 c2 = drw_checkcolor();
 				if (c.r != c2.r)
 				{

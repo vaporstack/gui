@@ -53,6 +53,8 @@ static void r_update_comp(void* data)
 
 		r_update_comp(child);
 	}
+	/*
+#ifdef DEBUG
 	if (check_any_animating(cmp))
 	{
 		printf("Some children are animating.\n");
@@ -62,6 +64,8 @@ static void r_update_comp(void* data)
 	{
 		printf("No children are animating.\n");
 	}
+#endif
+	*/
 }
 
 void gui_anim_mgr_update(void* data)
