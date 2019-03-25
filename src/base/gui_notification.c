@@ -208,7 +208,14 @@ GuiComponent* gui_notification_create(Gui* gui, const char* text)
 	GuiComponent* cmp = gui_component_create(gui);
 	setup_delegate(&cmp->delegate);
 	
+	double sz = gui_default_ui(gui);
 	GuiComponent* notif = g_control_label_create(gui, text);
+	float* buf = calloc(6, sizeof(float));
+	
+	drw_type_get_bbox(text, strlen(text), buf);
+	double bw = buf[3] - buf[0];
+	double bh = buf[4] - buf[1];
+	notif->bounds.size.x = bw + sz;
 	cmp->bounds = notif->bounds;
 	GNotification*  info = calloc(1, sizeof (GNotification));
 	info->sub = notif;

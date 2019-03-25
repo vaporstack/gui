@@ -433,7 +433,7 @@ void gui_component_child_remove(GuiComponent* parent, GuiComponent* child)
 		if (test == child)
 		{
 			index = i;
-			gui_log("EYSSSSS");
+			gui_log("YESSS");
 		}
 	}
 

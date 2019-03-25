@@ -54,9 +54,12 @@ void gui_get_default_bounds(double* x, double* y);
 #include "src/widget/gui_widget.h"
 
 //	probably deprecated in favor of colorpicker
-#include "src/control/g_control_slider.h"
+//#include "src/control/g_control_slider.h"
 #include "src/control/gui_colorpick.h"
 #include "src/control/g_control_checkbox.h"
+#include "src/control/g_control_slider.h"
+#include "src/control/g_control_label.h"
+
 
 #include "src/base/gui_modal.h"
 #include "src/base/gui_notifications.h"
