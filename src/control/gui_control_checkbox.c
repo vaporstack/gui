@@ -5,7 +5,7 @@
 //  Created by Andrew Macfarlane on 23/04/17.
 //  Copyright © 2017 vaporstack. All rights reserved.
 
-#include "g_control_checkbox.h"
+#include "gui_control_checkbox.h"
 #include <drw/drw.h>
 
 static void move_cursor(GuiComponent* cmp, int pos);

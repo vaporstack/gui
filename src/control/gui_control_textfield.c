@@ -1,11 +1,11 @@
 
-//  g_control_textfield.c
+//  gui_control_textfield.c
 //  g_control_textfield
 //
 //  Created by Andrew Macfarlane on 04/08/17.
 //  Copyright © 2017 vaporstack. All rights reserved.
 
-#include "g_control_textfield.h"
+#include "gui_control_textfield.h"
 
 #include <drw/drw.h>
 #include <stdlib.h>

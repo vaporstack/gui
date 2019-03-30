@@ -1,5 +1,5 @@
 //
-//  g_control_colorpicker.h
+//  gui_control_colorpicker.h
 //  gui
 //
 //  Created by vs on 6/18/17.

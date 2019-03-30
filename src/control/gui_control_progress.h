@@ -1,5 +1,5 @@
 
-//  g_control_progress.c
+//  gui_control_progress.c
 //  g_control_progress
 //
 //  Created by Andrew Macfarlane on 22/03/17.

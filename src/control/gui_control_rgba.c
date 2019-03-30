@@ -8,7 +8,7 @@
 
 #include "gui_control_rgba.h"
 
-#include "g_control_textfield.h"
+#include "gui_control_textfield.h"
 
 
 static void update_color_cb(GuiComponent* cmp)

@@ -1,12 +1,12 @@
 //
-//  g_control_colorpicker.c
+//  gui_control_colorpicker.c
 //  gui
 //
 //  Created by vs on 6/18/17.
 //  Copyright © 2017 ruminant. All rights reserved.
 //
 
-#include "g_control_colorpicker.h"
+#include "gui_control_colorpicker.h"
 
 /*
 static void update(GuiComponent* cmp) {}

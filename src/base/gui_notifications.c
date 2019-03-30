@@ -63,12 +63,12 @@ static void update(GuiComponent* cmp)
 	double w    = g->root->bounds.size.x;
 	double h    = g->root->bounds.size.y;
 	double prev = 0;
-	double x    = w * -.5 + (4 * sz);
+	double x    = sz * -3;;
 	double y    = h * .5;
 	y -= sz;
 	double pad = sz * PHI_I * .5;
 	y -= pad;
-	x += pad;
+	//x += pad;
 	for (unsigned i = 0; i < cmp->num_children; i++)
 	{
 
@@ -76,12 +76,12 @@ static void update(GuiComponent* cmp)
 
 		GNotification* info = child->data;
 
+		
 		if (!info)
 			continue;
 		child->bounds.pos.x = x;
 		child->bounds.pos.y = y;
 		gui_component_set(info->sub, x, y);
-
 		prev = child->bounds.size.y;
 		y -= pad;
 		y -= prev;
