@@ -15,6 +15,9 @@
 #include "stdio.h"
 #include "stdlib.h"
 
+#define kGuiUnnamedComponent "unnamed_gui_component"
+#define kGuiUnnamedComponentNice "Unnamed Gui Component"
+
 int   gui_check_version_match(const char* str);
 int   gui_check_compat_match(const char* str);
 char* gui_get_version_string(void);

@@ -9,8 +9,8 @@
 #ifndef gui_notifications_h
 #define gui_notifications_h
 
-#include "gui_component.h"
 #include "g_gui.h"
+#include "gui_component.h"
 
 /*
 typedef struct{
@@ -18,13 +18,13 @@ typedef struct{
 	GuiComponent** data;
 }GNotifications;
 
- 
+
  uhhhh we already have container infra duhhhh
  */
 
 GuiComponent* gui_notifications_create(Gui* gui);
-void gui_notifications_post(Gui* gui, const char* text);
-void gui_notifications_post_custom(Gui* gui, GuiComponent* cmp);
+void	  gui_notifications_post(Gui* gui, const char* text);
+void	  gui_notifications_post_custom(Gui* gui, GuiComponent* cmp);
 
 /*
 GuiComponent* gui_notification_create(void* gui);

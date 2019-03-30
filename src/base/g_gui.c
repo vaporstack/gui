@@ -348,7 +348,7 @@ GuiComponent* gui_find_pointerfocus(Gui* gui, double x, double y)
 #ifdef DEBUG
 	if (sub)
 	{
-		if ( 0 == strcmp("unnamed_gui_component", sub->name))
+		if ( 0 == strcmp(kGuiUnnamedComponent, sub->name))
 		{
 			printf("Naughty!\n");
 		}

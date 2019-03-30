@@ -202,6 +202,7 @@ GuiComponent* gui_menu_radial_create(void* gui)
 	cmp->draw	 = &draw;
 	cmp->update       = &_update;
 	cmp->enabled      = false;
+	cmp->name = "radial menu";
 	cmp->data	 = gui_menu_radial_create_attr();
 	return cmp;
 }

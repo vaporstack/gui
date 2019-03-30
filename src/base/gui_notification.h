@@ -9,14 +9,14 @@
 #ifndef gui_notification_h
 #define gui_notification_h
 
-#include "gui_component.h"
 #include "g_gui.h"
+#include "gui_component.h"
 
 typedef struct
 {
-	double birth;
+	double	birth;
 	GuiComponent* sub;
-}GNotification;
+} GNotification;
 
 GuiComponent* gui_notification_create(Gui* gui, const char* text);
 GuiComponent* gui_notification_create_custom(Gui* gui, GuiComponent* cmp);

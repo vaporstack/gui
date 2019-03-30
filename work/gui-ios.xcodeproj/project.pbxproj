@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5722FD2E21B0C859002865A8 /* gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FD2D21B0C859002865A8 /* gui.c */; };
 		572B194A21B653F20015B163 /* gui_anim_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 572B194921B653F20015B163 /* gui_anim_mgr.c */; };
+		57334D622249425400DF59F2 /* g_debug_stresstest.c in Sources */ = {isa = PBXBuildFile; fileRef = 57334D5E2249425300DF59F2 /* g_debug_stresstest.c */; };
+		57334D632249425400DF59F2 /* g_debug_visualizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 57334D5F2249425300DF59F2 /* g_debug_visualizer.c */; };
 		575F25D61FD1FFD90070B425 /* gui_anim.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25911FD1FFD90070B425 /* gui_anim.c */; };
 		575F25D71FD1FFD90070B425 /* gui_widget.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25941FD1FFD90070B425 /* gui_widget.c */; };
 		575F25D81FD1FFD90070B425 /* gui_aviewer.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25971FD1FFD90070B425 /* gui_aviewer.c */; };
@@ -64,6 +66,10 @@
 		5722FD2D21B0C859002865A8 /* gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gui.c; path = ../gui.c; sourceTree = "<group>"; };
 		572B194821B653F10015B163 /* gui_anim_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_anim_mgr.h; sourceTree = "<group>"; };
 		572B194921B653F20015B163 /* gui_anim_mgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_anim_mgr.c; sourceTree = "<group>"; };
+		57334D5E2249425300DF59F2 /* g_debug_stresstest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_debug_stresstest.c; sourceTree = "<group>"; };
+		57334D5F2249425300DF59F2 /* g_debug_visualizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_debug_visualizer.c; sourceTree = "<group>"; };
+		57334D602249425300DF59F2 /* g_debug_stresstest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_debug_stresstest.h; sourceTree = "<group>"; };
+		57334D612249425400DF59F2 /* g_debug_visualizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_debug_visualizer.h; sourceTree = "<group>"; };
 		575F25901FD1FFD90070B425 /* gui_anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_anim.h; sourceTree = "<group>"; };
 		575F25911FD1FFD90070B425 /* gui_anim.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_anim.c; sourceTree = "<group>"; };
 		575F25931FD1FFD90070B425 /* g_widget_console.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_widget_console.h; sourceTree = "<group>"; };
@@ -299,6 +305,10 @@
 		575F25D31FD1FFD90070B425 /* debug */ = {
 			isa = PBXGroup;
 			children = (
+				57334D5E2249425300DF59F2 /* g_debug_stresstest.c */,
+				57334D602249425300DF59F2 /* g_debug_stresstest.h */,
+				57334D5F2249425300DF59F2 /* g_debug_visualizer.c */,
+				57334D612249425400DF59F2 /* g_debug_visualizer.h */,
 				575F25D41FD1FFD90070B425 /* g_debug_joystick.c */,
 				575F25D51FD1FFD90070B425 /* g_debug_joystick.h */,
 			);
@@ -405,8 +415,10 @@
 				575F25DB1FD1FFD90070B425 /* g_widget_settings.c in Sources */,
 				575F25E31FD1FFD90070B425 /* g_control_slider.c in Sources */,
 				575F25E51FD1FFD90070B425 /* gui_control_seq.c in Sources */,
+				57334D632249425400DF59F2 /* g_debug_visualizer.c in Sources */,
 				575F25E71FD1FFD90070B425 /* g_control_colorpicker.c in Sources */,
 				575F25DF1FD1FFD90070B425 /* gui_menu_item.c in Sources */,
+				57334D622249425400DF59F2 /* g_debug_stresstest.c in Sources */,
 				575F25EC1FD1FFD90070B425 /* gui_button.c in Sources */,
 				575F25D61FD1FFD90070B425 /* gui_anim.c in Sources */,
 				575F25F01FD1FFD90070B425 /* gui_panel.c in Sources */,

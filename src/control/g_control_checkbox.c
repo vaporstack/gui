@@ -131,7 +131,8 @@ GuiComponent* gui_control_checkbox_create(const char* label, bool* data, Gui* gu
 
 	GuiComponent* cmp  = gui_component_create(gui);
 	GCheckbox*    info = calloc(1, sizeof(GCheckbox));
-
+	cmp->name = "unnamed checkbox";
+	
 	info->label = label;
 	info->value = data;
 	cmp->data   = info;

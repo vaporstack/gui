@@ -153,7 +153,17 @@ void gui_component_draw(GuiComponent* cmp)
 		{
 		}
 	}
-	drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
+	
+	if (cmp->type == GUI_TYPE_PUSHBUTTON || cmp->type == GUI_TYPE_TOGGLEBUTTON )
+	{
+		if ( !cmp->art)
+			drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
+
+	}else{
+		drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
+
+	}
+
 	drw_pop();
 
 	gui_component_render_children(cmp);
@@ -281,8 +291,8 @@ GuiComponent* gui_component_create(void* data)
 	comp->bounds		   = g_create_default_bounds(gui);
 	comp->animation_attrs      = NULL;
 	comp->animating		   = false;
-	comp->name		   = "unnamed_gui_component";
-	comp->nice_name		   = "Unnamed Gui Component";
+	comp->name		   = kGuiUnnamedComponent;
+	comp->nice_name		   = kGuiUnnamedComponentNice;
 	comp->bypass		   = false;
 	comp->enabled		   = true;
 	comp->target		   = NULL;
@@ -466,6 +476,7 @@ void gui_component_child_add(GuiComponent* parent, GuiComponent* child)
 	}
 
 	parent->num_children++;
+		
 	parent->children = realloc(
 	    parent->children, sizeof(GuiComponent*) * (parent->num_children));
 	parent->children[parent->num_children - 1] = child;
@@ -596,7 +607,7 @@ void gui_component_layout_horizontal(GuiComponent* comp)
 	for (int i = 0; i < num; i++)
 	{
 		double	x     = inc * i;
-		double	y     = h * .5;
+		double	y     = 0;
 		GuiComponent* child = comp->children[i];
 		double	sx    = comp->bounds.pos.x + x;
 		double	sy    = comp->bounds.pos.y + y;
@@ -712,6 +723,8 @@ GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double x,
 					      double y)
 {
 #ifndef RPLATFORM_WIN
+	
+	
 	if (!cont->enabled)
 		return NULL;
 
@@ -721,8 +734,9 @@ GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double x,
 	for (int i = 0; i < cont->num_children; ++i)
 	{
 		GuiComponent* sub = cont->children[i];
-		GuiComponent* sub2 =
-		    gui_component_find_pointerfocus(sub, x, y);
+		GuiComponent* sub2 = gui_component_find_pointerfocus(sub, x, y);
+		
+	
 		if (sub2)
 		{
 			return sub2;
@@ -761,6 +775,9 @@ GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double x,
 	{
 		return NULL;
 	}
+	
+	if (cont->bypass)
+		return NULL;
 
 	if (r_rect_within(cont->bounds, x, y))
 	{

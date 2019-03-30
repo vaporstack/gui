@@ -30,6 +30,7 @@ static double calculate_position(GuiComponent* cmp, double x, double y)
 	GuiSliderD* attr = cmp->data;
 	double      w    = cmp->bounds.size.x;
 	double      loc  = (x - cmp->bounds.pos.x) / w;
+	
 	if (loc < attr->lower)
 		loc = attr->lower;
 	if (loc > attr->upper)
@@ -272,6 +273,7 @@ static void draw_vertical(GuiComponent* cmp)
 void g_control_slider_draw(struct GuiComponent* cmp)
 {
 	gui_component_draw(cmp);
+	drw_circle_precision_set(16);
 	GuiSliderD* attr = cmp->data;
 	if (attr->vertical)
 	{
@@ -282,6 +284,7 @@ void g_control_slider_draw(struct GuiComponent* cmp)
 		draw_horizontal(cmp);
 	}
 }
+
 
 static void setup_delegate(InputDelegate* del)
 {
