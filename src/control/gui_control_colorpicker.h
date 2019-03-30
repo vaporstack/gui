@@ -6,8 +6,8 @@
 //  Copyright © 2017 ruminant. All rights reserved.
 //
 
-#ifndef g_control_colorpicker_h
-#define g_control_colorpicker_h
+#ifndef gui_control_colorpicker_h
+#define gui_control_colorpicker_h
 
 #include <gui/gui.h>
 
@@ -37,8 +37,8 @@ typedef struct ColorPicker
 	int depth;
 } ColorPickerRec;
 
-GuiComponent* g_control_colorpicker_create(void);
-void	  g_control_colorpicker_destroy(GuiComponent* picker);
+GuiComponent* gui_control_colorpicker_create(void);
+void	  gui_control_colorpicker_destroy(GuiComponent* picker);
 */
 
-#endif /* g_control_colorpicker_h */
+#endif /* gui_control_colorpicker_h */

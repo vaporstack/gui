@@ -8,6 +8,11 @@
 
 #include "r_control_onscreenbutton.h"
 
-GuiComponent* g_control_onscreenbutton_create(void) { return NULL; }
+GuiComponent* gui_control_onscreenbutton_create(void)
+{
+	return NULL;
+}
 
-void g_control_onscreenbutton_destroy(GuiComponent* cmp) {}
+void gui_control_onscreenbutton_destroy(GuiComponent* cmp)
+{
+}

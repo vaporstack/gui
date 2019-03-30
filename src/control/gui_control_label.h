@@ -16,6 +16,6 @@ typedef struct GLabel
 
 } GLabel;
 
-GuiComponent* g_control_label_create(Gui* gui, const char* label);
+GuiComponent* gui_control_label_create(Gui* gui, const char* label);
 
 #endif

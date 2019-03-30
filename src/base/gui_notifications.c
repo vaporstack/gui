@@ -9,7 +9,7 @@
 #include "gui_notifications.h"
 
 #include "../anim/gui_anim_mgr.h"
-#include "../control/g_control_label.h"
+#include "../control/gui_control_label.h"
 #include "gui_notification.h"
 #include <drw/drw.h>
 #include <gui/src/base/g_gui.h>
@@ -63,8 +63,9 @@ static void update(GuiComponent* cmp)
 	double w    = g->root->bounds.size.x;
 	double h    = g->root->bounds.size.y;
 	double prev = 0;
-	double x    = sz * -3;;
-	double y    = h * .5;
+	double x    = sz * -3;
+	;
+	double y = h * .5;
 	y -= sz;
 	double pad = sz * PHI_I * .5;
 	y -= pad;
@@ -76,7 +77,6 @@ static void update(GuiComponent* cmp)
 
 		GNotification* info = child->data;
 
-		
 		if (!info)
 			continue;
 		child->bounds.pos.x = x;
@@ -101,7 +101,7 @@ GuiComponent* gui_notifications_create(Gui* gui)
 {
 	GuiComponent* cmp = gui_component_create(gui);
 	cmp->container    = true;
-	cmp->bypass = true;
+	cmp->bypass       = true;
 	//cmp->enabled = false;
 	cmp->name   = "notification_center";
 	cmp->draw   = draw;

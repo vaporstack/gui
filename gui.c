@@ -15,6 +15,8 @@
 extern AppSettings app_settings;
 
 static bool screenspace = false;
+double* gui_cursor_x = NULL;
+double* gui_cursor_y = NULL;
 
 
 int gui_check_version_match(const char* header_generated_version)
@@ -40,3 +42,11 @@ void gui_get_default_bounds(double* x, double* y)
 	//*x	= sz;
 	//*y	= sz;
 }
+
+void gui_provide_cursor_pos(double* x, double* y)
+{
+	gui_cursor_x = x;
+	gui_cursor_y = y;
+}
+
+

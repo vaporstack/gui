@@ -24,15 +24,15 @@
 		575F25E01FD1FFD90070B425 /* gui_menu_radial.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25A91FD1FFD90070B425 /* gui_menu_radial.c */; };
 		575F25E11FD1FFD90070B425 /* gui_menu.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25AA1FD1FFD90070B425 /* gui_menu.c */; };
 		575F25E21FD1FFD90070B425 /* gui_icon.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25AE1FD1FFD90070B425 /* gui_icon.c */; };
-		575F25E31FD1FFD90070B425 /* g_control_slider.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B11FD1FFD90070B425 /* g_control_slider.c */; };
-		575F25E41FD1FFD90070B425 /* g_control_label.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B51FD1FFD90070B425 /* g_control_label.c */; };
+		575F25E31FD1FFD90070B425 /* gui_control_slider.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B11FD1FFD90070B425 /* gui_control_slider.c */; };
+		575F25E41FD1FFD90070B425 /* gui_control_label.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B51FD1FFD90070B425 /* gui_control_label.c */; };
 		575F25E51FD1FFD90070B425 /* gui_control_seq.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B71FD1FFD90070B425 /* gui_control_seq.c */; };
-		575F25E61FD1FFD90070B425 /* g_control_textfield.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B81FD1FFD90070B425 /* g_control_textfield.c */; };
-		575F25E71FD1FFD90070B425 /* g_control_colorpicker.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B91FD1FFD90070B425 /* g_control_colorpicker.c */; };
+		575F25E61FD1FFD90070B425 /* gui_control_textfield.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B81FD1FFD90070B425 /* gui_control_textfield.c */; };
+		575F25E71FD1FFD90070B425 /* gui_control_colorpicker.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25B91FD1FFD90070B425 /* gui_control_colorpicker.c */; };
 		575F25E81FD1FFD90070B425 /* r_control_onscreenbutton.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25BA1FD1FFD90070B425 /* r_control_onscreenbutton.c */; };
-		575F25E91FD1FFD90070B425 /* g_control_progress.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25BB1FD1FFD90070B425 /* g_control_progress.c */; };
+		575F25E91FD1FFD90070B425 /* gui_control_progress.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25BB1FD1FFD90070B425 /* gui_control_progress.c */; };
 		575F25EA1FD1FFD90070B425 /* gui_control_vseq.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25BD1FD1FFD90070B425 /* gui_control_vseq.c */; };
-		575F25EB1FD1FFD90070B425 /* g_control_checkbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25BE1FD1FFD90070B425 /* g_control_checkbox.c */; };
+		575F25EB1FD1FFD90070B425 /* gui_control_checkbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25BE1FD1FFD90070B425 /* gui_control_checkbox.c */; };
 		575F25EC1FD1FFD90070B425 /* gui_button.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25C21FD1FFD90070B425 /* gui_button.c */; };
 		575F25ED1FD1FFD90070B425 /* gui_colorpick.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25C31FD1FFD90070B425 /* gui_colorpick.c */; };
 		575F25EE1FD1FFD90070B425 /* g_widget_clock.c in Sources */ = {isa = PBXBuildFile; fileRef = 575F25C61FD1FFD90070B425 /* g_widget_clock.c */; };
@@ -94,30 +94,30 @@
 		575F25A91FD1FFD90070B425 /* gui_menu_radial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_menu_radial.c; sourceTree = "<group>"; };
 		575F25AA1FD1FFD90070B425 /* gui_menu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_menu.c; sourceTree = "<group>"; };
 		575F25AB1FD1FFD90070B425 /* gui_menu_item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_menu_item.h; sourceTree = "<group>"; };
-		575F25AD1FD1FFD90070B425 /* g_control_progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_progress.h; sourceTree = "<group>"; };
+		575F25AD1FD1FFD90070B425 /* gui_control_progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_progress.h; sourceTree = "<group>"; };
 		575F25AE1FD1FFD90070B425 /* gui_icon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_icon.c; sourceTree = "<group>"; };
-		575F25AF1FD1FFD90070B425 /* g_control_colorpicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_colorpicker.h; sourceTree = "<group>"; };
+		575F25AF1FD1FFD90070B425 /* gui_control_colorpicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_colorpicker.h; sourceTree = "<group>"; };
 		575F25B01FD1FFD90070B425 /* r_control_onscreenbutton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = r_control_onscreenbutton.h; sourceTree = "<group>"; };
-		575F25B11FD1FFD90070B425 /* g_control_slider.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_slider.c; sourceTree = "<group>"; };
-		575F25B21FD1FFD90070B425 /* g_control_checkbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_checkbox.h; sourceTree = "<group>"; };
+		575F25B11FD1FFD90070B425 /* gui_control_slider.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_slider.c; sourceTree = "<group>"; };
+		575F25B21FD1FFD90070B425 /* gui_control_checkbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_checkbox.h; sourceTree = "<group>"; };
 		575F25B31FD1FFD90070B425 /* gui_control_vseq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_vseq.h; sourceTree = "<group>"; };
 		575F25B41FD1FFD90070B425 /* gui_colorpick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_colorpick.h; sourceTree = "<group>"; };
-		575F25B51FD1FFD90070B425 /* g_control_label.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_label.c; sourceTree = "<group>"; };
+		575F25B51FD1FFD90070B425 /* gui_control_label.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_label.c; sourceTree = "<group>"; };
 		575F25B61FD1FFD90070B425 /* gui_button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_button.h; sourceTree = "<group>"; };
 		575F25B71FD1FFD90070B425 /* gui_control_seq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_seq.c; sourceTree = "<group>"; };
-		575F25B81FD1FFD90070B425 /* g_control_textfield.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_textfield.c; sourceTree = "<group>"; };
-		575F25B91FD1FFD90070B425 /* g_control_colorpicker.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_colorpicker.c; sourceTree = "<group>"; };
+		575F25B81FD1FFD90070B425 /* gui_control_textfield.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_textfield.c; sourceTree = "<group>"; };
+		575F25B91FD1FFD90070B425 /* gui_control_colorpicker.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_colorpicker.c; sourceTree = "<group>"; };
 		575F25BA1FD1FFD90070B425 /* r_control_onscreenbutton.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = r_control_onscreenbutton.c; sourceTree = "<group>"; };
-		575F25BB1FD1FFD90070B425 /* g_control_progress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_progress.c; sourceTree = "<group>"; };
+		575F25BB1FD1FFD90070B425 /* gui_control_progress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_progress.c; sourceTree = "<group>"; };
 		575F25BC1FD1FFD90070B425 /* gui_icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_icon.h; sourceTree = "<group>"; };
 		575F25BD1FD1FFD90070B425 /* gui_control_vseq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_vseq.c; sourceTree = "<group>"; };
-		575F25BE1FD1FFD90070B425 /* g_control_checkbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_control_checkbox.c; sourceTree = "<group>"; };
-		575F25BF1FD1FFD90070B425 /* g_control_slider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_slider.h; sourceTree = "<group>"; };
-		575F25C01FD1FFD90070B425 /* g_control_textfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_textfield.h; sourceTree = "<group>"; };
+		575F25BE1FD1FFD90070B425 /* gui_control_checkbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_checkbox.c; sourceTree = "<group>"; };
+		575F25BF1FD1FFD90070B425 /* gui_control_slider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_slider.h; sourceTree = "<group>"; };
+		575F25C01FD1FFD90070B425 /* gui_control_textfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_textfield.h; sourceTree = "<group>"; };
 		575F25C11FD1FFD90070B425 /* gui_control_seq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_seq.h; sourceTree = "<group>"; };
 		575F25C21FD1FFD90070B425 /* gui_button.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_button.c; sourceTree = "<group>"; };
 		575F25C31FD1FFD90070B425 /* gui_colorpick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_colorpick.c; sourceTree = "<group>"; };
-		575F25C41FD1FFD90070B425 /* g_control_label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_control_label.h; sourceTree = "<group>"; };
+		575F25C41FD1FFD90070B425 /* gui_control_label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_label.h; sourceTree = "<group>"; };
 		575F25C61FD1FFD90070B425 /* g_widget_clock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = g_widget_clock.c; sourceTree = "<group>"; };
 		575F25C71FD1FFD90070B425 /* g_widget_clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g_widget_clock.h; sourceTree = "<group>"; };
 		575F25C91FD1FFD90070B425 /* gui_notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_notifications.h; sourceTree = "<group>"; };
@@ -242,20 +242,20 @@
 		575F25AC1FD1FFD90070B425 /* control */ = {
 			isa = PBXGroup;
 			children = (
-				575F25BE1FD1FFD90070B425 /* g_control_checkbox.c */,
-				575F25B21FD1FFD90070B425 /* g_control_checkbox.h */,
-				575F25B91FD1FFD90070B425 /* g_control_colorpicker.c */,
-				575F25AF1FD1FFD90070B425 /* g_control_colorpicker.h */,
-				575F25B51FD1FFD90070B425 /* g_control_label.c */,
-				575F25C41FD1FFD90070B425 /* g_control_label.h */,
-				575F25BB1FD1FFD90070B425 /* g_control_progress.c */,
-				575F25AD1FD1FFD90070B425 /* g_control_progress.h */,
-				575F25B11FD1FFD90070B425 /* g_control_slider.c */,
-				575F25BF1FD1FFD90070B425 /* g_control_slider.h */,
-				575F25B81FD1FFD90070B425 /* g_control_textfield.c */,
+				575F25BE1FD1FFD90070B425 /* gui_control_checkbox.c */,
+				575F25B21FD1FFD90070B425 /* gui_control_checkbox.h */,
+				575F25B91FD1FFD90070B425 /* gui_control_colorpicker.c */,
+				575F25AF1FD1FFD90070B425 /* gui_control_colorpicker.h */,
+				575F25B51FD1FFD90070B425 /* gui_control_label.c */,
+				575F25C41FD1FFD90070B425 /* gui_control_label.h */,
+				575F25BB1FD1FFD90070B425 /* gui_control_progress.c */,
+				575F25AD1FD1FFD90070B425 /* gui_control_progress.h */,
+				575F25B11FD1FFD90070B425 /* gui_control_slider.c */,
+				575F25BF1FD1FFD90070B425 /* gui_control_slider.h */,
+				575F25B81FD1FFD90070B425 /* gui_control_textfield.c */,
 				578E88D62243340200786792 /* gui_control_dropdown.h */,
 				578E88D72243340200786792 /* gui_control_dropdown.c */,
-				575F25C01FD1FFD90070B425 /* g_control_textfield.h */,
+				575F25C01FD1FFD90070B425 /* gui_control_textfield.h */,
 				575F25C21FD1FFD90070B425 /* gui_button.c */,
 				575F25B61FD1FFD90070B425 /* gui_button.h */,
 				575F25C31FD1FFD90070B425 /* gui_colorpick.c */,
@@ -394,7 +394,7 @@
 			files = (
 				578E88D82243340200786792 /* gui_control_dropdown.c in Sources */,
 				5722FD2E21B0C859002865A8 /* gui.c in Sources */,
-				575F25E61FD1FFD90070B425 /* g_control_textfield.c in Sources */,
+				575F25E61FD1FFD90070B425 /* gui_control_textfield.c in Sources */,
 				575F25D81FD1FFD90070B425 /* gui_aviewer.c in Sources */,
 				575F25ED1FD1FFD90070B425 /* gui_colorpick.c in Sources */,
 				575F25F31FD1FFD90070B425 /* g_gui.c in Sources */,
@@ -410,25 +410,25 @@
 				575F25F11FD1FFD90070B425 /* gui_component.c in Sources */,
 				57826D1B1FF61D2B00E1A5F4 /* gui_control.c in Sources */,
 				575F25E11FD1FFD90070B425 /* gui_menu.c in Sources */,
-				575F25EB1FD1FFD90070B425 /* g_control_checkbox.c in Sources */,
+				575F25EB1FD1FFD90070B425 /* gui_control_checkbox.c in Sources */,
 				575F25E81FD1FFD90070B425 /* r_control_onscreenbutton.c in Sources */,
 				575F25DB1FD1FFD90070B425 /* g_widget_settings.c in Sources */,
-				575F25E31FD1FFD90070B425 /* g_control_slider.c in Sources */,
+				575F25E31FD1FFD90070B425 /* gui_control_slider.c in Sources */,
 				575F25E51FD1FFD90070B425 /* gui_control_seq.c in Sources */,
 				57334D632249425400DF59F2 /* g_debug_visualizer.c in Sources */,
-				575F25E71FD1FFD90070B425 /* g_control_colorpicker.c in Sources */,
+				575F25E71FD1FFD90070B425 /* gui_control_colorpicker.c in Sources */,
 				575F25DF1FD1FFD90070B425 /* gui_menu_item.c in Sources */,
 				57334D622249425400DF59F2 /* g_debug_stresstest.c in Sources */,
 				575F25EC1FD1FFD90070B425 /* gui_button.c in Sources */,
 				575F25D61FD1FFD90070B425 /* gui_anim.c in Sources */,
 				575F25F01FD1FFD90070B425 /* gui_panel.c in Sources */,
 				577A0CFA2245BB3E0064CAA2 /* gui_notification.c in Sources */,
-				575F25E41FD1FFD90070B425 /* g_control_label.c in Sources */,
+				575F25E41FD1FFD90070B425 /* gui_control_label.c in Sources */,
 				575F25EA1FD1FFD90070B425 /* gui_control_vseq.c in Sources */,
 				575F25DD1FD1FFD90070B425 /* gui_tooltip.c in Sources */,
 				575F25EE1FD1FFD90070B425 /* g_widget_clock.c in Sources */,
 				575F25E21FD1FFD90070B425 /* gui_icon.c in Sources */,
-				575F25E91FD1FFD90070B425 /* g_control_progress.c in Sources */,
+				575F25E91FD1FFD90070B425 /* gui_control_progress.c in Sources */,
 				575F25E01FD1FFD90070B425 /* gui_menu_radial.c in Sources */,
 				575F25D71FD1FFD90070B425 /* gui_widget.c in Sources */,
 				575F25D91FD1FFD90070B425 /* g_widget_console.c in Sources */,

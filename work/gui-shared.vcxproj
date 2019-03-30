@@ -186,10 +186,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\contrib\deps\cmap\map.h" />
-    <ClInclude Include="..\src\control\g_control_checkbox.h" />
-    <ClInclude Include="..\src\control\g_control_colorpicker.h" />
-    <ClInclude Include="..\src\control\g_control_label.h" />
-    <ClInclude Include="..\src\control\g_control_slider.h" />
+    <ClInclude Include="..\src\control\gui_control_checkbox.h" />
+    <ClInclude Include="..\src\control\gui_control_colorpicker.h" />
+    <ClInclude Include="..\src\control\gui_control_label.h" />
+    <ClInclude Include="..\src\control\gui_control_slider.h" />
     <ClInclude Include="..\src\g_gui.h" />
     <ClInclude Include="..\src\gui_aviewer.h" />
     <ClInclude Include="..\src\gui_button.h" />
@@ -202,9 +202,9 @@
     <ClInclude Include="..\src\gui_modal.h" />
     <ClInclude Include="..\src\gui_notifications.h" />
     <ClInclude Include="..\src\gui_panel.h" />
-    <ClInclude Include="..\src\g_control_progress.h" />
+    <ClInclude Include="..\src\gui_control_progress.h" />
     <ClInclude Include="..\src\gui_settings.h" />
-    <ClInclude Include="..\src\g_control_textfield.h" />
+    <ClInclude Include="..\src\gui_control_textfield.h" />
     <ClInclude Include="..\src\gui_widget.h" />
     <ClInclude Include="..\src\vbl\g_widget_clock.h" />
     <ClInclude Include="..\src\widget\g_widget_console.h" />
@@ -212,10 +212,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\contrib\deps\cmap\map.c" />
-    <ClCompile Include="..\src\control\g_control_checkbox.c" />
-    <ClCompile Include="..\src\control\g_control_colorpicker.c" />
-    <ClCompile Include="..\src\control\g_control_label.c" />
-    <ClCompile Include="..\src\control\g_control_slider.c" />
+    <ClCompile Include="..\src\control\gui_control_checkbox.c" />
+    <ClCompile Include="..\src\control\gui_control_colorpicker.c" />
+    <ClCompile Include="..\src\control\gui_control_label.c" />
+    <ClCompile Include="..\src\control\gui_control_slider.c" />
     <ClCompile Include="..\src\g_gui.c" />
     <ClCompile Include="..\src\gui_aviewer.c" />
     <ClCompile Include="..\src\gui_button.c" />
@@ -228,9 +228,9 @@
     <ClCompile Include="..\src\gui_modal.c" />
     <ClCompile Include="..\src\gui_notifications.c" />
     <ClCompile Include="..\src\gui_panel.c" />
-    <ClCompile Include="..\src\g_control_progress.c" />
+    <ClCompile Include="..\src\gui_control_progress.c" />
     <ClCompile Include="..\src\gui_settings.c" />
-    <ClCompile Include="..\src\g_control_textfield.c" />
+    <ClCompile Include="..\src\gui_control_textfield.c" />
     <ClCompile Include="..\src\gui_widget.c" />
     <ClCompile Include="..\src\vbl\g_widget_clock.c" />
     <ClCompile Include="..\src\widget\g_widget_console.c" />

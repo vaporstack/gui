@@ -50,8 +50,8 @@ EXPORTS
 	gui_settings_destroy
 	gui_widget_create
 	gui_widget_destroy
-	g_control_colorpicker_create
-	g_control_colorpicker_destroy
+	gui_control_colorpicker_create
+	gui_control_colorpicker_destroy
 	g_widget_clock_create
 	g_widget_clock_destroy
 	gui_console_create

@@ -8,7 +8,7 @@
 
 #include "gui_notification.h"
 
-#include "../control/g_control_label.h"
+#include "../control/gui_control_label.h"
 #include <drw/drw.h>
 #include <r4/src/core/r_time.h>
 
@@ -197,7 +197,7 @@ GuiComponent* gui_notification_create(Gui* gui, const char* text)
 	setup_delegate(&cmp->delegate);
 
 	double	sz    = gui_default_ui(gui);
-	GuiComponent* notif = g_control_label_create(gui, text);
+	GuiComponent* notif = gui_control_label_create(gui, text);
 	float*	buf   = calloc(6, sizeof(float));
 
 	drw_type_get_bbox(text, strlen(text), buf);

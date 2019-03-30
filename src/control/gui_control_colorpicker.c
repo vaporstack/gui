@@ -14,7 +14,7 @@ static void update(GuiComponent* cmp) {}
 static void draw(struct GuiComponent* comp, struct GuiComponent* gui)
 {}
 
-GuiComponent* g_control_colorpicker_create()
+GuiComponent* gui_control_colorpicker_create()
 {
 	GuiComponent* cmp = malloc(sizeof(GuiComponent));
 	cmp->update       = &update;
@@ -22,6 +22,5 @@ GuiComponent* g_control_colorpicker_create()
 	return cmp;
 }
 
-void g_control_colorpicker_destroy(GuiComponent* picker) {}
+void gui_control_colorpicker_destroy(GuiComponent* picker) {}
 */
-

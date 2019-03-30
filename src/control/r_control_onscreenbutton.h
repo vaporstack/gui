@@ -11,7 +11,7 @@
 
 #include "../base/gui_component.h"
 
-GuiComponent* g_control_onscreenbutton_create(void);
-void	  g_control_onscreenbutton_destroy(GuiComponent* cmp);
+GuiComponent* gui_control_onscreenbutton_create(void);
+void	  gui_control_onscreenbutton_destroy(GuiComponent* cmp);
 
 #endif /* r_control_onscreenbutton_h */

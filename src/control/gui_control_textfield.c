@@ -1,6 +1,6 @@
 
 //  gui_control_textfield.c
-//  g_control_textfield
+//  gui_control_textfield
 //
 //  Created by Andrew Macfarlane on 04/08/17.
 //  Copyright © 2017 vaporstack. All rights reserved.
@@ -299,7 +299,7 @@ static void destroy(GuiComponent* cmp)
 	//	todo implement
 }
 
-GuiComponent* g_control_textfield_create(void* gui, char* hnd)
+GuiComponent* gui_control_textfield_create(void* gui, char* hnd)
 {
 	GuiComponent* cmp = gui_component_create(gui);
 

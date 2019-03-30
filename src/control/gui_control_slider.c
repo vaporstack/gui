@@ -20,8 +20,8 @@
 
 static void update(GuiComponent* cmp)
 {
-	if ( cmp->parent )
-		if ( cmp->parent->update)
+	if (cmp->parent)
+		if (cmp->parent->update)
 			cmp->parent->update(cmp->parent);
 }
 
@@ -30,7 +30,7 @@ static double calculate_position(GuiComponent* cmp, double x, double y)
 	GuiSliderD* attr = cmp->data;
 	double      w    = cmp->bounds.size.x;
 	double      loc  = (x - cmp->bounds.pos.x) / w;
-	
+
 	if (loc < attr->lower)
 		loc = attr->lower;
 	if (loc > attr->upper)
@@ -110,6 +110,7 @@ static void mouse_button(InputDelegate* del, int btn, int action, int mods)
 	if (btn == 0 && action == 0)
 	{
 		end(del->parent);
+		//do_slider(del, app_settings, <#double y#>, <#double r#>)
 	}
 }
 
@@ -270,7 +271,7 @@ static void draw_vertical(GuiComponent* cmp)
 	drw_pop();
 }
 
-void g_control_slider_draw(struct GuiComponent* cmp)
+void gui_control_slider_draw(struct GuiComponent* cmp)
 {
 	gui_component_draw(cmp);
 	drw_circle_precision_set(16);
@@ -284,7 +285,6 @@ void g_control_slider_draw(struct GuiComponent* cmp)
 		draw_horizontal(cmp);
 	}
 }
-
 
 static void setup_delegate(InputDelegate* del)
 {
@@ -301,7 +301,7 @@ static void setup_delegate(InputDelegate* del)
 	del->name	     = "a slider delegate";
 }
 
-GuiComponent* g_control_slider_create_d(double* data, void* guidata)
+GuiComponent* gui_control_slider_create_d(double* data, void* guidata)
 {
 	GuiComponent* cmp    = gui_component_create(guidata);
 	GuiSliderD*   slider = calloc(1, sizeof(GuiSliderD));
@@ -311,7 +311,7 @@ GuiComponent* g_control_slider_create_d(double* data, void* guidata)
 	slider->lower	= 0;
 	slider->upper	= 1;
 	cmp->data	    = slider;
-	cmp->draw	    = g_control_slider_draw;
+	cmp->draw	    = gui_control_slider_draw;
 	cmp->update	  = update;
 	cmp->layout	  = layout;
 	cmp->name	    = "an_unnamed_slider";
@@ -325,7 +325,7 @@ GuiComponent* g_control_slider_create_d(double* data, void* guidata)
 	return cmp;
 }
 
-GuiComponent* g_control_slider_create_cb(double* addr, my_slider_func cb, void* data)
+GuiComponent* gui_control_slider_create_cb(double* addr, my_slider_func cb, void* data)
 {
 	GuiComponent* cmp    = gui_component_create(data);
 	GuiSliderD*   slider = calloc(1, sizeof(GuiSliderD));
@@ -337,7 +337,7 @@ GuiComponent* g_control_slider_create_cb(double* addr, my_slider_func cb, void* 
 	cmp->destroy	 = destroy;
 
 	cmp->data   = slider;
-	cmp->draw   = g_control_slider_draw;
+	cmp->draw   = gui_control_slider_draw;
 	cmp->update = update;
 	cmp->layout = layout;
 	cmp->name   = "an_unnamed_slider";
