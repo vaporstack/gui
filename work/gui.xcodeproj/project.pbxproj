@@ -72,7 +72,6 @@
 		57BB16BF2250319100094859 /* gui_icon.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16A32250319000094859 /* gui_icon.h */; };
 		57BB16C02250319100094859 /* gui_control_colorpicker.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BB16A42250319000094859 /* gui_control_colorpicker.c */; };
 		57BB16C12250319100094859 /* r_control_onscreenbutton.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16A52250319000094859 /* r_control_onscreenbutton.h */; };
-		57BB16C22250319100094859 /* gui_colorpick.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BB16A62250319000094859 /* gui_colorpick.c */; };
 		57BB16C32250319100094859 /* gui_control_dropdown.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16A72250319000094859 /* gui_control_dropdown.h */; };
 		57BB16C42250319100094859 /* gui_control_label.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BB16A82250319000094859 /* gui_control_label.c */; };
 		57BB16C52250319100094859 /* gui_control_textfield.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16A92250319000094859 /* gui_control_textfield.h */; };
@@ -85,7 +84,6 @@
 		57BB16CC2250319100094859 /* gui_icon.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BB16B02250319000094859 /* gui_icon.c */; };
 		57BB16CD2250319100094859 /* gui_control_colorpicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16B12250319000094859 /* gui_control_colorpicker.h */; };
 		57BB16CE2250319100094859 /* gui_control_dropdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BB16B22250319000094859 /* gui_control_dropdown.c */; };
-		57BB16CF2250319100094859 /* gui_colorpick.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16B32250319000094859 /* gui_colorpick.h */; };
 		57BB16D02250319100094859 /* gui_control_progress.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BB16B42250319000094859 /* gui_control_progress.c */; };
 		57BB16D12250319100094859 /* gui_control_rgba.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16B52250319000094859 /* gui_control_rgba.h */; };
 		57BB16D22250319100094859 /* gui_control_textfield.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BB16B62250319000094859 /* gui_control_textfield.c */; };
@@ -165,7 +163,6 @@
 		57BB16A32250319000094859 /* gui_icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_icon.h; sourceTree = "<group>"; };
 		57BB16A42250319000094859 /* gui_control_colorpicker.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_colorpicker.c; sourceTree = "<group>"; };
 		57BB16A52250319000094859 /* r_control_onscreenbutton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = r_control_onscreenbutton.h; sourceTree = "<group>"; };
-		57BB16A62250319000094859 /* gui_colorpick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_colorpick.c; sourceTree = "<group>"; };
 		57BB16A72250319000094859 /* gui_control_dropdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_dropdown.h; sourceTree = "<group>"; };
 		57BB16A82250319000094859 /* gui_control_label.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_label.c; sourceTree = "<group>"; };
 		57BB16A92250319000094859 /* gui_control_textfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_textfield.h; sourceTree = "<group>"; };
@@ -178,7 +175,6 @@
 		57BB16B02250319000094859 /* gui_icon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_icon.c; sourceTree = "<group>"; };
 		57BB16B12250319000094859 /* gui_control_colorpicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_colorpicker.h; sourceTree = "<group>"; };
 		57BB16B22250319000094859 /* gui_control_dropdown.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_dropdown.c; sourceTree = "<group>"; };
-		57BB16B32250319000094859 /* gui_colorpick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_colorpick.h; sourceTree = "<group>"; };
 		57BB16B42250319000094859 /* gui_control_progress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_progress.c; sourceTree = "<group>"; };
 		57BB16B52250319000094859 /* gui_control_rgba.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_rgba.h; sourceTree = "<group>"; };
 		57BB16B62250319000094859 /* gui_control_textfield.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_textfield.c; sourceTree = "<group>"; };
@@ -384,7 +380,6 @@
 				57BB16A32250319000094859 /* gui_icon.h */,
 				57BB16A42250319000094859 /* gui_control_colorpicker.c */,
 				57BB16A52250319000094859 /* r_control_onscreenbutton.h */,
-				57BB16A62250319000094859 /* gui_colorpick.c */,
 				57BB16A72250319000094859 /* gui_control_dropdown.h */,
 				57BB16A82250319000094859 /* gui_control_label.c */,
 				57BB16A92250319000094859 /* gui_control_textfield.h */,
@@ -397,7 +392,6 @@
 				57BB16B02250319000094859 /* gui_icon.c */,
 				57BB16B12250319000094859 /* gui_control_colorpicker.h */,
 				57BB16B22250319000094859 /* gui_control_dropdown.c */,
-				57BB16B32250319000094859 /* gui_colorpick.h */,
 				57BB16B42250319000094859 /* gui_control_progress.c */,
 				57BB16B52250319000094859 /* gui_control_rgba.h */,
 				57BB16B62250319000094859 /* gui_control_textfield.c */,
@@ -449,7 +443,6 @@
 				5723445F223308A100EC1DBC /* gui_draggable.h in Headers */,
 				575E7C0A204D018E00C80D64 /* gui_component.h in Headers */,
 				57BB16C52250319100094859 /* gui_control_textfield.h in Headers */,
-				57BB16CF2250319100094859 /* gui_colorpick.h in Headers */,
 				575E7BD3204D018E00C80D64 /* gui_settings.h in Headers */,
 				575E7BE5204D018E00C80D64 /* gui_menu_item.h in Headers */,
 				57BB16D82250319100094859 /* gui_button.h in Headers */,
@@ -554,7 +547,6 @@
 				575E7C09204D018E00C80D64 /* g_gui.c in Sources */,
 				57BB16C42250319100094859 /* gui_control_label.c in Sources */,
 				57BB16D72250319100094859 /* gui_control_checkbox.c in Sources */,
-				57BB16C22250319100094859 /* gui_colorpick.c in Sources */,
 				57334D5D2249337B00DF59F2 /* g_debug_visualizer.c in Sources */,
 				575E7BFE204D018E00C80D64 /* g_widget_clock.c in Sources */,
 				57BB16CB2250319100094859 /* r_control_onscreenbutton.c in Sources */,

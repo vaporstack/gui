@@ -42,35 +42,28 @@ static inline char* gui_get_version_string_header(void)
 #include "gui_config.h"
 
 #include "src/etc/gui_log.h"
-void gui_get_default_bounds(double* x, double* y);
-void gui_provide_cursor_pos(double* x, double* y);
+void	   gui_get_default_bounds(double* x, double* y);
+void	   gui_provide_cursor_pos(double* x, double* y);
 extern double* gui_cursor_x;
 extern double* gui_cursor_y;
 
+//#include "gui_container.h"
+
 #include "src/base/g_gui.h"
 #include "src/base/gui_component.h"
-//#include "gui_container.h"
-#include "src/widget/g_widget_console.h"
-
-#include "src/control/gui_button.h"
-
-#include "src/comp/gui_comp_rline.h"
-
-#include "src/widget/gui_widget.h"
-
-//	probably deprecated in favor of colorpicker
-//#include "src/control/gui_control_slider.h"
-#include "src/control/gui_colorpick.h"
-#include "src/control/gui_control_checkbox.h"
-#include "src/control/gui_control_label.h"
-#include "src/control/gui_control_slider.h"
-
 #include "src/base/gui_modal.h"
 #include "src/base/gui_notifications.h"
-#include "src/menu/gui_menu_radial.h"
-
+#include "src/comp/gui_comp_rline.h"
+#include "src/control/gui_button.h"
+#include "src/control/gui_control_checkbox.h"
+#include "src/control/gui_control_colorpicker.h"
+#include "src/control/gui_control_label.h"
+#include "src/control/gui_control_slider.h"
 #include "src/menu/gui_menu.h"
 #include "src/menu/gui_menu_item.h"
+#include "src/menu/gui_menu_radial.h"
+#include "src/widget/g_widget_console.h"
+#include "src/widget/gui_widget.h"
 
 #define G_UI_FONT_SIZE 18
 #define G_UI_BTN_SIZE 32

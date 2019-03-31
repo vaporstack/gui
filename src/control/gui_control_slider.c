@@ -107,7 +107,13 @@ static void tablet_drag_rich(struct InputDelegate* del, double x, double y, int 
 
 static void mouse_button(InputDelegate* del, int btn, int action, int mods)
 {
-	if (btn == 0 && action == 0)
+	if (btn > 0 )
+		return;
+	
+	if ( action == 1 )
+	{
+		do_slider(del, *gui_cursor_x, *gui_cursor_y, -1);
+	}else
 	{
 		end(del->parent);
 		//do_slider(del, app_settings, <#double y#>, <#double r#>)

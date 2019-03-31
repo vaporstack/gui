@@ -14,15 +14,14 @@
 #include <r4/r4.h>
 extern AppSettings app_settings;
 
-static bool screenspace = false;
-double* gui_cursor_x = NULL;
-double* gui_cursor_y = NULL;
-
+static bool screenspace  = false;
+double*     gui_cursor_x = NULL;
+double*     gui_cursor_y = NULL;
 
 int gui_check_version_match(const char* header_generated_version)
 {
-	char* version =gui_get_version_string();
-	int matches = (0 == strcmp(version, header_generated_version));
+	char* version = gui_get_version_string();
+	int   matches = (0 == strcmp(version, header_generated_version));
 	free(version);
 	return matches;
 }
@@ -48,5 +47,3 @@ void gui_provide_cursor_pos(double* x, double* y)
 	gui_cursor_x = x;
 	gui_cursor_y = y;
 }
-
-

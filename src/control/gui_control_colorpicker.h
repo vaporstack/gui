@@ -41,4 +41,21 @@ GuiComponent* gui_control_colorpicker_create(void);
 void	  gui_control_colorpicker_destroy(GuiComponent* picker);
 */
 
+#include <r4/src/core/r_color.h>
+
+#include "../base/gui_component.h"
+
+typedef struct
+{
+	int       type;
+	int       model;
+	double    gamma;
+	RColor16* color;
+} ColorPicker;
+
+GuiComponent* gui_colorpicker_create(void* gui, RColor16* color_ref,
+				   click_func onclick);
+void	  gui_colorpicker_destroy(GuiComponent* cmp);
+
+void gui_colorpicker_draw(GuiComponent* cmp);
 #endif /* gui_control_colorpicker_h */
