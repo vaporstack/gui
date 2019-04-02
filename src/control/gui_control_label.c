@@ -17,10 +17,21 @@ static void draw(GuiComponent* cmp)
 	drw_translate2f(cmp->bounds.pos.x, cmp->bounds.pos.y);
 	gui_component_draw(cmp);
 	GLabel* info = cmp->data;
-	drw_type_set_align(DRW_TYPE_ALIGN_H_RIGHT, DRW_TYPE_ALIGN_V_CENTER);
-	//drw_push();
-	drw_translate(sz * .5, sz * .5, 0);
-	drw_type_draw(info->text);
+	const char* text = info->text;
+	if ( !text )
+		text = info->localtext;
+	
+	if ( text )
+	{
+		drw_type_set_align(DRW_TYPE_ALIGN_H_RIGHT, DRW_TYPE_ALIGN_V_CENTER);
+		//drw_push();
+		drw_translate(sz * .5, sz * .5, 0);
+		drw_type_draw(text);
+		//drw_pop();
+	}else{
+		printf("Label has no text provided.\n");
+		
+	}
 	drw_pop();
 }
 
