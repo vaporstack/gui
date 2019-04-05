@@ -79,7 +79,12 @@ static void draw(GuiComponent* cmp)
 	//gui_component_draw(cmp);
 	GCheckbox* info = cmp->data;
 	drw_push();
-	drw_translate(cmp->bounds.pos.x + cmp->bounds.size.x * .5, cmp->bounds.pos.y + cmp->bounds.size.y * .5, 0);
+	Gui* gui = cmp->root;
+	
+	double sz = gui_default_ui(gui);
+	
+	
+	drw_translate(cmp->bounds.pos.x + sz * .5, cmp->bounds.pos.y + cmp->bounds.size.y * .5, 0);
 
 	drw_square(cmp->bounds.size.y * .5);
 	if (info->value)
@@ -96,6 +101,7 @@ static void draw(GuiComponent* cmp)
 	drw_pop();
 }
 
+
 static void mouse_button(InputDelegate* delegate, int button, int action, int mods)
 {
 	printf("%d %d %d\n", button, action, mods);
@@ -107,6 +113,17 @@ static void mouse_button(InputDelegate* delegate, int button, int action, int mo
 	GuiComponent* cmp = delegate->parent;
 	toggle(cmp);
 	end(cmp);
+}
+
+static void layout(GuiComponent* cmp )
+{
+	Gui* gui = cmp->root;
+	
+	double sz = gui_default_ui(gui);
+	
+	RRect par = cmp->parent->bounds;
+	cmp->bounds.size.x = par.size.x - sz;
+	
 }
 
 static void setup_delegate(InputDelegate* del)
@@ -137,6 +154,8 @@ GuiComponent* gui_control_checkbox_create(const char* label, bool* data, Gui* gu
 	info->value = data;
 	cmp->data   = info;
 	cmp->draw   = draw;
+	cmp->layout = layout;
+	
 	setup_delegate(&cmp->delegate);
 	return cmp;
 }

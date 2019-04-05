@@ -73,7 +73,7 @@ Gui* gui_create(const char* name)
 	gui->items	 = new_map();
 	gui->root	  = root;
 	gui->notifications = NULL;
-	gui->anim_mgr      = gui_anim_mgr_create(root);
+	//gui->anim_mgr      = gui_anim_mgr_create(root);
 
 	// gui->resize = &on_resize;
 	// target= calloc(1, sizeof(ResizeTarget));

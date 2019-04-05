@@ -170,6 +170,9 @@ static void destroy(GuiComponent* cmp)
 	}
 	else
 	{
+		if (info->user )
+			free(info->user);
+		
 		GuiComponent* sub = info->sub;
 		if (!sub)
 		{
@@ -188,6 +191,7 @@ static void destroy(GuiComponent* cmp)
 
 	gui_component_child_remove(par, cmp);
 
+	
 	//free(cmp);
 }
 

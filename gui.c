@@ -14,6 +14,12 @@
 #include <r4/r4.h>
 extern AppSettings app_settings;
 
+void	gui_provide_global_alpha_mult(double* v)
+{
+	gui_alpha_mult = v;
+}
+
+double* 	gui_alpha_mult = NULL;
 static bool screenspace  = false;
 double*     gui_cursor_x = NULL;
 double*     gui_cursor_y = NULL;
@@ -47,3 +53,4 @@ void gui_provide_cursor_pos(double* x, double* y)
 	gui_cursor_x = x;
 	gui_cursor_y = y;
 }
+

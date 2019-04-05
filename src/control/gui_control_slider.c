@@ -30,12 +30,26 @@ static double calculate_position(GuiComponent* cmp, double x, double y)
 	GuiSliderD* attr = cmp->data;
 	double      w    = cmp->bounds.size.x;
 	double      loc  = (x - cmp->bounds.pos.x) / w;
+	attr->pos	= loc;
 
-	if (loc < attr->lower)
+	if (loc < 0)
+		loc = 0;
+	if (loc > 1)
+		loc = 1;
+
+	/* with that done, we move onto the task of calculating what that position is in the range
+
+	 if (loc < attr->lower)
 		loc = attr->lower;
 	if (loc > attr->upper)
 		loc = attr->upper;
+	*/
 	return loc;
+}
+
+static double map(double Input, double InputLow, double InputHigh, double OutputLow, double OutputHigh)
+{
+	return ((Input - InputLow) / (InputHigh - InputLow)) * (OutputHigh - OutputLow) + OutputLow;
 }
 
 static void do_slider(InputDelegate* del, double x, double y, double r)
@@ -51,8 +65,15 @@ static void do_slider(InputDelegate* del, double x, double y, double r)
 		return;
 	}
 
-	double loc = calculate_position(cmp, x, y);
-	attr->function(cmp, loc);
+	attr->pos       = calculate_position(cmp, x, y);
+	*(attr->target) = map(attr->pos, 0, 1, attr->lower, attr->upper);
+
+	// = v
+	//v -= attr->lower;
+	//double range = attr->upper - attr->lower;
+	//v *= range;
+
+	attr->function(cmp, *attr->target);
 	update(cmp);
 }
 
@@ -107,13 +128,14 @@ static void tablet_drag_rich(struct InputDelegate* del, double x, double y, int 
 
 static void mouse_button(InputDelegate* del, int btn, int action, int mods)
 {
-	if (btn > 0 )
+	if (btn > 0)
 		return;
-	
-	if ( action == 1 )
+
+	if (action == 1)
 	{
 		do_slider(del, *gui_cursor_x, *gui_cursor_y, -1);
-	}else
+	}
+	else
 	{
 		end(del->parent);
 		//do_slider(del, app_settings, <#double y#>, <#double r#>)
@@ -205,6 +227,7 @@ static void draw_horizontal(GuiComponent* cmp)
 	double      margin = cmp->bounds.size.y * .5;
 	double*     d      = attr->target;
 
+	double p = attr->pos;
 	drw_push();
 	drw_translate2f(cmp->bounds.pos.x, cmp->bounds.pos.y);
 	drw_translate2f(0, cmp->bounds.size.y * .5);
@@ -217,8 +240,15 @@ static void draw_horizontal(GuiComponent* cmp)
 		;
 	}
 	drw_push();
-	drw_translate2f(margin + (*d * (cmp->bounds.size.x - margin * 2)), 0);
+	drw_translate2f(margin + (p * (cmp->bounds.size.x - margin * 2)), 0);
 	double v = gui_default_ui(cmp->root) * PHI * .25;
+
+	RColor16 c = r_app_color_get_bg();
+	drw_color_c16(c);
+	drw_fill_set(true);
+	drw_circle(v);
+	drw_fill_pop();
+	drw_color_pop();
 
 	drw_circle(v);
 	drw_pop();
@@ -352,4 +382,18 @@ GuiComponent* gui_control_slider_create_cb(double* addr, my_slider_func cb, void
 	setup_delegate(&cmp->delegate);
 
 	return cmp;
+}
+
+/*
+ *	if you overwrote any of the slider defaults, make sure pos and such are correct by calling this
+ */
+
+void gui_control_slider_setup(GuiComponent* cmp)
+{
+	GuiSliderD* info = cmp->data;
+
+	double* target = info->target;
+	info->pos      = map(*target, info->lower, info->upper, 0, 1);
+
+	printf("%f\n", *target);
 }

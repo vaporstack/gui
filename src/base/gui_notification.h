@@ -16,6 +16,8 @@ typedef struct
 {
 	double	birth;
 	GuiComponent* sub;
+	bool persistent;
+	void* user;
 } GNotification;
 
 GuiComponent* gui_notification_create(Gui* gui, const char* text);

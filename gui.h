@@ -42,10 +42,15 @@ static inline char* gui_get_version_string_header(void)
 #include "gui_config.h"
 
 #include "src/etc/gui_log.h"
+
+
 void	   gui_get_default_bounds(double* x, double* y);
 void	   gui_provide_cursor_pos(double* x, double* y);
+void	gui_provide_global_alpha_mult(double* v);
 extern double* gui_cursor_x;
 extern double* gui_cursor_y;
+extern double* gui_alpha_mult;
+extern int gui_text_direction;
 
 //#include "gui_container.h"
 

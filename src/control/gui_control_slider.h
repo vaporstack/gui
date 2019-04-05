@@ -17,13 +17,16 @@ typedef int (*my_slider_func)(GuiComponent* cmp, double v);
 
 typedef struct
 {
-	char*   name;
-	double* target;
-	double  lower;
-	double  upper;
-	bool    constrain_to_int;
-	bool    vertical;
-	//bool show_value;
+	bool transient;
+	bool	   constrain_to_int;
+	bool	   vertical;
+	char*	  name;
+	double*	target;
+	double	 pos;
+	double	 lower;
+	double	 upper;
+	double	 defaults;
+	double	 original;
 	my_slider_func function;
 } GuiSliderD;
 
@@ -38,6 +41,7 @@ typedef struct
 GuiComponent* gui_control_slider_create_d(double* data, void* gui);
 GuiComponent* gui_control_slider_create_cb(double* addr, my_slider_func cb, void* gui);
 void	  gui_control_slider_draw(struct GuiComponent* cmp);
+void	  gui_control_slider_setup(GuiComponent* cmp);
 
 // void g_slider_update_i(GuiSliderI* slider, float val);
 // void g_slider_update_f(GuiSliderD* slider, float val);

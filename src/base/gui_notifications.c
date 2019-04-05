@@ -115,18 +115,23 @@ GuiComponent* gui_notifications_create(Gui* gui)
 	return cmp;
 }
 
-void gui_notifications_post(Gui* gui, const char* text)
+GuiComponent* gui_notifications_post(Gui* gui, const char* text)
 {
 	if (!gui->notifications)
 		gui->notifications = gui_notifications_create(gui);
 
-	gui_component_child_add(gui->notifications, gui_notification_create(gui, text));
+	GuiComponent* notif = gui_notification_create(gui, text);
+	gui_component_child_add(gui->notifications, notif );
+	return notif;
+	
 }
 
-void gui_notifications_post_custom(Gui* gui, GuiComponent* cmp)
+GuiComponent*  gui_notifications_post_custom(Gui* gui, GuiComponent* cmp)
 {
 	if (!gui->notifications)
 		gui->notifications = gui_notifications_create(gui);
 
-	gui_component_child_add(gui->notifications, cmp);
+	GuiComponent* notif = gui_notification_create_custom(gui, cmp);
+	gui_component_child_add(gui->notifications, notif );
+	return notif;
 }

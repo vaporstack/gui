@@ -57,7 +57,7 @@ void gui_colorpicker_draw(GuiComponent* cmp)
 	ColorPicker* pik = (ColorPicker*)cmp->data;
 	RColor16*    c   = pik->color;
 	drw_color_push();
-	drw_color(c->r, c->g, c->b, c->a);
+	drw_color(c->r, c->g, c->b, c->a * *gui_alpha_mult);
 	drw_fill_set(true);
 	drw_push();
 	

@@ -80,16 +80,16 @@ void gui_component_draw(GuiComponent* cmp)
 			// drw_color(0,0,0,1);
 			if (cmp->focus)
 			{
-				drw_alpha(1);
+				//drw_alpha(1);
 			}
 			else
 			{
-				drw_alpha(.7);
+				//drw_alpha(.7);
 			}
 		}
 		else
 		{
-			drw_alpha(.333);
+			//drw_alpha(.333);
 		}
 		//	override for disabled
 		//if ( !cmp->enabled )
@@ -105,7 +105,7 @@ void gui_component_draw(GuiComponent* cmp)
 	}
 	else
 	{
-		drw_alpha(.8);
+		//drw_alpha(.8);
 		// drw_color(0,1,0,1);
 	}
 
@@ -167,7 +167,7 @@ void gui_component_draw(GuiComponent* cmp)
 	drw_pop();
 
 	gui_component_render_children(cmp);
-	drw_alpha_pop();
+	//drw_alpha_pop();
 }
 
 void gui_component_draw_bordered(GuiComponent* cmp)
@@ -177,22 +177,22 @@ void gui_component_draw_bordered(GuiComponent* cmp)
 
 	int pad = gui_default_ui(cmp->root) * .3333;
 
-	double alpha = 1;
+	//double alpha = 1;
 	if (cmp->on)
 	{
 		// drw_color(0,0,0,1);
 		// drw_alpha(.8);
-		if (!cmp->focus)
-			alpha -= .2;
+		//if (!cmp->focus)
+		//	alpha -= .2;
 	}
 	else
 	{
-		alpha = .3;
+		//alpha = .3;
 	}
 
 	//	SHOW HACKS HAX
 
-	drw_alpha(alpha);
+	//drw_alpha(alpha);
 
 	drw_push();
 	drw_translate2f(cmp->bounds.pos.x - pad, cmp->bounds.pos.y - pad);
@@ -202,7 +202,7 @@ void gui_component_draw_bordered(GuiComponent* cmp)
 	//	drw_rect(0, 0, cmp->bounds.size.x + (pad * 2), cmp->bounds.size.y + (pad * 2));
 
 	drw_pop();
-	drw_alpha_pop();
+	//drw_alpha_pop();
 	gui_component_render_children(cmp);
 }
 //
@@ -474,7 +474,20 @@ void gui_component_child_add(GuiComponent* parent, GuiComponent* child)
 		gui_log("Cowardly refusing to add a NULL component.");
 		return;
 	}
-
+	
+#ifdef DEBUG
+	if ( child->name == NULL)
+	{
+		gui_log("Tried to add a NULL named component.");
+		
+	}
+	
+	if ( 0 == strcmp(child->name, kGuiUnnamedComponent))
+	{
+		gui_log("Tried to add an unnamed component.");
+	}
+#endif
+	
 	parent->num_children++;
 		
 	parent->children = realloc(

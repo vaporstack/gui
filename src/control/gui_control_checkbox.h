@@ -20,5 +20,6 @@ typedef struct GCheckbox
 }GCheckbox;
 
 GuiComponent* gui_control_checkbox_create(const char* label, bool* data, Gui* gui);
+void gui_control_checkbox_setup(GuiComponent* cmp);
 
 #endif
