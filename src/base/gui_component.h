@@ -22,6 +22,7 @@
 //#include "../input/r_input.h"
 
 #include "../../gui_types.h"
+#include "gui_interaction.h"
 
 enum GuiOrientationTypesHorizontal
 {
@@ -109,12 +110,13 @@ typedef struct GuiComponent
 	void*	 data;
 	void*	 art;
 	void*	 drag;
-	//CPoint*			offset;
+
+	
 	int		      num_children;
 	struct GuiComponent** children;
-	//struct vector_t*      children_vec;
 	struct GuiComponent*  parent;
 	void*		      root;
+	void* interaction;
 
 } GuiComponent;
 

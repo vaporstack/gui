@@ -46,6 +46,7 @@
 		578E88D82243340200786792 /* gui_control_dropdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 578E88D72243340200786792 /* gui_control_dropdown.c */; };
 		57A4ADAC22384FEA00C7699D /* gui_draggable.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A4ADA822384FEA00C7699D /* gui_draggable.c */; };
 		57A4ADAD22384FEA00C7699D /* gui_log.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A4ADAA22384FEA00C7699D /* gui_log.c */; };
+		57D1E5572257CA5E008C0D4B /* gui_interaction.c in Sources */ = {isa = PBXBuildFile; fileRef = 57D1E5552257CA5E008C0D4B /* gui_interaction.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -139,6 +140,8 @@
 		57A4ADA922384FEA00C7699D /* gui_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_log.h; sourceTree = "<group>"; };
 		57A4ADAA22384FEA00C7699D /* gui_log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_log.c; sourceTree = "<group>"; };
 		57A4ADAB22384FEA00C7699D /* gui_draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_draggable.h; sourceTree = "<group>"; };
+		57D1E5552257CA5E008C0D4B /* gui_interaction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_interaction.c; sourceTree = "<group>"; };
+		57D1E5562257CA5E008C0D4B /* gui_interaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_interaction.h; sourceTree = "<group>"; };
 		57F12E301F8190B400564D7C /* gui_config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gui_config.h; path = ../gui_config.h; sourceTree = "<group>"; };
 		D15E67FF1E94091E00412C42 /* libgui.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgui.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -279,6 +282,8 @@
 		575F25C81FD1FFD90070B425 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				57D1E5552257CA5E008C0D4B /* gui_interaction.c */,
+				57D1E5562257CA5E008C0D4B /* gui_interaction.h */,
 				575F25CC1FD1FFD90070B425 /* gui_component.c */,
 				575F25D11FD1FFD90070B425 /* gui_component.h */,
 				57826D1A1FF61D2B00E1A5F4 /* gui_control.c */,
@@ -409,6 +414,7 @@
 				575F25DB1FD1FFD90070B425 /* g_widget_settings.c in Sources */,
 				575F25E31FD1FFD90070B425 /* gui_control_slider.c in Sources */,
 				575F25E51FD1FFD90070B425 /* gui_control_seq.c in Sources */,
+				57D1E5572257CA5E008C0D4B /* gui_interaction.c in Sources */,
 				57334D632249425400DF59F2 /* g_debug_visualizer.c in Sources */,
 				575F25E71FD1FFD90070B425 /* gui_control_colorpicker.c in Sources */,
 				575F25DF1FD1FFD90070B425 /* gui_menu_item.c in Sources */,

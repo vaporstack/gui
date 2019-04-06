@@ -36,12 +36,13 @@ static void gui_button_draw(GuiComponent* btn)
 		drw_type_draw(btn->name);
 	drw_pop();
 	
-	
-	if ( attr )
-	{
-		if ( attr->value)
-			drw_alpha_pop();
-	}
+	//	this is strange, I wonder what it did, and why
+//	
+//	if ( attr )
+//	{
+//		if ( attr->value)
+//			drw_alpha_pop();
+//	}
 	
 }
 

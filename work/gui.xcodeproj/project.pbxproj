@@ -93,6 +93,8 @@
 		57BB16D62250319100094859 /* gui_control_slider.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16BA2250319000094859 /* gui_control_slider.h */; };
 		57BB16D72250319100094859 /* gui_control_checkbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BB16BB2250319000094859 /* gui_control_checkbox.c */; };
 		57BB16D82250319100094859 /* gui_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16BC2250319100094859 /* gui_button.h */; };
+		57D1E5532257C0AC008C0D4B /* gui_interaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 57D1E5512257C0AC008C0D4B /* gui_interaction.h */; };
+		57D1E5542257C0AC008C0D4B /* gui_interaction.c in Sources */ = {isa = PBXBuildFile; fileRef = 57D1E5522257C0AC008C0D4B /* gui_interaction.c */; };
 		57F8E2A82128F691005614E7 /* gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 57F8E2A72128F691005614E7 /* gui.c */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +186,8 @@
 		57BB16BA2250319000094859 /* gui_control_slider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_slider.h; sourceTree = "<group>"; };
 		57BB16BB2250319000094859 /* gui_control_checkbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_checkbox.c; sourceTree = "<group>"; };
 		57BB16BC2250319100094859 /* gui_button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_button.h; sourceTree = "<group>"; };
+		57D1E5512257C0AC008C0D4B /* gui_interaction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_interaction.h; sourceTree = "<group>"; };
+		57D1E5522257C0AC008C0D4B /* gui_interaction.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_interaction.c; sourceTree = "<group>"; };
 		57F8E2A72128F691005614E7 /* gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gui.c; path = ../gui.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -338,6 +342,8 @@
 				575E7BC9204D018E00C80D64 /* gui_component.h */,
 				575E7BC5204D018E00C80D64 /* gui_control.c */,
 				575E7BC0204D018E00C80D64 /* gui_control.h */,
+				57D1E5522257C0AC008C0D4B /* gui_interaction.c */,
+				57D1E5512257C0AC008C0D4B /* gui_interaction.h */,
 				575E7BC1204D018E00C80D64 /* gui_modal.c */,
 				575E7BC7204D018E00C80D64 /* gui_modal.h */,
 				577A0CF52245A2490064CAA2 /* gui_notification.c */,
@@ -434,6 +440,7 @@
 				575E7BDD204D018E00C80D64 /* gui_tooltip.h in Headers */,
 				575E7BDC204D018E00C80D64 /* gui_activity.h in Headers */,
 				5753707F20730ECC00349C85 /* gui.h in Headers */,
+				57D1E5532257C0AC008C0D4B /* gui_interaction.h in Headers */,
 				575E7C00204D018E00C80D64 /* gui_notifications.h in Headers */,
 				575E7C0B204D018E00C80D64 /* gui_panel.h in Headers */,
 				57BB16C32250319100094859 /* gui_control_dropdown.h in Headers */,
@@ -538,6 +545,7 @@
 				57BB16D52250319100094859 /* gui_control_vseq.c in Sources */,
 				57BB16D42250319100094859 /* gui_control_seq.c in Sources */,
 				57BB16C62250319100094859 /* gui_control_slider.c in Sources */,
+				57D1E5542257C0AC008C0D4B /* gui_interaction.c in Sources */,
 				575E7BCF204D018E00C80D64 /* gui_anim.c in Sources */,
 				57F8E2A82128F691005614E7 /* gui.c in Sources */,
 				575E7C03204D018E00C80D64 /* gui_panel.c in Sources */,

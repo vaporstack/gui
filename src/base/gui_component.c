@@ -72,7 +72,7 @@ void gui_component_draw(GuiComponent* cmp)
 
 	drw_translate2f(cmp->bounds.pos.x, cmp->bounds.pos.y);
 	double sz = cmp->bounds.size.x;
-
+	double al = 1;
 	if (cmp->type == GUI_TYPE_PUSHBUTTON)
 	{
 		if (cmp->on)
@@ -84,12 +84,12 @@ void gui_component_draw(GuiComponent* cmp)
 			}
 			else
 			{
-				//drw_alpha(.7);
+				al *= .7;//drw_alpha(.7);
 			}
 		}
 		else
 		{
-			//drw_alpha(.333);
+			al = .3333;//drw_alpha(.333);
 		}
 		//	override for disabled
 		//if ( !cmp->enabled )
@@ -112,6 +112,7 @@ void gui_component_draw(GuiComponent* cmp)
 	//if ( !cmp->bypass )
 	//	drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
 
+	drw_alpha(al);
 	if (cmp->art)
 	{
 		drw_push();
@@ -154,6 +155,7 @@ void gui_component_draw(GuiComponent* cmp)
 		}
 	}
 	
+	
 	if (cmp->type == GUI_TYPE_PUSHBUTTON || cmp->type == GUI_TYPE_TOGGLEBUTTON )
 	{
 		if ( !cmp->art)
@@ -163,7 +165,7 @@ void gui_component_draw(GuiComponent* cmp)
 		drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
 
 	}
-
+	drw_alpha_pop();
 	drw_pop();
 
 	gui_component_render_children(cmp);
@@ -334,12 +336,15 @@ GuiComponent* gui_component_create(void* data)
 
 void gui_component_destroy(GuiComponent* comp)
 {
+	if ( comp->interaction )
+		gui_interaction_destroy(comp->interaction);
+	
 	for (int i = 0; i < comp->num_children; i++)
 	{
 		GuiComponent* child = comp->children[i];
 		gui_component_destroy(child);
 	}
-
+	
 	//vector_uninit(comp->children_vec);
 	//free(comp);
 }
