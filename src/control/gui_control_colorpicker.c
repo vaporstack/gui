@@ -85,6 +85,7 @@ GuiComponent* gui_colorpicker_create(void* gui, RColor16* color_ref, click_func 
 	cmp->data		 = pick;
 	cmp->draw		 = gui_colorpicker_draw;
 	cmp->name		 = "gui_colorpick";
+	cmp->type = GUI_TYPE_PUSHBUTTON;
 	cmp->delegate.touch_move = &_scroll;
 	// cmp->delegate.click = &_click;
 	if (onclick == NULL)
@@ -99,6 +100,7 @@ GuiComponent* gui_colorpicker_create(void* gui, RColor16* color_ref, click_func 
 		cmp->delegate.tablet_down_rich = onclick;
 		cmp->delegate.touch_began      = onclick;
 		cmp->delegate.mouse_button     = onclick;
+		
 		//cmp->activate		       = onclick;
 	}
 	return cmp;

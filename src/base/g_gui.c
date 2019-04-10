@@ -358,10 +358,7 @@ GuiComponent* gui_find_pointerfocus(Gui* gui, double x, double y)
 #endif
 	return sub;
 
-	//	the gui is root level so we return nothing if we found ourself
-	// if ( sub == _root){
-	//	return NULL;
-	//}
+	
 }
 
 void gui_notify_resize(void* data, unsigned int w, unsigned int h)

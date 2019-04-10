@@ -112,7 +112,7 @@ void gui_component_draw(GuiComponent* cmp)
 	//if ( !cmp->bypass )
 	//	drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
 
-	drw_alpha(al);
+	drw_alpha(al * *gui_alpha_mult);
 	if (cmp->art)
 	{
 		drw_push();
