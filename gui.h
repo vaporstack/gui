@@ -61,7 +61,7 @@ extern int gui_text_direction;
 #include "src/comp/gui_comp_rline.h"
 #include "src/control/gui_button.h"
 #include "src/control/gui_control_checkbox.h"
-#include "src/control/gui_control_colorpicker.h"
+#include "src/control/gui_control_colorwell.h"
 #include "src/control/gui_control_label.h"
 #include "src/control/gui_control_slider.h"
 #include "src/menu/gui_menu.h"
