@@ -197,27 +197,46 @@ static void destroy(GuiComponent* cmp)
 
 GuiComponent* gui_notification_create(Gui* gui, const char* text)
 {
+	
 	GuiComponent* cmp = gui_component_create(gui);
+
 	setup_delegate(&cmp->delegate);
-
-	double	sz    = gui_default_ui(gui);
-	GuiComponent* notif = gui_control_label_create(gui, text);
-	float*	buf   = calloc(6, sizeof(float));
-
-	drw_type_get_bbox(text, strlen(text), buf);
-	double bw	    = buf[3] - buf[0];
-	double bh	    = buf[4] - buf[1];
-	notif->bounds.size.x = bw + sz;
-	cmp->bounds	  = notif->bounds;
 	GNotification* info  = calloc(1, sizeof(GNotification));
-	info->sub	    = notif;
 	info->birth	  = r_time_peek();
 	cmp->data	    = info;
 	cmp->name	    = "notification";
 	cmp->update	  = update;
 	cmp->draw	    = draw;
 	cmp->destroy	 = destroy;
+	//	internalize the string here so calling code doesn't care
+	//char* mytext = strdup(mytext);
+	
+	//notif->text = mytext;
+	info->hnd = calloc(1, sizeof(GuiStringHandle));
+	info->hnd->src = strdup(text);
+	GuiComponent* notif = gui_control_label_create(gui, info->hnd->src);
+	info->sub	    = notif;
 
+	
+	if ( info->hnd )
+	{
+		if ( info->hnd->src )
+		{
+			double	sz    = gui_default_ui(gui);
+//			float*	buf   = calloc(6, sizeof(float));
+//
+//			drw_type_get_bbox(info->hnd->src, strlen(info->hnd->src), buf);
+//			double bw	    = buf[3] - buf[0];
+//			double bh	    = buf[4] - buf[1];
+//			notif->bounds.size.x = bw + sz;
+			notif->bounds.size.x = sz * 5;
+		
+			cmp->bounds	  = notif->bounds;
+			
+			//free(buf);
+		}
+	}
+	
 	return cmp;
 }
 

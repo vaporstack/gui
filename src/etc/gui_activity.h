@@ -10,10 +10,10 @@
 #define gui_activity_h
 
 //#include <stdio.h>
-
+#include "../base/g_gui.h"
 #include "../base/gui_component.h"
 
-GuiComponent* gui_activity_create(void);
+GuiComponent* gui_activity_create(Gui* gui);
 void	  gui_activity_destroy(GuiComponent* comp);
 
 #endif /* gui_activity_h */

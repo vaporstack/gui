@@ -172,6 +172,41 @@ void gui_component_draw(GuiComponent* cmp)
 	//drw_alpha_pop();
 }
 
+
+static void edge(GuiComponent* cmp)
+{
+	Gui* g = cmp->root;
+	double sz = gui_default_ui(g);
+	sz *= .33333;
+	
+	drw_line(cmp->bounds.pos.x, cmp->bounds.pos.y, cmp->bounds.pos.x + sz, cmp->bounds.pos.y);
+	drw_line(cmp->bounds.pos.x, cmp->bounds.pos.y, cmp->bounds.pos.x, cmp->bounds.pos.y + sz);
+	drw_line(cmp->bounds.pos.x, cmp->bounds.pos.y + cmp->bounds.size.y, cmp->bounds.pos.x + sz, cmp->bounds.pos.y + cmp->bounds.size.y);
+	drw_line(cmp->bounds.pos.x, cmp->bounds.pos.y + cmp->bounds.size.y, cmp->bounds.pos.x, cmp->bounds.pos.y + cmp->bounds.size.y - sz);
+}
+
+void gui_component_draw_corners(GuiComponent* cmp)
+{
+	if (!cmp->visible)
+		return;
+	/*Gui* g = cmp->root;
+	double sz = gui_default_ui(g);
+	sz *= .33333;
+	
+	drw_line(cmp->bounds.pos.x, cmp->bounds.pos.y, cmp->bounds.pos.x + sz, cmp->bounds.pos.y);
+	drw_line(cmp->bounds.pos.x, cmp->bounds.pos.y, cmp->bounds.pos.x, cmp->bounds.pos.y + sz);
+	drw_line(cmp->bounds.pos.x, cmp->bounds.pos.y + cmp->bounds.size.y, cmp->bounds.pos.x + sz, cmp->bounds.pos.y + cmp->bounds.size.y);
+	drw_line(cmp->bounds.pos.x, cmp->bounds.pos.y + cmp->bounds.size.y, cmp->bounds.pos.x, cmp->bounds.pos.y + cmp->bounds.size.y - sz);
+*/
+	
+	drw_push();
+	edge(cmp);
+	drw_scale(-1,1,1);
+	edge(cmp);
+	drw_pop();
+	
+}
+
 void gui_component_draw_bordered(GuiComponent* cmp)
 {
 	if (!cmp->visible)

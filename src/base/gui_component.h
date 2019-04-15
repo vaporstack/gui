@@ -130,6 +130,7 @@ typedef void (*resize_func)(void*, double, double);
 
 void gui_component_set_children_type(GuiComponent* cmp, int type);
 void gui_component_draw(GuiComponent* cmp);
+void gui_component_draw_corners(GuiComponent* cmp);
 void gui_component_draw_bordered(GuiComponent* cmp);
 
 GuiComponent* gui_component_group_create(void* gui, int num,

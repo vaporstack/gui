@@ -9,8 +9,22 @@
 #define gui_control_progress_h_
 
 #include "../base/gui_component.h"
+#include "../base/g_gui.h"
 
-GuiComponent* gui_control_progress_create(void);
+typedef void (*gui_progress_update_fn)(GuiComponent*, void*);
+typedef void (*gui_progress_complete_fn)(GuiComponent*, void*);
+typedef void (*gui_progress_cancel_fn)(GuiComponent*, void*);
+
+typedef struct
+{
+	gui_progress_update_fn update;
+	gui_progress_cancel_fn cancel;
+	gui_progress_complete_fn complete;
+	double completion;
+}GuiProgress;
+
+GuiComponent* gui_control_progress_create(Gui* gui, gui_progress_update_fn update, gui_progress_complete_fn complete);
+GuiComponent* gui_control_progress_create_raw(Gui* gui);
 void	  gui_control_progress_destroy(GuiComponent* comp);
 
 #endif

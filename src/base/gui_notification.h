@@ -12,11 +12,14 @@
 #include "g_gui.h"
 #include "gui_component.h"
 
+
+
 typedef struct
 {
 	double	birth;
 	GuiComponent* sub;
 	bool persistent;
+	GuiStringHandle* hnd;
 	void* user;
 } GNotification;
 

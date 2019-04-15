@@ -33,6 +33,10 @@ enum
 //TODO: this appears to be for DrawTarget
 #include <r4/src/app/r_app.h>
 
+typedef struct
+{
+	char* src;
+} GuiStringHandle;
 
 typedef struct Gui
 {
