@@ -63,6 +63,7 @@ static void key(struct InputDelegate* delegate, int key, int scan, int action,
 		mods);
 #endif
 }
+#include <gui/gui.h>
 
 void gui_menu_activate_selected(GuiComponent* menu)
 {
@@ -86,7 +87,7 @@ void gui_menu_activate_selected(GuiComponent* menu)
 		ButtonAttrs* attr = (ButtonAttrs*)target->data;
 		if (attr->click)
 		{
-			attr->click();
+			attr->click(NULL, *gui_cursor_x, *gui_cursor_y);
 		}
 	}
 }
@@ -153,7 +154,8 @@ static void mouse_button(struct InputDelegate* del, int button, int action,
 		ButtonAttrs* attr = (ButtonAttrs*)target->data;
 		if (attr->click)
 		{
-			attr->click();
+			
+			attr->click(del, *gui_cursor_x, *gui_cursor_y);
 		}
 	}
 	else if (target->type == GUI_TYPE_MENU)
@@ -167,7 +169,8 @@ static void mouse_button(struct InputDelegate* del, int button, int action,
 			ButtonAttrs* attr = (ButtonAttrs*)cmp->data;
 			if (attr->click)
 			{
-				attr->click();
+				
+				attr->click(del, *gui_cursor_x, *gui_cursor_y);
 			}
 		}
 	}

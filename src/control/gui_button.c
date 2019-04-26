@@ -20,7 +20,7 @@ static void gui_button_draw(GuiComponent* btn)
 	drw_translate(btn->bounds.pos.x, btn->bounds.pos.y, 0);
 	drw_translate(btn->bounds.size.x * .5, btn->bounds.size.y * .5, 0);
 	ButtonAttrs* attr = btn->data;
-	if ( attr )
+	if (attr)
 	{
 		/*if ( attr->value )
 		{
@@ -32,28 +32,33 @@ static void gui_button_draw(GuiComponent* btn)
 			}
 		}*/
 	}
-	if (btn->name && !btn->art)
+	if (btn->name && !btn->art && !btn->art2)
 		drw_type_draw(btn->name);
 	drw_pop();
-	
+
 	//	this is strange, I wonder what it did, and why
-//	
-//	if ( attr )
-//	{
-//		if ( attr->value)
-//			drw_alpha_pop();
-//	}
-	
+	//
+	//	if ( attr )
+	//	{
+	//		if ( attr->value)
+	//			drw_alpha_pop();
+	//	}
+}
+
+static bool find_focus(GuiComponent* cmp, double x, double y)
+{
+	return ( x >= cmp->bounds.pos.x && y >= cmp->bounds.pos.y && x <= cmp->bounds.pos.x + cmp->bounds.size.x && y <= cmp->bounds.pos.y + cmp->bounds.size.y );
 }
 
 GuiComponent* gui_button_create(void* gui, const char* label, click_func func)
 {
 	GuiComponent* cmp = gui_component_create(gui);
-
+	
 	cmp->name	 = label;
 	ButtonAttrs* attr = malloc(sizeof(ButtonAttrs));
 	//attr->value =
 	attr->click = func;
+	cmp->find_focus = find_focus;
 	cmp->data   = attr;
 	cmp->type   = GUI_TYPE_PUSHBUTTON;
 	cmp->draw   = gui_button_draw;

@@ -93,8 +93,9 @@ typedef struct GuiComponent
 	bool		    draggable;
 	bool		    debug;
 	bool		    animating;
+	bool	immutable;
 	int		    type;
-	double	opacity;
+	double		    opacity;
 	RPoint		    offset;
 	GuiAlignmentAttrs   alignment;
 	GuiOrientationAttrs orientation;
@@ -109,14 +110,14 @@ typedef struct GuiComponent
 	void*	 target;
 	void*	 data;
 	void*	 art;
+	void* art2;
 	void*	 drag;
 
-	
 	int		      num_children;
 	struct GuiComponent** children;
 	struct GuiComponent*  parent;
 	void*		      root;
-	void* interaction;
+	void*		      interaction;
 
 } GuiComponent;
 
@@ -125,7 +126,7 @@ typedef struct GuiComponentHnd
 	GuiComponent* src;
 } GuiComponentHnd;
 
-typedef void (*click_func)(void);
+typedef void (*click_func)(void*, double x, double y);
 typedef void (*resize_func)(void*, double, double);
 
 void gui_component_set_children_type(GuiComponent* cmp, int type);
@@ -147,9 +148,13 @@ void	  gui_component_child_remove(GuiComponent* cmp, GuiComponent* sub);
 void	  gui_component_hide(GuiComponent* cmp);
 void	  gui_component_show(GuiComponent* cmp);
 void	  gui_component_layout(GuiComponent* cmp);
+void 	gui_component_layout_children(GuiComponent* cmp);
 void	  gui_component_layout_vertical(GuiComponent* cmp);
 void	  gui_component_layout_horizontal(GuiComponent* cmp);
 void	  gui_component_fit_to_children(GuiComponent* cmp);
+void	  gui_component_layout_simple_buttons(GuiComponent* cmp);
+void	  gui_component_update_size(GuiComponent* cmp);
+
 //void	gui_component_activate(GuiComponent* cmp, void* input_delegate);
 //void gui_component_deactivate(GuiComponent* cmp);
 //double g_default_ui_size(void* gui);

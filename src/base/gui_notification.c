@@ -28,8 +28,13 @@ static double calculate_delta(GuiComponent* cmp)
 	//	d = .1;
 	return d;
 }
+
 static void update(GuiComponent* cmp)
 {
+	GNotification* info = cmp->data;
+	if (info)
+		if (info->persistent)
+			return;
 
 	//double d = now - info->birth;
 	double d = calculate_delta(cmp);
@@ -122,25 +127,25 @@ static void draw(GuiComponent* cmp)
 	if (!info)
 		return;
 
-	double   d = calculate_delta(cmp);
+	double alpha = 1;
+	if (!info->persistent)
+		alpha = calculate_delta(cmp);
 	RColor16 c = r_app_color_get_bg();
-	drw_color(c.r, c.g, c.b, d);
+	drw_color(c.r, c.g, c.b, alpha);
 	//drw_color_c16( r_app_color_get_bg() );
 	drw_fill_set(true);
 	//drw_alpha(d);
-	drw_alpha_mult(d);
+	drw_alpha_mult(alpha);
 
 	drw_rect_r(cmp->bounds);
 	drw_fill_pop();
 	drw_color_pop();
 	//drw_set_line_width(2);
-	drw_alpha_mult(d);
+	drw_alpha_mult(alpha);
 	drw_rect_r(cmp->bounds);
 	//drw_set_line_width(1);
 	drw_alpha_mult_pop();
-	//gui_component_draw(cmp);
 
-	//GNotification* info = cmp->data;
 	GuiComponent* sub = info->sub;
 
 	(sub->draw) ? sub->draw(sub) : gui_component_draw(sub);
@@ -170,9 +175,9 @@ static void destroy(GuiComponent* cmp)
 	}
 	else
 	{
-		if (info->user )
+		if (info->user)
 			free(info->user);
-		
+
 		GuiComponent* sub = info->sub;
 		if (!sub)
 		{
@@ -191,52 +196,50 @@ static void destroy(GuiComponent* cmp)
 
 	gui_component_child_remove(par, cmp);
 
-	
 	//free(cmp);
 }
 
 GuiComponent* gui_notification_create(Gui* gui, const char* text)
 {
-	
+
 	GuiComponent* cmp = gui_component_create(gui);
 
 	setup_delegate(&cmp->delegate);
-	GNotification* info  = calloc(1, sizeof(GNotification));
-	info->birth	  = r_time_peek();
-	cmp->data	    = info;
-	cmp->name	    = "notification";
-	cmp->update	  = update;
-	cmp->draw	    = draw;
-	cmp->destroy	 = destroy;
+	GNotification* info = calloc(1, sizeof(GNotification));
+	info->birth	 = r_time_peek();
+	cmp->data	   = info;
+	cmp->name	   = "notification";
+	cmp->update	 = update;
+	cmp->draw	   = draw;
+	cmp->destroy	= destroy;
 	//	internalize the string here so calling code doesn't care
 	//char* mytext = strdup(mytext);
-	
-	//notif->text = mytext;
-	info->hnd = calloc(1, sizeof(GuiStringHandle));
-	info->hnd->src = strdup(text);
-	GuiComponent* notif = gui_control_label_create(gui, info->hnd->src);
-	info->sub	    = notif;
 
+	//notif->text = mytext;
+	info->hnd	   = calloc(1, sizeof(GuiStringHandle));
+	info->hnd->src      = strdup(text);
+	GuiComponent* notif = gui_control_label_create(gui, info->hnd->src);
+	info->sub	   = notif;
 	
-	if ( info->hnd )
+	if (info->hnd)
 	{
-		if ( info->hnd->src )
+		if (info->hnd->src)
 		{
-			double	sz    = gui_default_ui(gui);
-//			float*	buf   = calloc(6, sizeof(float));
-//
-//			drw_type_get_bbox(info->hnd->src, strlen(info->hnd->src), buf);
-//			double bw	    = buf[3] - buf[0];
-//			double bh	    = buf[4] - buf[1];
-//			notif->bounds.size.x = bw + sz;
+			double sz = gui_default_ui(gui);
+			//			float*	buf   = calloc(6, sizeof(float));
+			//
+			//			drw_type_get_bbox(info->hnd->src, strlen(info->hnd->src), buf);
+			//			double bw	    = buf[3] - buf[0];
+			//			double bh	    = buf[4] - buf[1];
+			//			notif->bounds.size.x = bw + sz;
 			notif->bounds.size.x = sz * 5;
-		
-			cmp->bounds	  = notif->bounds;
-			
+
+			cmp->bounds = notif->bounds;
+
 			//free(buf);
 		}
 	}
-	
+
 	return cmp;
 }
 

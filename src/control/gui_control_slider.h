@@ -6,8 +6,8 @@
 //  Copyright © 2017 vaporstack. All rights reserved.
 //
 
-#ifndef gui_slider_h
-#define gui_slider_h
+#ifndef gui_control_slider_h
+#define gui_control_slider_h
 
 #include "../base/gui_component.h"
 //#include <r4/src/geo/r_rect.h>
@@ -17,7 +17,7 @@ typedef int (*my_slider_func)(GuiComponent* cmp, double v);
 
 typedef struct
 {
-	bool transient;
+	bool	   transient;
 	bool	   constrain_to_int;
 	bool	   vertical;
 	char*	  name;
@@ -28,6 +28,8 @@ typedef struct
 	double	 defaults;
 	double	 original;
 	my_slider_func function;
+	my_slider_func on_begin;
+	my_slider_func on_end;
 } GuiSliderD;
 
 typedef struct
@@ -48,4 +50,4 @@ void	  gui_control_slider_setup(GuiComponent* cmp);
 
 // GuiButton* g_create_slider_i(char* , RRect*, myfunc, int* );
 
-#endif /* gui_slider_h */
+#endif /* gui_control_slider_h */

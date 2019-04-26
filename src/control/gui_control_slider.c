@@ -52,6 +52,13 @@ static double map(double Input, double InputLow, double InputHigh, double Output
 	return ((Input - InputLow) / (InputHigh - InputLow)) * (OutputHigh - OutputLow) + OutputLow;
 }
 
+static void set_initial(InputDelegate* del)
+{
+	GuiComponent* cmp  = del->parent;
+	GuiSliderD*   attr = cmp->data;
+	*(attr->target)    = map(attr->pos, 0, 1, attr->lower, attr->upper);
+}
+
 static void do_slider(InputDelegate* del, double x, double y, double r)
 {
 
@@ -65,8 +72,9 @@ static void do_slider(InputDelegate* del, double x, double y, double r)
 		return;
 	}
 
-	attr->pos       = calculate_position(cmp, x, y);
-	*(attr->target) = map(attr->pos, 0, 1, attr->lower, attr->upper);
+	attr->pos = calculate_position(cmp, x, y);
+	if (attr->target)
+		*(attr->target) = map(attr->pos, 0, 1, attr->lower, attr->upper);
 
 	// = v
 	//v -= attr->lower;
@@ -77,13 +85,20 @@ static void do_slider(InputDelegate* del, double x, double y, double r)
 	update(cmp);
 }
 
-static void start(GuiComponent* cmp)
+static void begin(GuiComponent* cmp)
 {
+	cmp->interacting = true;
+	GuiSliderD* info = cmp->data;
+	if ( info->on_begin)
+		info->on_begin(cmp, -1);
 }
 
 static void end(GuiComponent* cmp)
 {
-
+	GuiSliderD* info = cmp->data;
+	if ( info->on_end)
+		info->on_end(cmp, -1);
+	
 	//GuiComponent* cmp = del->parent;
 	cmp->interacting = false;
 	r_input_delegate_pop();
@@ -96,6 +111,7 @@ static void touch_cancel(struct InputDelegate* del, double x, double y, double r
 
 static void touch_began(struct InputDelegate* del, double x, double y, double r)
 {
+	begin(del->parent);
 	do_slider(del, x, y, r);
 }
 
@@ -112,7 +128,9 @@ static void touch_ended(struct InputDelegate* del, double x, double y, double r)
 
 static void tablet_down_rich(struct InputDelegate* del, double x, double y, int button, double pressure, double rotation, double tilt_x, double tilt_y, double tangential)
 {
+	//begin(del->parent);
 	touch_began(del, x, y, -1);
+	
 }
 
 static void tablet_up_rich(struct InputDelegate* del, double x, double y, int button, double pressure, double rotation, double tilt_x, double tilt_y, double tangential)
@@ -133,6 +151,7 @@ static void mouse_button(InputDelegate* del, int btn, int action, int mods)
 
 	if (action == 1)
 	{
+		begin(del->parent);
 		do_slider(del, *gui_cursor_x, *gui_cursor_y, -1);
 	}
 	else

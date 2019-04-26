@@ -8,15 +8,15 @@
 
 #ifndef gui_draggable_h
 #define gui_draggable_h
-
-#include <coer/src/geo/coer_point.h>
-
-typedef struct
-{
-	CPoint start;
-	CPoint end;
-	
-}GDrag;
+//
+//#include <coer/src/geo/coer_point.h>
+//
+//typedef struct
+//{
+//	CPoint start;
+//	CPoint end;
+//	
+//}GDrag;
 
 
 #endif /* gui_draggable_h */

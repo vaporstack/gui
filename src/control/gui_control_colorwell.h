@@ -51,6 +51,7 @@ typedef struct
 	int       model;
 	double    gamma;
 	RColor16* color;
+	click_func onclick;
 } ColorPicker;
 
 GuiComponent* gui_colorwell_create(void* gui, RColor16* color_ref,

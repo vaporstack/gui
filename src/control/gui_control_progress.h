@@ -24,6 +24,7 @@ typedef struct
 }GuiProgress;
 
 GuiComponent* gui_control_progress_create(Gui* gui, gui_progress_update_fn update, gui_progress_complete_fn complete);
+GuiComponent* gui_control_progress_create_with_cancel_button(Gui* gui, gui_progress_update_fn update, gui_progress_complete_fn complete, gui_progress_cancel_fn cancel);
 GuiComponent* gui_control_progress_create_raw(Gui* gui);
 void	  gui_control_progress_destroy(GuiComponent* comp);
 

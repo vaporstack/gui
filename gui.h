@@ -43,16 +43,37 @@ static inline char* gui_get_version_string_header(void)
 
 #include "src/etc/gui_log.h"
 
-
 void	   gui_get_default_bounds(double* x, double* y);
 void	   gui_provide_cursor_pos(double* x, double* y);
-void	gui_provide_global_alpha_mult(double* v);
+void	   gui_provide_framebuffer_variables(int* x, int* y);
+void	   gui_provide_global_alpha_mult(double* v);
+void		gui_set_global_scale(double sc);
+double		gui_get_global_scale(void);
+extern double 	gui_ui_unit;
+extern int* gui_fb_w;
+extern int* gui_fb_h;
 extern double* gui_cursor_x;
 extern double* gui_cursor_y;
 extern double* gui_alpha_mult;
-extern int gui_text_direction;
+extern int     gui_text_direction;
 
 //#include "gui_container.h"
+/*
+ 
+ 
+ nomenclature
+ 
+ component - base element .
+ all components can contain other components
+ components do not necessarily need to interact
+ 
+ 
+ 
+ 
+ 
+ 
+ */
+
 
 #include "src/base/g_gui.h"
 #include "src/base/gui_component.h"

@@ -134,6 +134,11 @@ void gui_set_debug(Gui* gui, bool v)
 
 void _gui_render_component(Gui* gui, struct GuiComponent* cmp)
 {
+	//if ( 0 == strcmp("trash_art_button", cmp->name))
+	//{
+		//printf("");
+		
+	//}
 	if (!cmp->visible)
 		return;
 	if (cmp->hidden)
@@ -386,7 +391,19 @@ void gui_notify_resize(void* data, unsigned int w, unsigned int h)
 	//gui->root->y		 = gui->root->bounds.pos.y;
 
 	gui_set_retina(gui, app_settings.scale_retina);
+	
+	
+//	double bigger = ( w > h ) ? w : h;
+//	double test = 1 - (1000.0 / bigger);
+//	test *= 2.5;
+//	//printf("Test: %f\n", test);
+//
+//
+//	gui_set_global_scale(test);
+	gui_set_global_scale(1);
 	gui_layout(gui);
+	
+	
 	
 	
 	// gui_component_align_children(_root);
@@ -443,7 +460,13 @@ GuiComponent* gui_find_component(Gui* gui, const char* ident)
 
 double gui_default_ui(Gui* gui)
 {
-	return gui->scale_retina * 2 * G_UI_BTN_SIZE;
+	if ( !gui )
+	{
+		l_warning("can't default, no UI\n");
+		return 32;
+	}
+	gui_ui_unit =  gui->scale_retina * 2 * G_UI_BTN_SIZE * gui_get_global_scale();
+	return gui_ui_unit;
 }
 
 int gui_component_register(Gui* gui, const char* ident, GuiComponent* cmp)

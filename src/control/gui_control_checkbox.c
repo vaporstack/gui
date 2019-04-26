@@ -81,7 +81,7 @@ static void draw(GuiComponent* cmp)
 	drw_push();
 	Gui* gui = cmp->root;
 	
-	double sz = gui_default_ui(gui);
+	double sz = gui_default_ui(cmp->root);
 	
 	
 	drw_translate(cmp->bounds.pos.x + sz * .5, cmp->bounds.pos.y + cmp->bounds.size.y * .5, 0);
@@ -117,12 +117,16 @@ static void mouse_button(InputDelegate* delegate, int button, int action, int mo
 
 static void layout(GuiComponent* cmp )
 {
+	if ( cmp->immutable )
+		return;
+	
 	Gui* gui = cmp->root;
 	
-	double sz = gui_default_ui(gui);
+	double sz = gui_default_ui(cmp->root);
 	
 	RRect par = cmp->parent->bounds;
 	cmp->bounds.size.x = par.size.x - sz;
+	cmp->bounds.size.y = sz;
 	
 }
 

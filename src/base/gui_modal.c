@@ -108,6 +108,8 @@ void gui_modal_prompt(Gui* gui, const char* label, function_ptr ok,
 	gui_component_add(gui, modal);
 }
 
+#include <gui/gui.h>
+
 // static void mouse
 static void click(struct InputDelegate* sender, int button, int action,
 		  int mods)
@@ -136,7 +138,7 @@ static void click(struct InputDelegate* sender, int button, int action,
 			//todo I hate this
 			ButtonAttrs* attr = (ButtonAttrs*)elem->data;
 			if (attr->click)
-				attr->click();
+				attr->click(NULL, *gui_cursor_x, *gui_cursor_y);
 		}
 	}
 }

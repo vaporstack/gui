@@ -29,21 +29,6 @@ void gui_control_colorpicker_destroy(GuiComponent* picker) {}
 #include <drw/drw.h>
 
 
-//#define COLORPICKER_SIZE 32
-/*
- 
- static void _click(struct InputDelegate *delegate, double x, double y, double
- foo) { printf("CLACK\n"); GuiComponent *cmp = delegate->parent; ColorPicker
- *pick = cmp->data; WColor *tar = pick->color;
- 
- tar->a = r_rand_double(NULL);
- tar->g = r_rand_double(NULL);
- tar->b = r_rand_double(NULL);
- tar->r = r_rand_double(NULL);
- }
- */
-
-//#define GUI_ARBITRARY_NUMBER_FOR_BUTTON_SIZE 32
 
 static void _scroll(struct InputDelegate* delegate, double x, double y,
 		    double z)
@@ -82,6 +67,7 @@ GuiComponent* gui_colorwell_create(void* gui, RColor16* color_ref, click_func on
 {
 	GuiComponent* cmp  = gui_component_create(gui);
 	ColorPicker*  pick = calloc(1, sizeof(ColorPicker));
+	pick->onclick = onclick;
 	pick->color	= color_ref;
 	
 	cmp->data		 = pick;
@@ -101,6 +87,7 @@ GuiComponent* gui_colorwell_create(void* gui, RColor16* color_ref, click_func on
 	{
 		cmp->delegate.tablet_down_rich = onclick;
 		cmp->delegate.touch_began      = onclick;
+		
 		cmp->delegate.mouse_button     = onclick;
 		
 		//cmp->activate		       = onclick;

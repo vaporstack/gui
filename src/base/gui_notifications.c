@@ -56,17 +56,16 @@ void gui_notifications_lazycheck(void* gui)
 }
 */
 
-static void update(GuiComponent* cmp)
+static void layout(GuiComponent* cmp)
 {
 	Gui*   g    = cmp->root;
 	double sz   = gui_default_ui(g);
 	double w    = g->root->bounds.size.x;
 	double h    = g->root->bounds.size.y;
 	double prev = 0;
-	double x    = sz * -3;
-	;
-	double y = h * .5;
-	y -= sz;
+	double x    = sz * -4;
+	double y    = h * .5;
+	y -= sz * 2;
 	double pad = sz * PHI_I * .5;
 	y -= pad;
 	//x += pad;
@@ -81,11 +80,17 @@ static void update(GuiComponent* cmp)
 			continue;
 		child->bounds.pos.x = x;
 		child->bounds.pos.y = y;
-		gui_component_set(info->sub, x, y);
+		gui_component_size(child, sz * 5, sz);
+		gui_component_set(child, x, y);
+		gui_component_set(info->sub, 0, 0);
 		prev = child->bounds.size.y;
 		y -= pad;
 		y -= prev;
 	}
+}
+
+static void update(GuiComponent* cmp)
+{
 }
 
 static void draw(GuiComponent* cmp)
@@ -106,6 +111,7 @@ GuiComponent* gui_notifications_create(Gui* gui)
 	cmp->name   = "notification_center";
 	cmp->draw   = draw;
 	cmp->update = update;
+	cmp->layout = layout;
 	//cmp->bounds.pos.x = gui->root->bounds.size.x * -.5;
 	//cmp->bounds.pos.y = gui->root->bounds.size.y * -.5;
 	cmp->bounds.pos.x = cmp->bounds.pos.y = cmp->bounds.size.x = cmp->bounds.size.y = 0;
@@ -115,23 +121,37 @@ GuiComponent* gui_notifications_create(Gui* gui)
 	return cmp;
 }
 
+#include <gui/src/etc/gui_log.h>
+
 GuiComponent* gui_notifications_post(Gui* gui, const char* text)
 {
+
 	if (!gui->notifications)
 		gui->notifications = gui_notifications_create(gui);
 
+	if (gui->notifications->num_children >= 5)
+	{
+		gui_log("not posting notification, at limit\n");
+		return NULL;
+	}
+
 	GuiComponent* notif = gui_notification_create(gui, text);
-	gui_component_child_add(gui->notifications, notif );
+	gui_component_child_add(gui->notifications, notif);
 	return notif;
-	
 }
 
-GuiComponent*  gui_notifications_post_custom(Gui* gui, GuiComponent* cmp)
+GuiComponent* gui_notifications_post_custom(Gui* gui, GuiComponent* cmp)
 {
 	if (!gui->notifications)
 		gui->notifications = gui_notifications_create(gui);
 
+	if (gui->notifications->num_children >= 5)
+	{
+		gui_log("not posting notification, at limit\n");
+		return NULL;
+	}
+
 	GuiComponent* notif = gui_notification_create_custom(gui, cmp);
-	gui_component_child_add(gui->notifications, notif );
+	gui_component_child_add(gui->notifications, notif);
 	return notif;
 }
