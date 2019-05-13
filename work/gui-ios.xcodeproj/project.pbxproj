@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570A1DE02287424700FCB278 /* gui_ios_dpad_button.c in Sources */ = {isa = PBXBuildFile; fileRef = 570A1DDF2287424700FCB278 /* gui_ios_dpad_button.c */; };
 		5722FD2E21B0C859002865A8 /* gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 5722FD2D21B0C859002865A8 /* gui.c */; };
 		572B194A21B653F20015B163 /* gui_anim_mgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 572B194921B653F20015B163 /* gui_anim_mgr.c */; };
 		57334D622249425400DF59F2 /* g_debug_stresstest.c in Sources */ = {isa = PBXBuildFile; fileRef = 57334D5E2249425300DF59F2 /* g_debug_stresstest.c */; };
@@ -45,6 +46,7 @@
 		578E88D82243340200786792 /* gui_control_dropdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 578E88D72243340200786792 /* gui_control_dropdown.c */; };
 		57A4ADAC22384FEA00C7699D /* gui_draggable.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A4ADA822384FEA00C7699D /* gui_draggable.c */; };
 		57A4ADAD22384FEA00C7699D /* gui_log.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A4ADAA22384FEA00C7699D /* gui_log.c */; };
+		57C7BD912287396A00C1A1B0 /* gui_ios_dpad.c in Sources */ = {isa = PBXBuildFile; fileRef = 57C7BD902287396A00C1A1B0 /* gui_ios_dpad.c */; };
 		57D1E5572257CA5E008C0D4B /* gui_interaction.c in Sources */ = {isa = PBXBuildFile; fileRef = 57D1E5552257CA5E008C0D4B /* gui_interaction.c */; };
 		57FED068225F97D200957396 /* gui_control_colorwell.c in Sources */ = {isa = PBXBuildFile; fileRef = 57FED066225F97D200957396 /* gui_control_colorwell.c */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		4928C38B1F68A6F000A16F96 /* gui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gui.h; path = ../gui.h; sourceTree = "<group>"; };
+		570A1DDE2287424700FCB278 /* gui_ios_dpad_button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_ios_dpad_button.h; sourceTree = "<group>"; };
+		570A1DDF2287424700FCB278 /* gui_ios_dpad_button.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_ios_dpad_button.c; sourceTree = "<group>"; };
 		5722FD2D21B0C859002865A8 /* gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gui.c; path = ../gui.c; sourceTree = "<group>"; };
 		572B194821B653F10015B163 /* gui_anim_mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_anim_mgr.h; sourceTree = "<group>"; };
 		572B194921B653F20015B163 /* gui_anim_mgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_anim_mgr.c; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 		57A4ADA922384FEA00C7699D /* gui_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_log.h; sourceTree = "<group>"; };
 		57A4ADAA22384FEA00C7699D /* gui_log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_log.c; sourceTree = "<group>"; };
 		57A4ADAB22384FEA00C7699D /* gui_draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_draggable.h; sourceTree = "<group>"; };
+		57C7BD8F2287396A00C1A1B0 /* gui_ios_dpad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_ios_dpad.h; sourceTree = "<group>"; };
+		57C7BD902287396A00C1A1B0 /* gui_ios_dpad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_ios_dpad.c; sourceTree = "<group>"; };
 		57D1E5552257CA5E008C0D4B /* gui_interaction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_interaction.c; sourceTree = "<group>"; };
 		57D1E5562257CA5E008C0D4B /* gui_interaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_interaction.h; sourceTree = "<group>"; };
 		57F12E301F8190B400564D7C /* gui_config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gui_config.h; path = ../gui_config.h; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 				575F25D31FD1FFD90070B425 /* debug */,
 				575F259D1FD1FFD90070B425 /* etc */,
 				575F25A51FD1FFD90070B425 /* menu */,
+				57C7BD8D2287395900C1A1B0 /* platform */,
 				575F25C51FD1FFD90070B425 /* vbl */,
 				575F25921FD1FFD90070B425 /* widget */,
 			);
@@ -315,6 +322,25 @@
 			path = debug;
 			sourceTree = "<group>";
 		};
+		57C7BD8D2287395900C1A1B0 /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				57C7BD8E2287395900C1A1B0 /* ios */,
+			);
+			path = platform;
+			sourceTree = "<group>";
+		};
+		57C7BD8E2287395900C1A1B0 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				570A1DDF2287424700FCB278 /* gui_ios_dpad_button.c */,
+				570A1DDE2287424700FCB278 /* gui_ios_dpad_button.h */,
+				57C7BD902287396A00C1A1B0 /* gui_ios_dpad.c */,
+				57C7BD8F2287396A00C1A1B0 /* gui_ios_dpad.h */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
 		D15E67F61E94091E00412C42 = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +433,8 @@
 				57A4ADAD22384FEA00C7699D /* gui_log.c in Sources */,
 				572B194A21B653F20015B163 /* gui_anim_mgr.c in Sources */,
 				575F25F11FD1FFD90070B425 /* gui_component.c in Sources */,
+				57C7BD912287396A00C1A1B0 /* gui_ios_dpad.c in Sources */,
+				570A1DE02287424700FCB278 /* gui_ios_dpad_button.c in Sources */,
 				57826D1B1FF61D2B00E1A5F4 /* gui_control.c in Sources */,
 				575F25E11FD1FFD90070B425 /* gui_menu.c in Sources */,
 				575F25EB1FD1FFD90070B425 /* gui_control_checkbox.c in Sources */,

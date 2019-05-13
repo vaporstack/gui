@@ -256,7 +256,7 @@ static void setup_delegate(InputDelegate* del)
 	//del->supports_handoff   = true;
 	del->char_cb = char_cb;
 	del->key     = key;
-	del->name    = "a manipulator delegate";
+	del->name    = "a gui panel delegate";
 }
 
 GuiComponent* gui_tabbed_panel_create(Gui* gui, char** labels, int num)

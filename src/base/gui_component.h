@@ -93,7 +93,7 @@ typedef struct GuiComponent
 	bool		    draggable;
 	bool		    debug;
 	bool		    animating;
-	bool	immutable;
+	bool		    immutable;
 	int		    type;
 	double		    opacity;
 	RPoint		    offset;
@@ -110,7 +110,7 @@ typedef struct GuiComponent
 	void*	 target;
 	void*	 data;
 	void*	 art;
-	void* art2;
+	void*	 art2;
 	void*	 drag;
 
 	int		      num_children;
@@ -133,6 +133,7 @@ void gui_component_set_children_type(GuiComponent* cmp, int type);
 void gui_component_draw(GuiComponent* cmp);
 void gui_component_draw_corners(GuiComponent* cmp);
 void gui_component_draw_bordered(GuiComponent* cmp);
+void gui_component_draw_children(GuiComponent* cmp);
 
 GuiComponent* gui_component_group_create(void* gui, int num,
 					 const char** names,
@@ -148,13 +149,13 @@ void	  gui_component_child_remove(GuiComponent* cmp, GuiComponent* sub);
 void	  gui_component_hide(GuiComponent* cmp);
 void	  gui_component_show(GuiComponent* cmp);
 void	  gui_component_layout(GuiComponent* cmp);
-void 	gui_component_layout_children(GuiComponent* cmp);
+void	  gui_component_layout_children(GuiComponent* cmp);
 void	  gui_component_layout_vertical(GuiComponent* cmp);
 void	  gui_component_layout_horizontal(GuiComponent* cmp);
 void	  gui_component_fit_to_children(GuiComponent* cmp);
 void	  gui_component_layout_simple_buttons(GuiComponent* cmp);
 void	  gui_component_update_size(GuiComponent* cmp);
-
+void	  gui_component_fit_to_root(GuiComponent* cmp, bool preserve_ar);
 //void	gui_component_activate(GuiComponent* cmp, void* input_delegate);
 //void gui_component_deactivate(GuiComponent* cmp);
 //double g_default_ui_size(void* gui);
@@ -162,6 +163,6 @@ RRect g_create_default_bounds(void* gui);
 
 GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double,
 					      double);
-void	  gui_component_render_children(GuiComponent* cmp);
+void	  gui_component_draw_children(GuiComponent* cmp);
 
 #endif /* gui_component_h */

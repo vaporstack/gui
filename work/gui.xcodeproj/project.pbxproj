@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5708A9FE208FF2AD00A9E776 /* gui_vblit_stepseq.h in Headers */ = {isa = PBXBuildFile; fileRef = 5708A9FC208FF2AD00A9E776 /* gui_vblit_stepseq.h */; };
 		5708A9FF208FF2AD00A9E776 /* gui_vblit_stepseq.c in Sources */ = {isa = PBXBuildFile; fileRef = 5708A9FD208FF2AD00A9E776 /* gui_vblit_stepseq.c */; };
+		570A1DF1228742DB00FCB278 /* gui_ios_dpad.h in Headers */ = {isa = PBXBuildFile; fileRef = 570A1DED228742DB00FCB278 /* gui_ios_dpad.h */; };
+		570A1DF2228742DB00FCB278 /* gui_ios_dpad_button.c in Sources */ = {isa = PBXBuildFile; fileRef = 570A1DEE228742DB00FCB278 /* gui_ios_dpad_button.c */; };
+		570A1DF3228742DB00FCB278 /* gui_ios_dpad.c in Sources */ = {isa = PBXBuildFile; fileRef = 570A1DEF228742DB00FCB278 /* gui_ios_dpad.c */; };
+		570A1DF4228742DB00FCB278 /* gui_ios_dpad_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 570A1DF0228742DB00FCB278 /* gui_ios_dpad_button.h */; };
 		5723445F223308A100EC1DBC /* gui_draggable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5723445D223308A100EC1DBC /* gui_draggable.h */; };
 		57234460223308A100EC1DBC /* gui_draggable.c in Sources */ = {isa = PBXBuildFile; fileRef = 5723445E223308A100EC1DBC /* gui_draggable.c */; };
 		57319ADF21B35EDF00DDB8C5 /* gui_anim_mgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 57319ADD21B35EDF00DDB8C5 /* gui_anim_mgr.h */; };
@@ -67,6 +71,8 @@
 		579F9A972234B00500BF3880 /* gui_grdn_entinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 579F9A952234B00500BF3880 /* gui_grdn_entinfo.c */; };
 		579F9BD0223750F300BF3880 /* gui_log.h in Headers */ = {isa = PBXBuildFile; fileRef = 579F9BCE223750F300BF3880 /* gui_log.h */; };
 		579F9BD1223750F300BF3880 /* gui_log.c in Sources */ = {isa = PBXBuildFile; fileRef = 579F9BCF223750F300BF3880 /* gui_log.c */; };
+		57A1A1E12289A63D00D37979 /* gui_ios_dpad_nav.h in Headers */ = {isa = PBXBuildFile; fileRef = 57A1A1DF2289A63D00D37979 /* gui_ios_dpad_nav.h */; };
+		57A1A1E22289A63D00D37979 /* gui_ios_dpad_nav.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A1A1E02289A63D00D37979 /* gui_ios_dpad_nav.c */; };
 		57BB16BD2250319100094859 /* gui_control_rgba.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BB16A12250319000094859 /* gui_control_rgba.c */; };
 		57BB16BE2250319100094859 /* gui_control_progress.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16A22250319000094859 /* gui_control_progress.h */; };
 		57BB16BF2250319100094859 /* gui_icon.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16A32250319000094859 /* gui_icon.h */; };
@@ -101,6 +107,10 @@
 /* Begin PBXFileReference section */
 		5708A9FC208FF2AD00A9E776 /* gui_vblit_stepseq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_vblit_stepseq.h; sourceTree = "<group>"; };
 		5708A9FD208FF2AD00A9E776 /* gui_vblit_stepseq.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_vblit_stepseq.c; sourceTree = "<group>"; };
+		570A1DED228742DB00FCB278 /* gui_ios_dpad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_ios_dpad.h; sourceTree = "<group>"; };
+		570A1DEE228742DB00FCB278 /* gui_ios_dpad_button.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_ios_dpad_button.c; sourceTree = "<group>"; };
+		570A1DEF228742DB00FCB278 /* gui_ios_dpad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_ios_dpad.c; sourceTree = "<group>"; };
+		570A1DF0228742DB00FCB278 /* gui_ios_dpad_button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_ios_dpad_button.h; sourceTree = "<group>"; };
 		5723445D223308A100EC1DBC /* gui_draggable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_draggable.h; sourceTree = "<group>"; };
 		5723445E223308A100EC1DBC /* gui_draggable.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_draggable.c; sourceTree = "<group>"; };
 		57319ADD21B35EDF00DDB8C5 /* gui_anim_mgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_anim_mgr.h; sourceTree = "<group>"; };
@@ -160,6 +170,8 @@
 		579F9A952234B00500BF3880 /* gui_grdn_entinfo.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_grdn_entinfo.c; sourceTree = "<group>"; };
 		579F9BCE223750F300BF3880 /* gui_log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_log.h; sourceTree = "<group>"; };
 		579F9BCF223750F300BF3880 /* gui_log.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_log.c; sourceTree = "<group>"; };
+		57A1A1DF2289A63D00D37979 /* gui_ios_dpad_nav.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_ios_dpad_nav.h; sourceTree = "<group>"; };
+		57A1A1E02289A63D00D37979 /* gui_ios_dpad_nav.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_ios_dpad_nav.c; sourceTree = "<group>"; };
 		57BB16A12250319000094859 /* gui_control_rgba.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_rgba.c; sourceTree = "<group>"; };
 		57BB16A22250319000094859 /* gui_control_progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_progress.h; sourceTree = "<group>"; };
 		57BB16A32250319000094859 /* gui_icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_icon.h; sourceTree = "<group>"; };
@@ -220,6 +232,27 @@
 			path = vblit;
 			sourceTree = "<group>";
 		};
+		570A1DEB228742DB00FCB278 /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				570A1DEC228742DB00FCB278 /* ios */,
+			);
+			path = platform;
+			sourceTree = "<group>";
+		};
+		570A1DEC228742DB00FCB278 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				570A1DEE228742DB00FCB278 /* gui_ios_dpad_button.c */,
+				570A1DF0228742DB00FCB278 /* gui_ios_dpad_button.h */,
+				57A1A1E02289A63D00D37979 /* gui_ios_dpad_nav.c */,
+				57A1A1DF2289A63D00D37979 /* gui_ios_dpad_nav.h */,
+				570A1DEF228742DB00FCB278 /* gui_ios_dpad.c */,
+				570A1DED228742DB00FCB278 /* gui_ios_dpad.h */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
 		575E7B74204D017B00C80D64 = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +283,7 @@
 				575E7B93204D018E00C80D64 /* etc */,
 				5708A9FA208FF28F00A9E776 /* ext */,
 				575E7B9B204D018E00C80D64 /* menu */,
+				570A1DEB228742DB00FCB278 /* platform */,
 				575E7BBB204D018E00C80D64 /* vbl */,
 				575E7B88204D018E00C80D64 /* widget */,
 			);
@@ -431,10 +465,13 @@
 				57BB16BE2250319100094859 /* gui_control_progress.h in Headers */,
 				575E7C0D204D018E00C80D64 /* g_debug_joystick.h in Headers */,
 				575E7BE2204D018E00C80D64 /* gui_menu.h in Headers */,
+				570A1DF4228742DB00FCB278 /* gui_ios_dpad_button.h in Headers */,
 				575E7C05204D018E00C80D64 /* g_gui.h in Headers */,
 				575E7BFF204D018E00C80D64 /* g_widget_clock.h in Headers */,
+				570A1DF1228742DB00FCB278 /* gui_ios_dpad.h in Headers */,
 				579F9A962234B00500BF3880 /* gui_grdn_entinfo.h in Headers */,
 				57334D5C2249337B00DF59F2 /* g_debug_visualizer.h in Headers */,
+				57A1A1E12289A63D00D37979 /* gui_ios_dpad_nav.h in Headers */,
 				575E7C15204D0B7B00C80D64 /* gui_types.h in Headers */,
 				575E7BDD204D018E00C80D64 /* gui_tooltip.h in Headers */,
 				575E7BDC204D018E00C80D64 /* gui_activity.h in Headers */,
@@ -533,11 +570,13 @@
 				57BB16BD2250319100094859 /* gui_control_rgba.c in Sources */,
 				57C9DE1C225F80ED00BED15B /* gui_control_colorwell.c in Sources */,
 				575E7BD6204D018E00C80D64 /* gui_settings.c in Sources */,
+				570A1DF2228742DB00FCB278 /* gui_ios_dpad_button.c in Sources */,
 				575E7C02204D018E00C80D64 /* gui_modal.c in Sources */,
 				575E7BDE204D018E00C80D64 /* gui_comp_rline.c in Sources */,
 				575E7C04204D018E00C80D64 /* gui_component.c in Sources */,
 				57BB16D22250319100094859 /* gui_control_textfield.c in Sources */,
 				575E7BE4204D018E00C80D64 /* gui_menu.c in Sources */,
+				570A1DF3228742DB00FCB278 /* gui_ios_dpad.c in Sources */,
 				575E7BD8204D018E00C80D64 /* g_widget_settings.c in Sources */,
 				5708A9FF208FF2AD00A9E776 /* gui_vblit_stepseq.c in Sources */,
 				57BB16CE2250319100094859 /* gui_control_dropdown.c in Sources */,
@@ -563,6 +602,7 @@
 				575E7BD1204D018E00C80D64 /* gui_widget.c in Sources */,
 				57334D5922492DCB00DF59F2 /* g_debug_stresstest.c in Sources */,
 				575E7BD5204D018E00C80D64 /* g_widget_console.c in Sources */,
+				57A1A1E22289A63D00D37979 /* gui_ios_dpad_nav.c in Sources */,
 				57234460223308A100EC1DBC /* gui_draggable.c in Sources */,
 				57BB16C92250319100094859 /* gui_button.c in Sources */,
 				577A0CF72245A2490064CAA2 /* gui_notification.c in Sources */,

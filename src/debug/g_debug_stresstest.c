@@ -14,7 +14,7 @@
 
 static void recurse_everything(GuiComponent* cmp )
 {
-	gui_log("poking: %s", cmp->name);
+	//gui_log("poking: %s", cmp->name);
 	
 	for ( int i = 0 ; i < cmp->num_children; i++ )
 	{

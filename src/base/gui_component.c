@@ -71,12 +71,11 @@ static void default_layout(GuiComponent* cmp)
 
 void gui_component_draw(GuiComponent* cmp)
 {
-	
-	
-//	if ( 0 == strcmp("colorpicker_palette", cmp->name ))
-//	{
-//		printf(".");
-//	}
+
+	//	if ( 0 == strcmp("colorpicker_palette", cmp->name ))
+	//	{
+	//		printf(".");
+	//	}
 	//	snoopin around
 	//	if (0 == strcmp(cmp->name, "colorpicker_palette"))
 	//	{
@@ -106,7 +105,7 @@ void gui_component_draw(GuiComponent* cmp)
 	drw_push();
 	//	double s = cmp->bounds.size.x;
 
-	drw_translate2f(cmp->bounds.pos.x, cmp->bounds.pos.y);
+	drw_translate(cmp->bounds.pos.x, cmp->bounds.pos.y, 0);
 	double sz = cmp->bounds.size.x;
 	double al = *gui_alpha_mult;
 
@@ -158,26 +157,26 @@ void gui_component_draw(GuiComponent* cmp)
 	//	drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
 
 	drw_alpha(al * *gui_alpha_mult);
-	if ( cmp->art2)
+	if (cmp->art2)
 	{
 		drw_push();
 		drw_translate2f(sz * .5, sz * .5);
-		
+
 		drw_scale_u(cmp->bounds.size.x * .76);
-		
+
 		//drw_set_colorbypass(true);
 		RObject* art2 = cmp->art2;
-		
+
 		drw_robject(art2);
 		//drw_transform_apply(art->transform);
-//		for (int i = 0; i < art2->num; i++)
-//		{
-//			RLine* line = art2->lines[i];
-//			drw_rline(line);
-//		}
-//		
+		//		for (int i = 0; i < art2->num; i++)
+		//		{
+		//			RLine* line = art2->lines[i];
+		//			drw_rline(line);
+		//		}
+		//
 		//drw_set_colorbypass(false);
-		
+
 		drw_pop();
 	}
 	if (cmp->art)
@@ -201,9 +200,8 @@ void gui_component_draw(GuiComponent* cmp)
 
 		drw_pop();
 	}
-	
-	
-	if ( !cmp->art && !cmp->art2)
+
+	if (!cmp->art && !cmp->art2)
 	{
 		if (!cmp->bypass)
 		{
@@ -230,14 +228,14 @@ void gui_component_draw(GuiComponent* cmp)
 	}
 	else
 	{
-		if ( !cmp->bypass)
+		if (!cmp->bypass)
 			drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
 	}
 	drw_alpha_pop();
 	drw_pop();
 
-	if ( cmp->children)
-		gui_component_render_children(cmp);
+	if (cmp->children)
+		gui_component_draw_children(cmp);
 	//drw_alpha_pop();
 }
 
@@ -307,7 +305,7 @@ void gui_component_draw_bordered(GuiComponent* cmp)
 
 	drw_pop();
 	//drw_alpha_pop();
-	gui_component_render_children(cmp);
+	gui_component_draw_children(cmp);
 }
 
 RRect g_create_default_bounds(void* data)
@@ -400,7 +398,7 @@ GuiComponent* gui_component_create(void* data)
 	comp->visible		   = true;
 	comp->hidden		   = false;
 	comp->children		   = NULL;
-	comp->immutable			= false;
+	comp->immutable		   = false;
 	comp->parent		   = NULL;
 	comp->hover		   = false;
 	comp->type		   = 0;
@@ -623,7 +621,7 @@ void gui_component_child_add(GuiComponent* parent, GuiComponent* child)
 
 static void layout_self_in_container(GuiComponent* cmp)
 {
-	
+
 	double w = cmp->parent->bounds.size.x;
 	double h = cmp->parent->bounds.size.y;
 	//double prevx = cmp->bounds.pos.x;
@@ -690,9 +688,9 @@ void gui_component_layout_children(GuiComponent* cmp)
 	for (int i = 0; i < cmp->num_children; ++i)
 	{
 		GuiComponent* ch = cmp->children[i];
-		if ( ch->immutable )
+		if (ch->immutable)
 			continue;
-		
+
 		gui_component_layout(ch);
 	}
 }
@@ -702,10 +700,10 @@ void gui_component_layout(GuiComponent* cmp)
 
 	//	todo: chuck all this in the trash in favor of the simpler
 	// each-thing-has-its-own-layout-function?
-	
-	if(cmp->immutable)
+
+	if (cmp->immutable)
 		return;
-	
+
 	//	where do i fit in
 	if (cmp->parent)
 		layout_self_in_container(cmp);
@@ -718,7 +716,6 @@ void gui_component_layout(GuiComponent* cmp)
 	if (cmp->layout)
 		cmp->layout(cmp);
 }
-
 
 //static void apply_layout_h(GuiComponent*)
 
@@ -820,15 +817,15 @@ void gui_component_fit_to_children(GuiComponent* cmp)
 	gui_component_size(cmp, maxx - minx, maxy - miny);
 }
 
-void gui_component_render_children(GuiComponent* comp)
+void gui_component_draw_children(GuiComponent* comp)
 {
-	
+
 	for (int i = 0; i < comp->num_children; ++i)
 	{
 		GuiComponent* child = comp->children[i];
 		if (!child)
 		{
-			gui_log("!");
+			gui_log("NULL CHILD found on parent.\n");
 		}
 		else
 		{
@@ -851,7 +848,7 @@ void gui_component_layout_simple_buttons(GuiComponent* cmp)
 	double sz = gui_default_ui(cmp->root);
 	gui_component_size(cmp, sz * cmp->num_children, sz);
 
-	for ( unsigned i = 0; i < cmp->num_children; i++ )
+	for (unsigned i = 0; i < cmp->num_children; i++)
 	{
 		gui_component_size(cmp->children[i], sz, sz);
 	}
@@ -932,4 +929,76 @@ GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double x,
 #endif
 
 	return NULL;
+}
+
+void gui_component_fit_to_root(GuiComponent* cmp, bool preserve_ar)
+{
+	Gui* gui = cmp->root;
+	GuiComponent* root = gui->root;
+	
+	if (!preserve_ar)
+	{
+		//	well this is quite a bit simpler lol
+		
+		cmp->bounds	= root->bounds;
+		return;
+	}else{
+		
+		double x = cmp->bounds.size.x;
+		double y = cmp->bounds.size.y;
+		
+		double rx = root->bounds.size.x;
+		double ry = root->bounds.size.y;
+		
+		bool landscape = (x >= y);
+		
+		
+		double sx, sy;
+		double ar = x / y;
+		if ( landscape)
+		{
+			
+			sx = rx;
+			sy = sx * ar;
+			
+		}else{
+			sy =  ry;
+			sx = sy * ar;
+		}
+		gui_component_size(cmp, sx, sy);
+		gui_component_set(cmp, root->bounds.pos.x + root->bounds.size.x * .5 +  sx * -.5, root->bounds.pos.y + root->bounds.size.x * .5 +sy * -.5);
+//		gui_component_set(cmp, sx, sy);
+		
+		/*
+		double dx = cmp->bounds.size.x / root->bounds.size.x ;
+		double dy = cmp->bounds.size.y / root->bounds.size.y;
+		
+		double bigger = ( dx >= dy ) ? dx : dy;
+		
+		double ar = (dx >= dy ) ? dx / dy : dy / dx;
+		
+		if( dx > dy )
+			printf("landscape.\n");
+		
+		double sx, sy;
+		if ( dx <= dy )
+		{
+			sx = 1;
+			sy = dy/ar;
+		}else{
+			sy = 1;
+			sx = dy/ar;
+		}
+		
+		
+		double ox = sx * root->bounds.size.x;
+		double oy = sy * root->bounds.size.y;
+		
+		printf("scaled component %f %f\n", ox, oy);
+		
+		gui_component_size(cmp, ox, oy);
+		gui_component_set(cmp, root->bounds.pos.x , root->bounds.pos.y);
+		*/
+		
+	}
 }

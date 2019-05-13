@@ -182,7 +182,7 @@ void _gui_render_components(Gui* gui, GuiComponent* cont)
 		}
 		else
 		{
-			printf("!");
+			gui_log("NO RENDER METHOD.\n");
 		}
 	}
 }
@@ -194,7 +194,7 @@ void _gui_update_components_invasively(Gui* gui, GuiComponent* cont)
 		GuiComponent* child = cont->children[i];
 		if (!child)
 		{
-			printf("!");
+			gui_log("NULL CHILD found on parent.\n");
 			continue;
 		}
 		else
@@ -216,7 +216,7 @@ void _gui_update_components(Gui* gui, GuiComponent* cont)
 		GuiComponent* comp = cont->children[i];
 		if (!comp)
 		{
-			printf("!");
+			gui_log("NULL CHILD found on parent.\n");
 		}
 		else
 		{
@@ -418,7 +418,6 @@ void gui_layout(Gui* gui)
 		printf("Can't layout, _root is null\n");
 		return;
 	}
-
 	if (gui->debug)
 	{
 		char log[256];
@@ -430,6 +429,20 @@ void gui_layout(Gui* gui)
 
 	//	set the gui to be the size of the window
 	//_root->bounds.
+	if ( gui_fb_w && gui_fb_h)
+	{
+		int w = *gui_fb_w;
+		int h = *gui_fb_h;
+	
+		gui->root->bounds.pos.x = w * -.5;
+		gui->root->bounds.pos.y = h * -.5;
+		gui->root->bounds.size.x = w;
+		gui->root->bounds.size.y = h;
+	}else{
+		gui_log("Warning, no framebuffer variables provided!");
+		
+	}
+	gui->root->layout = NULL;
 	gui_component_layout(gui->root);
 }
 
