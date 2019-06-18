@@ -9,6 +9,12 @@
 
 #include <drw/drw.h>
 
+#ifndef PHI_I
+
+#define PHI 1.6180339887498948482
+#define PHI_I 0.618033988749895
+#endif
+
 static void  cmp_update(GuiComponent* cmp)
 {
 	

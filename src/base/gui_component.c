@@ -16,7 +16,7 @@
 
 #include <r4/r4.h>
 
-#include <deps/vector/vector.h>
+#include <vector/vector.h>
 
 extern AppSettings app_settings;
 
@@ -155,7 +155,6 @@ void gui_component_draw(GuiComponent* cmp)
 	}
 	//if ( !cmp->bypass )
 	//	drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
-
 	drw_alpha(al * *gui_alpha_mult);
 	if (cmp->art2)
 	{
@@ -239,7 +238,29 @@ void gui_component_draw(GuiComponent* cmp)
 	//drw_alpha_pop();
 }
 
-static void edge(GuiComponent* cmp)
+void gui_component_draw_border(GuiComponent* cmp)
+{
+	if (!cmp->visible)
+			return;
+	
+	int pad = gui_default_ui(cmp->root) * .3333;
+	
+	pad =  0;
+	drw_push();
+	drw_translate2f(cmp->bounds.pos.x - pad, cmp->bounds.pos.y - pad);
+	
+		//	performance hacks
+		//if ( !gui->borderless)
+		drw_rect(0, 0, cmp->bounds.size.x + (pad * 2), cmp->bounds.size.y + (pad * 2));
+	
+		drw_pop();
+		//drw_alpha_pop();
+		//gui_component_draw_children(cmp);
+//	}
+
+}
+
+void gui_component_draw_edge(GuiComponent* cmp)
 {
 
 	double sz = gui_default_ui(cmp->root);
@@ -266,9 +287,9 @@ void gui_component_draw_corners(GuiComponent* cmp)
 */
 
 	drw_push();
-	edge(cmp);
+	gui_component_draw_edge(cmp);
 	drw_scale(-1, 1, 1);
-	edge(cmp);
+	gui_component_draw_edge(cmp);
 	drw_pop();
 }
 
@@ -395,6 +416,7 @@ GuiComponent* gui_component_create(void* data)
 	comp->data		   = NULL;
 	comp->on		   = true;
 	comp->container		   = false;
+	comp->sealed = false;
 	comp->visible		   = true;
 	comp->hidden		   = false;
 	comp->children		   = NULL;
@@ -523,20 +545,25 @@ void gui_component_size(GuiComponent* cmp, double x, double y)
 	cmp->bounds.size.y = y;
 }
 
+static void delete_child(GuiComponent*parent, int index)
+{
+	gui_log("deleting");
+	GuiComponent* victim = parent->children[index];
+	
+	//gui_component_destroy(victim);
+	victim = NULL;
+	
+	for (int i = index; i < parent->num_children - 1; i++)
+	{
+		parent->children[index] = parent->children[index + 1];
+	}
+	parent->num_children--;
+}
+
 void gui_component_child_remove(GuiComponent* parent, GuiComponent* child)
 {
-	//printf("TODO IMPLEMENT THIS\n");
-	/*void* test_item = calloc(1, sizeof(GuiComponent));
-	for (int i = 0; i < parent->children_vec->length; i++)
-	{
-		vector_get(parent->children_vec, i, test_item);
-		GuiComponent* test = (GuiComponent*)test_item;
-		if (test == child)
-		{
-			gui_log("FOUND IT");
-		}
-	}
-	 */
+
+	
 	int index = -1;
 	for (int i = 0; i < parent->num_children; i++)
 	{
@@ -550,19 +577,18 @@ void gui_component_child_remove(GuiComponent* parent, GuiComponent* child)
 
 	if (index > -1)
 	{
-		gui_log("deleting");
-		GuiComponent* victim = parent->children[index];
-
-		//gui_component_destroy(victim);
-		victim = NULL;
-
-		for (int i = index; i < parent->num_children - 1; i++)
-		{
-			parent->children[index] = parent->children[index + 1];
-		}
-		parent->num_children--;
+		delete_child(parent, index);
 	}
 	//free(test_item);
+}
+
+void	  gui_component_child_remove_index(GuiComponent* cmp, int index)
+{
+	if ( index == -1 )
+	{
+		index = cmp->num_children - 1;
+	}
+	delete_child(cmp, index);
 }
 
 void gui_component_child_add(GuiComponent* parent, GuiComponent* child)
@@ -857,8 +883,7 @@ void gui_component_layout_simple_buttons(GuiComponent* cmp)
 	gui_component_layout_horizontal(cmp);
 }
 
-GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double x,
-					      double y)
+GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double x, double y)
 {
 #ifndef RPLATFORM_WIN
 
@@ -868,41 +893,52 @@ GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double x,
 	if (cont->hidden)
 		return NULL;
 
-	for (int i = 0; i < cont->num_children; ++i)
+	if ( cont->sealed )
 	{
-		GuiComponent* sub  = cont->children[i];
-		GuiComponent* sub2 = gui_component_find_pointerfocus(sub, x, y);
-
-		if (sub2)
+		if ( r_rect_within(cont->bounds, x, y))
+			return cont;
+	}else{
+	
+		for (int i = 0; i < cont->num_children; ++i)
 		{
-			return sub2;
-		}
-
-		if (sub->find_focus)
-		{
-			if (sub->find_focus(sub, x, y))
+			GuiComponent* sub  = cont->children[i];
+			if ( !sub->sealed )
 			{
-				sub->focus = true;
-				return sub;
-			}
-		}
-		else
-		{
-			if (r_rect_within(sub->bounds, x, y))
-			{
-				if (sub->enabled)
+				GuiComponent* sub2 = gui_component_find_pointerfocus(sub, x, y);
+
+				if (sub2)
 				{
-					sub->focus  = true;
-					cont->focus = false;
+					return sub2;
+				}
+			}
+			
+			if (sub->find_focus)
+			{
+				if (sub->find_focus(sub, x, y))
+				{
+					sub->focus = true;
 					return sub;
 				}
 			}
 			else
 			{
-				sub->focus = false;
+				if (r_rect_within(sub->bounds, x, y))
+				{
+					if (sub->enabled)
+					{
+						sub->focus  = true;
+						cont->focus = false;
+						return sub;
+					}
+				}
+				else
+				{
+					sub->focus = false;
+				}
 			}
 		}
 	}
+	
 	if (!cont->enabled)
 	{
 		return NULL;
@@ -933,53 +969,55 @@ GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double x,
 
 void gui_component_fit_to_root(GuiComponent* cmp, bool preserve_ar)
 {
-	Gui* gui = cmp->root;
+	Gui*	  gui  = cmp->root;
 	GuiComponent* root = gui->root;
-	
+
 	if (!preserve_ar)
 	{
 		//	well this is quite a bit simpler lol
-		
-		cmp->bounds	= root->bounds;
+
+		cmp->bounds = root->bounds;
 		return;
-	}else{
-		
+	}
+	else
+	{
+
 		double x = cmp->bounds.size.x;
 		double y = cmp->bounds.size.y;
-		
+
 		double rx = root->bounds.size.x;
 		double ry = root->bounds.size.y;
-		
+
 		bool landscape = (x >= y);
-		
-		
+
 		double sx, sy;
 		double ar = x / y;
-		if ( landscape)
+		if (landscape)
 		{
-			
+
 			sx = rx;
 			sy = sx * ar;
-			
-		}else{
-			sy =  ry;
+		}
+		else
+		{
+			sy = ry;
 			sx = sy * ar;
 		}
 		gui_component_size(cmp, sx, sy);
-		gui_component_set(cmp, root->bounds.pos.x + root->bounds.size.x * .5 +  sx * -.5, root->bounds.pos.y + root->bounds.size.x * .5 +sy * -.5);
-//		gui_component_set(cmp, sx, sy);
-		
+		gui_component_set(cmp, root->bounds.pos.x + root->bounds.size.x * .5 + sx * -.5, root->bounds.pos.y + root->bounds.size.x * .5 + sy * -.5);
+		//		gui_component_set(cmp, sx, sy);
+
 		/*
 		double dx = cmp->bounds.size.x / root->bounds.size.x ;
 		double dy = cmp->bounds.size.y / root->bounds.size.y;
-		
+
 		double bigger = ( dx >= dy ) ? dx : dy;
-		
+
 		double ar = (dx >= dy ) ? dx / dy : dy / dx;
-		
+
 		if( dx > dy )
 			printf("landscape.\n");
-		
+
 		double sx, sy;
 		if ( dx <= dy )
 		{
@@ -989,16 +1027,15 @@ void gui_component_fit_to_root(GuiComponent* cmp, bool preserve_ar)
 			sy = 1;
 			sx = dy/ar;
 		}
-		
-		
+
+
 		double ox = sx * root->bounds.size.x;
 		double oy = sy * root->bounds.size.y;
-		
+
 		printf("scaled component %f %f\n", ox, oy);
-		
+
 		gui_component_size(cmp, ox, oy);
 		gui_component_set(cmp, root->bounds.pos.x , root->bounds.pos.y);
 		*/
-		
 	}
 }

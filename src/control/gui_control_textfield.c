@@ -7,6 +7,8 @@
 
 #include "gui_control_textfield.h"
 
+#include <r4/src/r4_platform.h>
+
 #include <drw/drw.h>
 #include <stdlib.h>
 

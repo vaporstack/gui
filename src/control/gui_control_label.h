@@ -12,8 +12,8 @@
 #include "../base/gui_component.h"
 typedef struct GLabel
 {
-	const char* text;
-	const char* localtext;
+	char* text;
+	char* localtext;
 } GLabel;
 
 GuiComponent* gui_control_label_create(Gui* gui, const char* label);

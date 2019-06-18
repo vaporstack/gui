@@ -13,9 +13,11 @@
 
 #include <r4/src/r4_config.h>
 
+#include <r4/src/geo/r_point.h>
 #include <r4/src/geo/r_rect.h>
 #include <r4/src/input/r_input.h>
 #include <wsh/wsh.h>
+
 
 //#include "../geo/r_rect.h"
 #include <stdbool.h>
@@ -88,6 +90,7 @@ typedef struct GuiComponent
 	bool		    enabled;
 	bool		    bypass;
 	bool		    hover;
+	bool sealed;
 	bool		    selected;
 	bool		    on;
 	bool		    draggable;
@@ -112,6 +115,7 @@ typedef struct GuiComponent
 	void*	 art;
 	void*	 art2;
 	void*	 drag;
+	void* attr;
 
 	int		      num_children;
 	struct GuiComponent** children;
@@ -131,6 +135,8 @@ typedef void (*resize_func)(void*, double, double);
 
 void gui_component_set_children_type(GuiComponent* cmp, int type);
 void gui_component_draw(GuiComponent* cmp);
+void gui_component_draw_edge(GuiComponent* cmp);
+void gui_component_draw_border(GuiComponent* cmp);
 void gui_component_draw_corners(GuiComponent* cmp);
 void gui_component_draw_bordered(GuiComponent* cmp);
 void gui_component_draw_children(GuiComponent* cmp);
@@ -146,6 +152,9 @@ void	  gui_component_size(GuiComponent* cmp, double x, double y);
 void	  gui_component_move(void* gui, GuiComponent* cmp, double x, double y);
 void	  gui_component_child_add(GuiComponent* cmp, GuiComponent* sub);
 void	  gui_component_child_remove(GuiComponent* cmp, GuiComponent* sub);
+void	  gui_component_child_remove_index(GuiComponent* cmp, int index);
+void	gui_component_children_clear(GuiComponent* cmp);
+
 void	  gui_component_hide(GuiComponent* cmp);
 void	  gui_component_show(GuiComponent* cmp);
 void	  gui_component_layout(GuiComponent* cmp);

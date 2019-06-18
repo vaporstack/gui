@@ -46,6 +46,14 @@ static void click(InputDelegate* del, int button, int action, int mods)
 	printf("%d %d %d\n", button, action, mods);
 }
 
+static void layout(GuiComponent* cmp )
+{
+	Gui* g = cmp->root;
+	double sz = gui_default_ui(g);
+	gui_component_size(cmp, sz * 3, sz);
+	
+}
+
 GuiComponent* gui_control_label_create(Gui* gui, const char* label)
 {
 
@@ -53,6 +61,7 @@ GuiComponent* gui_control_label_create(Gui* gui, const char* label)
 	GLabel*       info = calloc(1, sizeof(GLabel));
 	double	sz   = gui_default_ui(gui);
 	gui_component_size(cmp, sz * 4, sz);
+	cmp->layout = layout;
 	info->text		   = label;
 	cmp->name		   = "label";
 	cmp->data		   = info;

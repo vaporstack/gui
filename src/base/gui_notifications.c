@@ -95,10 +95,13 @@ static void update(GuiComponent* cmp)
 
 static void draw(GuiComponent* cmp)
 {
-	for (unsigned i = 0; i < cmp->num_children; i++)
+	for (signed i = cmp->num_children - 1; i > 0; i--)
 	{
 		GuiComponent* child = cmp->children[i];
+		drw_push();
+		drw_translate(0, child->bounds.size.y * i * -1.5, 0);
 		(child->draw) ? child->draw(child) : gui_component_draw(child);
+		drw_pop();
 	}
 }
 

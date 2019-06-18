@@ -19,7 +19,7 @@ static void gui_button_draw(GuiComponent* btn)
 	drw_push();
 	drw_translate(btn->bounds.pos.x, btn->bounds.pos.y, 0);
 	drw_translate(btn->bounds.size.x * .5, btn->bounds.size.y * .5, 0);
-	ButtonAttrs* attr = btn->data;
+	ButtonAttrs* attr = btn->attr;
 	if (attr)
 	{
 		/*if ( attr->value )
@@ -59,7 +59,7 @@ GuiComponent* gui_button_create(void* gui, const char* label, click_func func)
 	//attr->value =
 	attr->click = func;
 	cmp->find_focus = find_focus;
-	cmp->data   = attr;
+	cmp->attr   = attr;
 	cmp->type   = GUI_TYPE_PUSHBUTTON;
 	cmp->draw   = gui_button_draw;
 	return cmp;

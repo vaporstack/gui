@@ -8,6 +8,12 @@
 #include "gui_control_checkbox.h"
 #include <drw/drw.h>
 
+#ifndef PHI_I
+
+#define PHI 1.6180339887498948482
+#define PHI_I 0.618033988749895
+#endif
+
 static void move_cursor(GuiComponent* cmp, int pos);
 static void update(GuiComponent* cmp);
 

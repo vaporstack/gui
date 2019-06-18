@@ -23,6 +23,12 @@ int   gui_check_compat_match(const char* str);
 char* gui_get_version_string(void);
 char* gui_get_compat_string(void);
 
+#ifndef PHI_I
+
+#define PHI 1.6180339887498948482
+#define PHI_I 0.618033988749895
+#endif
+
 //	todo: transition these to use the macro which is way more efficient
 static inline char* gui_get_compat_string_header(void)
 {
