@@ -277,8 +277,8 @@ void gui_update(Gui* gui)
 	if (gui->anim_mgr)
 		gui_anim_mgr_update(gui->anim_mgr);
 
-	//if ( gui->root )
-	//	_gui_update_components_invasively(gui, gui->root);
+	if ( gui->root )
+		_gui_update_components_invasively(gui, gui->root);
 }
 
 void gui_set_retina(Gui* gui, double f)
