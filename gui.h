@@ -58,6 +58,7 @@ double		gui_get_global_scale(void);
 extern double 	gui_ui_unit;
 extern int* gui_fb_w;
 extern int* gui_fb_h;
+extern bool gui_righthanded;
 extern double* gui_cursor_x;
 extern double* gui_cursor_y;
 extern double* gui_alpha_mult;

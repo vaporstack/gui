@@ -266,7 +266,7 @@ static void draw(GuiComponent* cmp)
 		if (!cmp->interacting)
 		{
 			drw_push();
-			drw_scale_u(4);
+			//drw_scale_u(2);
 			drw_type_draw(field->addr);
 			drw_pop();
 		}

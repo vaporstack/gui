@@ -10,13 +10,16 @@
 #define gui_interaction_h
 
 #include <coer/coer.h>
+#include <stdbool.h>
 
 typedef struct
 {
 	double begin;
 	double trigger;
 	double timeout;
+	CPoint current;
 	CPoint start;
+	bool left;
 }GInteraction;
 
 GInteraction* gui_interaction_create(void);

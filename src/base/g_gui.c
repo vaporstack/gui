@@ -400,7 +400,7 @@ void gui_notify_resize(void* data, unsigned int w, unsigned int h)
 //
 //
 //	gui_set_global_scale(test);
-	gui_set_global_scale(1);
+	//gui_set_global_scale(1);
 	gui_layout(gui);
 	
 	
@@ -478,7 +478,7 @@ double gui_default_ui(Gui* gui)
 		l_warning("can't default, no UI\n");
 		return 32;
 	}
-	gui_ui_unit =  gui->scale_retina * 2 * G_UI_BTN_SIZE * gui_get_global_scale();
+	gui_ui_unit =  gui->scale_retina * 1 * G_UI_BTN_SIZE * gui_get_global_scale();
 	return gui_ui_unit;
 }
 

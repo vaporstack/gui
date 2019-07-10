@@ -44,7 +44,7 @@ GuiComponent* gui_control_slider_create_d(double* data, void* gui);
 GuiComponent* gui_control_slider_create_cb(double* addr, my_slider_func cb, void* gui);
 void	  gui_control_slider_draw(struct GuiComponent* cmp);
 void	  gui_control_slider_setup(GuiComponent* cmp);
-
+void	gui_control_slider_update_changed_val(GuiComponent* cmp, double val);
 // void g_slider_update_i(GuiSliderI* slider, float val);
 // void g_slider_update_f(GuiSliderD* slider, float val);
 

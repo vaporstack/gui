@@ -107,7 +107,11 @@ void gui_component_draw(GuiComponent* cmp)
 
 	drw_translate(cmp->bounds.pos.x, cmp->bounds.pos.y, 0);
 	double sz = cmp->bounds.size.x;
-	double al = *gui_alpha_mult;
+	
+	
+	double al = 1 ;
+	if ( gui_alpha_mult )
+		al = *gui_alpha_mult;
 
 	//printf("%f %f\n", cmp->bounds.size.x, cmp->bounds.size.y);
 	if (cmp->locked)
@@ -155,7 +159,9 @@ void gui_component_draw(GuiComponent* cmp)
 	}
 	//if ( !cmp->bypass )
 	//	drw_rect(0, 0, cmp->bounds.size.x, cmp->bounds.size.y);
-	drw_alpha(al * *gui_alpha_mult);
+	if (gui_alpha_mult)
+		al *= *gui_alpha_mult;
+	drw_alpha(al);
 	if (cmp->art2)
 	{
 		drw_push();
@@ -297,8 +303,9 @@ void gui_component_draw_bordered(GuiComponent* cmp)
 {
 	if (!cmp->visible)
 		return;
-
-	int pad = gui_default_ui(cmp->root) * .3333;
+	
+	double pad = gui_ui_unit * .3333;
+	//int pad = gui_default_ui(cmp->root) * .3333;
 
 	//double alpha = 1;
 	if (cmp->on)
@@ -333,7 +340,8 @@ RRect g_create_default_bounds(void* data)
 {
 	// Gui* gui = (Gui*)data;
 	RRect  b;
-	double sz = gui_default_ui(data);
+	//double sz = gui_default_ui(data);
+	double sz = gui_ui_unit;
 	//	double sz = R_UI_BTN_SIZE * app_settings.scale_retina * HC_RET;
 
 	b.pos.x  = 0;
@@ -647,16 +655,58 @@ void gui_component_child_add(GuiComponent* parent, GuiComponent* child)
 
 static void layout_self_in_container(GuiComponent* cmp)
 {
-
-	double w = cmp->parent->bounds.size.x;
-	double h = cmp->parent->bounds.size.y;
+	//gui_fb_h;
+	//new infra for left handed right handedness
+	GuiComponent* parent = cmp->parent;
+	double pw = cmp->parent->bounds.size.x;
+	double ph = cmp->parent->bounds.size.y;
 	//double prevx = cmp->bounds.pos.x;
 	//	double prevy = cmp->bounds.pos.y;
 
+	double x, y, w, h;
+	x = y = 0;
+	w = h = 16;
+	double sz = -1;
+	if ( gui_ui_unit )
+		sz = gui_ui_unit;
+	else
+		sz = gui_default_ui(cmp->root);
+	
+	
+	switch (cmp->orientation.horizontal) {
+		case GUI_H_ORIENTATION_FILL:
+			
+			break;
+		case GUI_H_ORIENTATION_LEFT:
+			x = parent->bounds.pos.x;
+			break;
+		case GUI_H_ORIENTATION_RIGHT:
+			x = parent->bounds.pos.x - cmp->bounds.size.x;
+			break;
+			
+		default:
+			break;
+	}
+	
+	switch (cmp->orientation.vertical)
+	{
+		case GUI_V_ORIENTATION_BOTTOM:
+			y = parent->bounds.pos.y;
+			break;
+		case GUI_V_ORIENTATION_TOP:
+			y = parent->bounds.pos.y - cmp->bounds.size.y;
+			break;
+			
+	}
+	
+	
+	gui_component_set(cmp, x, y);
+	/*
 	if (cmp->orientation.horizontal == GUI_H_ORIENTATION_FILL)
 	{
 		cmp->bounds.pos.x  = cmp->parent->bounds.pos.x;
 		cmp->bounds.size.x = cmp->parent->bounds.size.x;
+	
 		//cmp->x		   = cmp->parent->x;
 	}
 	if (cmp->orientation.vertical == GUI_V_ORIENTATION_FILL)
@@ -705,7 +755,8 @@ static void layout_self_in_container(GuiComponent* cmp)
 		gui_component_set(cmp, px, py);
 		// gui_component_move(cmp, prevx, prevy);
 	}
-
+*/
+	
 	//other stuff?
 }
 
@@ -728,19 +779,26 @@ void gui_component_layout(GuiComponent* cmp)
 	// each-thing-has-its-own-layout-function?
 
 	if (cmp->immutable)
+	{
+		printf("unnec function call here maybe\n");
 		return;
-
-	//	where do i fit in
-	if (cmp->parent)
-		layout_self_in_container(cmp);
-
+	}
+	
 	//	where do my children go
 	if (cmp->container)
 		gui_component_layout_children(cmp);
 
+	//	where do i fit in
+	if ( !cmp->layout && cmp->parent)
+	{
+		layout_self_in_container(cmp);
+		
+	}else{
+		if (cmp->layout)
+			cmp->layout(cmp);
+	}
 	//	custom overrides
-	if (cmp->layout)
-		cmp->layout(cmp);
+	
 }
 
 //static void apply_layout_h(GuiComponent*)
@@ -800,6 +858,12 @@ void gui_component_layout_horizontal(GuiComponent* comp)
 
 void gui_component_layout_vertical(GuiComponent* cmp)
 {
+	if ( cmp->num_children == 0 )
+	{
+		l_warning("Can't layout with NULL children eh");
+		return;
+	}
+	
 	double w   = cmp->bounds.size.x;
 	double h   = cmp->bounds.size.y;
 	double pad = PHI_I * gui_default_ui(cmp->root);

@@ -52,9 +52,10 @@ void gui_colorwell_draw(GuiComponent* cmp)
 	drw_circle_precision_set(32);
 	
 	//	this is horrible and I hate it but I'm in a hurry for results dammit
-	double v = gui_default_ui(cmp->root) * PHI * .25;
+	double v = gui_ui_unit;
+	//double v = gui_default_ui(cmp->root) * PHI * .25;
 	
-	drw_circle(v);
+	drw_circle(v * PHI * .25);
 	
 	drw_fill_pop();
 	drw_color_pop();

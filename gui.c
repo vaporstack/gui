@@ -22,6 +22,8 @@ double*     gui_cursor_y   = NULL;
 
 int* gui_fb_w = NULL;
 int* gui_fb_h = NULL;
+bool gui_righthanded = false;
+
 
 double gui_ui_unit = 1;
 
@@ -59,8 +61,6 @@ void		gui_set_global_scale(double sc)
 {
 	gui_global_scale = sc;
 	gui_ui_unit = sc;
-	
-	
 }
 
 double		gui_get_global_scale(void)

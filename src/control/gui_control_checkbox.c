@@ -49,6 +49,12 @@ static void touch_cancel(struct InputDelegate* del, double x, double y, double r
 
 static void touch_began(struct InputDelegate* del, double x, double y, double r)
 {
+	GuiComponent* cmp = del->parent;
+	if (r_rect_within(cmp->bounds, x, y))
+	{
+		toggle(cmp);
+	}
+	end(del->parent);
 }
 
 static void touch_move(struct InputDelegate* del, double x, double y, double r)
@@ -57,12 +63,7 @@ static void touch_move(struct InputDelegate* del, double x, double y, double r)
 
 static void touch_ended(struct InputDelegate* del, double x, double y, double r)
 {
-	GuiComponent* cmp = del->parent;
-	if (r_rect_within(cmp->bounds, x, y))
-	{
-		toggle(cmp);
-	}
-	end(del->parent);
+
 }
 
 static void tablet_down_rich(struct InputDelegate* del, double x, double y, int button, double pressure, double rotation, double tilt_x, double tilt_y, double tangential)

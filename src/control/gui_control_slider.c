@@ -81,8 +81,9 @@ static void do_slider(InputDelegate* del, double x, double y, double r)
 	//double range = attr->upper - attr->lower;
 	//v *= range;
 
-	attr->function(cmp, *attr->target);
 	update(cmp);
+
+	attr->function(cmp, *attr->target);
 }
 
 static void begin(GuiComponent* cmp)
@@ -268,7 +269,6 @@ static void draw_horizontal(GuiComponent* cmp)
 	drw_circle(v);
 	drw_fill_pop();
 	drw_color_pop();
-
 	drw_circle(v);
 	drw_pop();
 	if (cmp->interacting)
@@ -289,7 +289,17 @@ static void draw_horizontal(GuiComponent* cmp)
 		drw_pop();
 	}
 	drw_pop();
+	
 }
+
+void	gui_control_slider_update_changed_val(GuiComponent* cmp, double val)
+{
+	GuiSliderD* info = cmp->data;
+	double* target = info->target;
+	
+	*target = val;
+}
+
 
 static void draw_vertical(GuiComponent* cmp)
 {

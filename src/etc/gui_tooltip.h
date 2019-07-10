@@ -10,14 +10,17 @@
 #define gui_tooltip_h
 
 #include "../base/gui_component.h"
+#include "../base/g_gui.h"
 
 typedef struct GuiTooltip
 {
 	const char* name;
 	const char* tip;
+	GuiComponent* target;
 } GuiTooltip;
 
-GuiComponent* gui_tooltip_create(void);
-void	  gui_tooltip_destroy(GuiComponent* comp);
+
+GuiComponent* gui_tooltip_create(Gui* gui);
+//void	  gui_tooltip_destroy(GuiComponent* comp);
 
 #endif /* gui_tooltip_h */
