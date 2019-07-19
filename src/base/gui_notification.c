@@ -123,6 +123,7 @@ static int click(GuiComponent* cmp, double d)
 
 static void draw(GuiComponent* cmp)
 {
+	drw_color_save();
 	GNotification* info = cmp->data;
 	if (!info)
 		return;
@@ -137,9 +138,14 @@ static void draw(GuiComponent* cmp)
 	//drw_alpha(d);
 	drw_alpha_mult(alpha);
 
+	
 	drw_rect_r(cmp->bounds);
 	drw_fill_pop();
-	drw_color_pop();
+	
+	drw_color_c16(r_app_color_get_fh());
+	drw_rect_r(cmp->bounds);
+	
+//	drw_color_pop();
 	//drw_set_line_width(2);
 	drw_alpha_mult(alpha);
 	drw_rect_r(cmp->bounds);
@@ -147,9 +153,12 @@ static void draw(GuiComponent* cmp)
 	drw_alpha_mult_pop();
 
 	GuiComponent* sub = info->sub;
-
+	drw_color_restore();
+	
 	(sub->draw) ? sub->draw(sub) : gui_component_draw(sub);
+	
 }
+
 
 static void setup_delegate(InputDelegate* del)
 {

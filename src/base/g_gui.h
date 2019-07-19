@@ -27,9 +27,6 @@ enum
 	GuiAlignVBottom
 };
 
-
-
-
 //TODO: this appears to be for DrawTarget
 #include <r4/src/app/r_app.h>
 
@@ -41,24 +38,24 @@ typedef struct
 typedef struct Gui
 {
 	bool	  debug;
-	bool borderless;
+	bool	  borderless;
 	double	scale_retina;
 	double	width;
 	double	height;
 	GuiComponent* root;
 	struct map_t* items;
 	DrawTarget    dtarget;
-	void* anim_mgr;
+	void*	 anim_mgr;
 	GuiComponent* notifications;
 	// resize_func resize;
 	// ResizeTarget* target;
-	bool	  debug_visibility_override;
-	
+	bool debug_visibility_override;
+
 	InputDelegate del;
 
 } Gui;
 
-GuiComponent* gui_find_component(Gui* gui, const char* ident);
+GuiComponent* gui_component_find(Gui* gui, const char* ident);
 int	   gui_component_register(Gui* gui, const char* ident, GuiComponent* cmp);
 
 Gui* gui_create(const char* name);

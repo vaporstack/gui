@@ -43,7 +43,8 @@ void gui_colorwell_draw(GuiComponent* cmp)
 	
 	ColorPicker* pik = (ColorPicker*)cmp->data;
 	RColor16*    c   = pik->color;
-	drw_color_push();
+	drw_color_save();
+	//drw_color_push();
 	drw_color(c->r, c->g, c->b, c->a * *gui_alpha_mult);
 	drw_fill_set(true);
 	drw_push();
@@ -58,12 +59,19 @@ void gui_colorwell_draw(GuiComponent* cmp)
 	drw_circle(v * PHI * .25);
 	
 	drw_fill_pop();
-	drw_color_pop();
-	
+	//drw_color_pop();
+	drw_color_restore();
 	drw_pop();
 	return;
 }
 
+static void destroy(GuiComponent* cmp)
+{
+	ColorPicker* cp = cmp->data;
+	free(cp);
+	free(cmp);
+	
+}
 GuiComponent* gui_colorwell_create(void* gui, RColor16* color_ref, click_func onclick)
 {
 	GuiComponent* cmp  = gui_component_create(gui);
@@ -74,6 +82,8 @@ GuiComponent* gui_colorwell_create(void* gui, RColor16* color_ref, click_func on
 	cmp->data		 = pick;
 	cmp->draw		 = gui_colorwell_draw;
 	cmp->name		 = "gui_colorpicker";
+	//cmp->destroy = gui_colorwell_destroy;
+	cmp->destroy = destroy;
 	cmp->type = GUI_TYPE_PUSHBUTTON;
 	cmp->delegate.touch_move = &_scroll;
 	// cmp->delegate.click = &_click;

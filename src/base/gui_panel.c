@@ -123,7 +123,7 @@ static void draw(GuiComponent* cmp)
 	
 	drw_alpha_pop();
 	drw_fill_pop();
-	drw_color_pop();
+//	drw_color_pop();
 	drw_rect(cmp->bounds.pos.x, cmp->bounds.pos.y, cmp->bounds.size.x, cmp->bounds.size.y);
 	
 	//gui_component_draw(cmp);

@@ -246,7 +246,7 @@ static void draw_horizontal(GuiComponent* cmp)
 	GuiSliderD* attr   = cmp->data;
 	double      margin = cmp->bounds.size.y * .5;
 	double*     d      = attr->target;
-
+	drw_color_save();
 	double p = attr->pos;
 	drw_push();
 	drw_translate2f(cmp->bounds.pos.x, cmp->bounds.pos.y);
@@ -263,12 +263,19 @@ static void draw_horizontal(GuiComponent* cmp)
 	drw_translate2f(margin + (p * (cmp->bounds.size.x - margin * 2)), 0);
 	double v = gui_default_ui(cmp->root) * PHI * .25;
 
+	drw_circle(v * 1);
 	RColor16 c = r_app_color_get_bg();
+	//drw_color_save();
+	
+	drw_circle(v * .9);
+	
+	
 	drw_color_c16(c);
 	drw_fill_set(true);
-	drw_circle(v);
+	drw_circle(v*.85);
 	drw_fill_pop();
 	drw_color_pop();
+	
 	drw_circle(v);
 	drw_pop();
 	if (cmp->interacting)
@@ -281,14 +288,19 @@ static void draw_horizontal(GuiComponent* cmp)
 		drw_circle(v);
 		drw_fill_pop();
 		drw_alpha_pop();
-		drw_color_pop();
+//		drw_color_pop();
 
+		//drw_color_restore();
+		
+		drw_color_c16(r_app_color_get_fh());
+		
 		drw_circle(v);
 		drw_type_set_align(DRW_TYPE_ALIGN_H_CENTER, DRW_TYPE_ALIGN_V_CENTER);
 		drw_type_draw("%.2f", *d);
 		drw_pop();
 	}
 	drw_pop();
+	drw_color_restore();
 	
 }
 
@@ -341,6 +353,7 @@ void gui_control_slider_draw(struct GuiComponent* cmp)
 	gui_component_draw(cmp);
 	drw_circle_precision_set(16);
 	GuiSliderD* attr = cmp->data;
+	
 	if (attr->vertical)
 	{
 		draw_horizontal(cmp);

@@ -10,6 +10,16 @@
 #define gui_ios_dpad_nav_h
 
 #include <gui/gui.h>
-GuiComponent* gui_ios_dpad_nav_create(Gui* gui);
+
+typedef void (*navpad_cb)(GuiComponent* cmp, double x, double y);
+
+typedef struct
+{
+	navpad_cb callback;
+	CPoint    current;
+	CPoint    start;
+} GNavPad;
+
+GuiComponent* gui_ios_dpad_nav_create(Gui* gui, navpad_cb fn);
 
 #endif /* gui_ios_dpad_nav_h */

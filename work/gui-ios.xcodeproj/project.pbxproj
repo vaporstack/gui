@@ -48,6 +48,7 @@
 		57A4ADAD22384FEA00C7699D /* gui_log.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A4ADAA22384FEA00C7699D /* gui_log.c */; };
 		57C7BD912287396A00C1A1B0 /* gui_ios_dpad.c in Sources */ = {isa = PBXBuildFile; fileRef = 57C7BD902287396A00C1A1B0 /* gui_ios_dpad.c */; };
 		57D1E5572257CA5E008C0D4B /* gui_interaction.c in Sources */ = {isa = PBXBuildFile; fileRef = 57D1E5552257CA5E008C0D4B /* gui_interaction.c */; };
+		57ED6F2622DEB52000053E84 /* gui_ios_dpad_nav.c in Sources */ = {isa = PBXBuildFile; fileRef = 57ED6F2422DEB51F00053E84 /* gui_ios_dpad_nav.c */; };
 		57FED068225F97D200957396 /* gui_control_colorwell.c in Sources */ = {isa = PBXBuildFile; fileRef = 57FED066225F97D200957396 /* gui_control_colorwell.c */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +147,8 @@
 		57C7BD902287396A00C1A1B0 /* gui_ios_dpad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_ios_dpad.c; sourceTree = "<group>"; };
 		57D1E5552257CA5E008C0D4B /* gui_interaction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_interaction.c; sourceTree = "<group>"; };
 		57D1E5562257CA5E008C0D4B /* gui_interaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_interaction.h; sourceTree = "<group>"; };
+		57ED6F2422DEB51F00053E84 /* gui_ios_dpad_nav.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_ios_dpad_nav.c; sourceTree = "<group>"; };
+		57ED6F2522DEB52000053E84 /* gui_ios_dpad_nav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_ios_dpad_nav.h; sourceTree = "<group>"; };
 		57F12E301F8190B400564D7C /* gui_config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gui_config.h; path = ../gui_config.h; sourceTree = "<group>"; };
 		57FED066225F97D200957396 /* gui_control_colorwell.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_colorwell.c; sourceTree = "<group>"; };
 		57FED067225F97D200957396 /* gui_control_colorwell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_colorwell.h; sourceTree = "<group>"; };
@@ -249,24 +252,24 @@
 		575F25AC1FD1FFD90070B425 /* control */ = {
 			isa = PBXGroup;
 			children = (
+				575F25C21FD1FFD90070B425 /* gui_button.c */,
+				575F25B61FD1FFD90070B425 /* gui_button.h */,
 				575F25BE1FD1FFD90070B425 /* gui_control_checkbox.c */,
 				575F25B21FD1FFD90070B425 /* gui_control_checkbox.h */,
 				57FED066225F97D200957396 /* gui_control_colorwell.c */,
 				57FED067225F97D200957396 /* gui_control_colorwell.h */,
+				578E88D72243340200786792 /* gui_control_dropdown.c */,
+				578E88D62243340200786792 /* gui_control_dropdown.h */,
 				575F25B51FD1FFD90070B425 /* gui_control_label.c */,
 				575F25C41FD1FFD90070B425 /* gui_control_label.h */,
 				575F25BB1FD1FFD90070B425 /* gui_control_progress.c */,
 				575F25AD1FD1FFD90070B425 /* gui_control_progress.h */,
+				575F25B71FD1FFD90070B425 /* gui_control_seq.c */,
+				575F25C11FD1FFD90070B425 /* gui_control_seq.h */,
 				575F25B11FD1FFD90070B425 /* gui_control_slider.c */,
 				575F25BF1FD1FFD90070B425 /* gui_control_slider.h */,
 				575F25B81FD1FFD90070B425 /* gui_control_textfield.c */,
-				578E88D62243340200786792 /* gui_control_dropdown.h */,
-				578E88D72243340200786792 /* gui_control_dropdown.c */,
 				575F25C01FD1FFD90070B425 /* gui_control_textfield.h */,
-				575F25C21FD1FFD90070B425 /* gui_button.c */,
-				575F25B61FD1FFD90070B425 /* gui_button.h */,
-				575F25B71FD1FFD90070B425 /* gui_control_seq.c */,
-				575F25C11FD1FFD90070B425 /* gui_control_seq.h */,
 				575F25BD1FD1FFD90070B425 /* gui_control_vseq.c */,
 				575F25B31FD1FFD90070B425 /* gui_control_vseq.h */,
 				575F25AE1FD1FFD90070B425 /* gui_icon.c */,
@@ -333,6 +336,8 @@
 		57C7BD8E2287395900C1A1B0 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				57ED6F2422DEB51F00053E84 /* gui_ios_dpad_nav.c */,
+				57ED6F2522DEB52000053E84 /* gui_ios_dpad_nav.h */,
 				570A1DDF2287424700FCB278 /* gui_ios_dpad_button.c */,
 				570A1DDE2287424700FCB278 /* gui_ios_dpad_button.h */,
 				57C7BD902287396A00C1A1B0 /* gui_ios_dpad.c */,
@@ -456,6 +461,7 @@
 				575F25EA1FD1FFD90070B425 /* gui_control_vseq.c in Sources */,
 				575F25DD1FD1FFD90070B425 /* gui_tooltip.c in Sources */,
 				575F25EE1FD1FFD90070B425 /* g_widget_clock.c in Sources */,
+				57ED6F2622DEB52000053E84 /* gui_ios_dpad_nav.c in Sources */,
 				575F25E21FD1FFD90070B425 /* gui_icon.c in Sources */,
 				575F25E91FD1FFD90070B425 /* gui_control_progress.c in Sources */,
 				575F25E01FD1FFD90070B425 /* gui_menu_radial.c in Sources */,

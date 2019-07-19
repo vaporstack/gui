@@ -32,6 +32,17 @@ static void gui_button_draw(GuiComponent* btn)
 			}
 		}*/
 	}
+	if ( btn->art2 )
+	{
+		drw_robject(btn->art2);
+		return;
+		
+	}
+	if ( btn->art )
+	{
+		drw_wobject(btn->art);
+		return;
+	}
 	if (btn->name && !btn->art && !btn->art2)
 		drw_type_draw(btn->name);
 	drw_pop();
@@ -61,6 +72,6 @@ GuiComponent* gui_button_create(void* gui, const char* label, click_func func)
 	cmp->find_focus = find_focus;
 	cmp->attr   = attr;
 	cmp->type   = GUI_TYPE_PUSHBUTTON;
-	cmp->draw   = gui_button_draw;
+	//cmp->draw   = gui_button_draw;
 	return cmp;
 }
