@@ -2,7 +2,7 @@ LIBRARY gui
 EXPORTS
 	gui_component_add
 	gui_deinit
-	gui_find_component
+	gui_component_find
 	gui_find_pointerfocus
 	gui_init
 	gui_layout

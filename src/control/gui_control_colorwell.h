@@ -56,7 +56,7 @@ typedef struct
 
 GuiComponent* gui_colorwell_create(void* gui, RColor16* color_ref,
 				   click_func onclick);
-void	  gui_colorwell_destroy(GuiComponent* cmp);
+//void	  gui_colorwell_destroy(GuiComponent* cmp);
 
-void gui_colorwell_draw(GuiComponent* cmp);
+//void gui_colorwell_draw(GuiComponent* cmp);
 #endif /* gui_control_colorpicker_h */

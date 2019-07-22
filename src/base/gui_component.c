@@ -459,6 +459,18 @@ GuiComponent* gui_component_create(void* data)
 	// comp->delegate =
 	return comp;
 }
+void	gui_component_children_clear(GuiComponent* cmp)
+{
+	for (int i = 0; i < cmp->num_children; i++)
+		{
+			GuiComponent* child = cmp->children[i];
+			gui_component_destroy(child);
+		}
+	free (cmp->children);
+	cmp->children = NULL;
+	cmp->num_children = 0;
+
+}
 
 void gui_component_destroy(GuiComponent* comp)
 {

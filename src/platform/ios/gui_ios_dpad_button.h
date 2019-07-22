@@ -11,6 +11,10 @@
 
 #include <gui/gui.h>
 
+typedef struct
+{
+	double foo;
+}GDpadButton;
 
 GuiComponent* gui_ios_dpad_button_create(Gui* gui);
 

@@ -47,11 +47,145 @@ extern AppSettings app_settings;
 
 // static struct map_t* gui_items = NULL;
 
+//	todo: migrate this from r4 core to gui core?
+InputDelegate gui_input;
+
 void _gui_render_component(Gui* gui, struct GuiComponent*);
 void _gui_render_components(Gui* gui, GuiComponent*);
 
 static struct vector_t guis;
 static bool	    guis_initialized = false;
+
+
+#pragma mark logic
+
+static void begin(GuiComponent* cmp, double x, double y)
+{
+	
+}
+
+static void update(GuiComponent* cmp, double x, double y)
+{
+	
+}
+
+
+static void end(GuiComponent* cmp, double x, double y)
+{
+	
+}
+//
+//static void draw(GuiComponent* cmp)
+//{
+//
+//}
+
+static void layout(GuiComponent* cmp)
+{
+	
+}
+
+#pragma mark input
+
+#pragma mark desktop
+
+static void mouse_motion(struct InputDelegate* delegate, double x, double y)
+{
+}
+
+static void mouse_button(struct InputDelegate* delegate, int button, int action,
+			 int mods)
+{
+	if ( button > 0 )
+	return;
+	
+	GuiComponent* cmp = delegate->parent;
+	Gui* root = cmp->root;
+	
+	//gui_find_pointerfocus(root, , <#double y#>)
+	
+
+}
+
+static void key(struct InputDelegate* delegate, int key, int scan, int action, int mods)
+{
+}
+
+static void char_cb(struct InputDelegate* delegate, unsigned c)
+{
+}
+
+#pragma mark touch
+
+static void touch_cancel(struct InputDelegate* delegate, double x, double y, double r)
+{
+}
+
+static void touch_began(struct InputDelegate* delegate, double x, double y, double r)
+{
+}
+
+static void touch_ended(struct InputDelegate* delegate, double x, double y, double r)
+{
+}
+
+static void touch_move(struct InputDelegate* delegate, double x, double y,
+		       double r)
+{
+}
+
+#pragma mark tablet
+
+static void tablet_proximity(bool v)
+{
+}
+
+static void tablet_motion_rich(struct InputDelegate* delegate, double x,
+			       double y, int button, double pressure,
+			       double rotation, double tilt_x, double tilt_y,
+			       double tangential)
+{
+}
+
+static void tablet_drag_rich(struct InputDelegate* delegate, double x, double y,
+			     int button, double pressure, double rotation,
+			     double tilt_x, double tilt_y, double tangential)
+{
+}
+
+static void tablet_down_rich(struct InputDelegate* delegate, double x, double y,
+			     int button, double pressure, double rotation,
+			     double tilt_x, double tilt_y, double tangential)
+{
+}
+
+static void tablet_up_rich(struct InputDelegate* delegate, double x, double y,
+			   int button, double pressure, double rotation,
+			   double tilt_x, double tilt_y, double tangential)
+{
+}
+
+#pragma mark core
+
+static void setup_delegate(InputDelegate* del)
+{
+	del->mouse_button       = mouse_button;
+	del->mouse_motion       = mouse_motion;
+	del->touch_move		= touch_move;
+	del->touch_began	= touch_began;
+	del->touch_cancel       = touch_cancel;
+	del->touch_ended	= touch_ended;
+	del->tablet_motion_rich = tablet_motion_rich;
+	del->tablet_proximity   = tablet_proximity;
+	del->tablet_down_rich   = tablet_down_rich;
+	del->tablet_up_rich     = tablet_up_rich;
+	del->tablet_drag_rich   = tablet_drag_rich;
+	del->supports_handoff   = true;
+	del->char_cb		= char_cb;
+	del->key		= key;
+	del->name		= "a input boilerplate";
+}
+
 
 static void on_resize(Gui* gui, double x, double y)
 {
@@ -73,11 +207,15 @@ Gui* gui_create(const char* name)
 	gui->items	 = new_map();
 	gui->root	  = root;
 	gui->notifications = NULL;
+	gui->scale_retina = 1;
+	gui->del = gui_input;
+	setup_delegate(&gui->del);
 	//gui->anim_mgr      = gui_anim_mgr_create(root);
 
 	// gui->resize = &on_resize;
 	// target= calloc(1, sizeof(ResizeTarget));
 
+	gui_ui_unit = gui_default_ui(gui);
 	gui_notify_resize(gui, gui->width, gui->height);
 
 	if (!guis_initialized)
@@ -136,8 +274,8 @@ void _gui_render_component(Gui* gui, struct GuiComponent* cmp)
 {
 	//if ( 0 == strcmp("trash_art_button", cmp->name))
 	//{
-		//printf("");
-		
+	//printf("");
+
 	//}
 	if (!cmp->visible)
 		return;
@@ -237,7 +375,7 @@ void _gui_update_components(Gui* gui, GuiComponent* cont)
 //#define GUI_INSET_DIST
 static void draw_inset(GuiComponent* cmp)
 {
-	double idist = gui_default_ui	(cmp->root);
+	double idist = gui_default_ui(cmp->root);
 	idist *= PHI_I * .25;
 	RRect insetb = cmp->bounds;
 
@@ -277,7 +415,7 @@ void gui_update(Gui* gui)
 	if (gui->anim_mgr)
 		gui_anim_mgr_update(gui->anim_mgr);
 
-	if ( gui->root )
+	if (gui->root)
 		_gui_update_components_invasively(gui, gui->root);
 }
 
@@ -353,17 +491,14 @@ GuiComponent* gui_find_pointerfocus(Gui* gui, double x, double y)
 #ifdef DEBUG
 	if (sub)
 	{
-		if ( 0 == strcmp(kGuiUnnamedComponent, sub->name))
+		if (0 == strcmp(kGuiUnnamedComponent, sub->name))
 		{
 			printf("Naughty!\n");
 		}
 		printf("[%s]\n", sub->name);
-	
 	}
 #endif
 	return sub;
-
-	
 }
 
 void gui_notify_resize(void* data, unsigned int w, unsigned int h)
@@ -391,21 +526,18 @@ void gui_notify_resize(void* data, unsigned int w, unsigned int h)
 	//gui->root->y		 = gui->root->bounds.pos.y;
 
 	gui_set_retina(gui, app_settings.scale_retina);
-	
-	
-//	double bigger = ( w > h ) ? w : h;
-//	double test = 1 - (1000.0 / bigger);
-//	test *= 2.5;
-//	//printf("Test: %f\n", test);
-//
-//
-//	gui_set_global_scale(test);
+
+
+	//	double bigger = ( w > h ) ? w : h;
+	//	double test = 1 - (1000.0 / bigger);
+	//	test *= 2.5;
+	//	//printf("Test: %f\n", test);
+	//
+	//
+	//	gui_set_global_scale(test);
 	//gui_set_global_scale(1);
 	gui_layout(gui);
-	
-	
-	
-	
+
 	// gui_component_align_children(_root);
 	// if ( debug_settings.gui )
 	printf("Resized gui to %d %d %u %u\n", 0, 0, w, h);
@@ -423,24 +555,25 @@ void gui_layout(Gui* gui)
 		char log[256];
 		sprintf(log, "Doing root gui layout. ret is %f\n",
 			gui->scale_retina);
-		// l_info(log);
+		printf("%s", log);
 	}
 	// GuiComponent* local_root = _root;
 
 	//	set the gui to be the size of the window
 	//_root->bounds.
-	if ( gui_fb_w && gui_fb_h)
+	if (gui_fb_w && gui_fb_h)
 	{
 		int w = *gui_fb_w;
 		int h = *gui_fb_h;
-	
-		gui->root->bounds.pos.x = w * -.5;
-		gui->root->bounds.pos.y = h * -.5;
+
+		gui->root->bounds.pos.x  = w * -.5;
+		gui->root->bounds.pos.y  = h * -.5;
 		gui->root->bounds.size.x = w;
 		gui->root->bounds.size.y = h;
-	}else{
+	}
+	else
+	{
 		gui_log("Warning, no framebuffer variables provided!");
-		
 	}
 	gui->root->layout = NULL;
 	gui_component_layout(gui->root);
@@ -465,20 +598,33 @@ void gui_toggle_enabled(Gui* gui, bool v)
 	gui->root->visible = v;
 }
 
-GuiComponent* gui_find_component(Gui* gui, const char* ident)
+GuiComponent* gui_component_find(Gui* gui, const char* ident)
 {
 	return map_get(gui->items, ident);
 }
 
-
 double gui_default_ui(Gui* gui)
 {
-	if ( !gui )
+	if (!gui)
 	{
 		l_warning("can't default, no UI\n");
 		return 32;
 	}
-	gui_ui_unit =  gui->scale_retina * 1 * G_UI_BTN_SIZE * gui_get_global_scale();
+
+	double ret = gui->scale_retina;
+	if ( ret == 0 )
+	{
+		printf("Something went wrong, ret was ZERO\n");
+		
+	}
+	double sc = gui_get_global_scale();
+	if ( sc == 0 )
+	{
+		printf("Scale was 0 too wtf\n");
+		
+	}
+	gui_ui_unit = gui->scale_retina * 1 * G_UI_BTN_SIZE * gui_get_global_scale();
+	
 	return gui_ui_unit;
 }
 
