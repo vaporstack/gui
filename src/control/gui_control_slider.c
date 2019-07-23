@@ -241,6 +241,9 @@ static void destroy(GuiComponent* cmp)
 
 static void draw_horizontal(GuiComponent* cmp)
 {
+	
+	
+	drw_color_save();
 	//GuiSliderD* info = cmp->data;
 
 	GuiSliderD* attr   = cmp->data;
@@ -254,10 +257,10 @@ static void draw_horizontal(GuiComponent* cmp)
 	drw_line(margin, 0, cmp->bounds.size.x - margin, 0);
 	if (!d)
 	{
-		printf("Slider created with NULL data\n");
+		//printf("Slider created with NULL data\n");
 		drw_pop();
 		return;
-		;
+		
 	}
 	drw_push();
 	drw_translate2f(margin + (p * (cmp->bounds.size.x - margin * 2)), 0);
@@ -274,7 +277,9 @@ static void draw_horizontal(GuiComponent* cmp)
 	drw_fill_set(true);
 	drw_circle(v*.85);
 	drw_fill_pop();
-	drw_color_pop();
+
+	
+	//drw_color_pop();
 	
 	drw_circle(v);
 	drw_pop();
@@ -325,10 +330,10 @@ static void draw_vertical(GuiComponent* cmp)
 	drw_line(margin, 0, cmp->bounds.size.x - margin, 0);
 	if (!d)
 	{
-		printf("Slider created with NULL data\n");
+		//printf("Slider created with NULL data\n");
 		drw_pop();
 		return;
-		;
+		
 	}
 	drw_push();
 	drw_translate2f(margin + (*d * (cmp->bounds.size.x - margin * 2)), 0);

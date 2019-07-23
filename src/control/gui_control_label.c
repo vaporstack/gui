@@ -15,17 +15,22 @@ static void draw(GuiComponent* cmp)
 	double sz = gui_default_ui(g);
 	drw_push();
 	drw_translate2f(cmp->bounds.pos.x, cmp->bounds.pos.y);
-	gui_component_draw(cmp);
+	//gui_component_draw(cmp);
 	GLabel* info = cmp->data;
 	const char* text = info->text;
 	if ( !text )
 		text = info->localtext;
 	
+	
 	if ( text )
 	{
-		drw_type_set_align(DRW_TYPE_ALIGN_H_RIGHT, DRW_TYPE_ALIGN_V_CENTER);
+		
+		drw_type_set_align(DRW_TYPE_ALIGN_H_CENTER, DRW_TYPE_ALIGN_V_CENTER);
 		//drw_push();
 		drw_translate(sz * .5, sz * .5, 0);
+		if ( info->vertical )
+			drw_rotate_z(90);
+				
 		drw_type_draw(text);
 		//drw_pop();
 	}else{

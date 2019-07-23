@@ -13,6 +13,24 @@
 		570A1DF2228742DB00FCB278 /* gui_ios_dpad_button.c in Sources */ = {isa = PBXBuildFile; fileRef = 570A1DEE228742DB00FCB278 /* gui_ios_dpad_button.c */; };
 		570A1DF3228742DB00FCB278 /* gui_ios_dpad.c in Sources */ = {isa = PBXBuildFile; fileRef = 570A1DEF228742DB00FCB278 /* gui_ios_dpad.c */; };
 		570A1DF4228742DB00FCB278 /* gui_ios_dpad_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 570A1DF0228742DB00FCB278 /* gui_ios_dpad_button.h */; };
+		571B2BAB22E28A6900F7719C /* gui_control_fader.h in Headers */ = {isa = PBXBuildFile; fileRef = 571B2BA922E28A6900F7719C /* gui_control_fader.h */; };
+		571B2BAC22E28A6900F7719C /* gui_control_fader.c in Sources */ = {isa = PBXBuildFile; fileRef = 571B2BAA22E28A6900F7719C /* gui_control_fader.c */; };
+		571B2BAF22E28A7A00F7719C /* gui_control_multifader.h in Headers */ = {isa = PBXBuildFile; fileRef = 571B2BAD22E28A7A00F7719C /* gui_control_multifader.h */; };
+		571B2BB022E28A7A00F7719C /* gui_control_multifader.c in Sources */ = {isa = PBXBuildFile; fileRef = 571B2BAE22E28A7A00F7719C /* gui_control_multifader.c */; };
+		571B2BB322E28A9000F7719C /* gui_control_pushbutton.h in Headers */ = {isa = PBXBuildFile; fileRef = 571B2BB122E28A9000F7719C /* gui_control_pushbutton.h */; };
+		571B2BB422E28A9000F7719C /* gui_control_pushbutton.c in Sources */ = {isa = PBXBuildFile; fileRef = 571B2BB222E28A9000F7719C /* gui_control_pushbutton.c */; };
+		571B2BB722E28A9B00F7719C /* gui_control_togglebutton.h in Headers */ = {isa = PBXBuildFile; fileRef = 571B2BB522E28A9B00F7719C /* gui_control_togglebutton.h */; };
+		571B2BB822E28A9B00F7719C /* gui_control_togglebutton.c in Sources */ = {isa = PBXBuildFile; fileRef = 571B2BB622E28A9B00F7719C /* gui_control_togglebutton.c */; };
+		571B2BBB22E28AB200F7719C /* gui_control_led.h in Headers */ = {isa = PBXBuildFile; fileRef = 571B2BB922E28AB200F7719C /* gui_control_led.h */; };
+		571B2BBC22E28AB200F7719C /* gui_control_led.c in Sources */ = {isa = PBXBuildFile; fileRef = 571B2BBA22E28AB200F7719C /* gui_control_led.c */; };
+		571B2BBF22E28AC000F7719C /* gui_control_multipush.h in Headers */ = {isa = PBXBuildFile; fileRef = 571B2BBD22E28AC000F7719C /* gui_control_multipush.h */; };
+		571B2BC022E28AC000F7719C /* gui_control_multipush.c in Sources */ = {isa = PBXBuildFile; fileRef = 571B2BBE22E28AC000F7719C /* gui_control_multipush.c */; };
+		571B2BC322E28AF000F7719C /* gui_control_xy.h in Headers */ = {isa = PBXBuildFile; fileRef = 571B2BC122E28AF000F7719C /* gui_control_xy.h */; };
+		571B2BC422E28AF000F7719C /* gui_control_xy.c in Sources */ = {isa = PBXBuildFile; fileRef = 571B2BC222E28AF000F7719C /* gui_control_xy.c */; };
+		571B2BC722E28AFF00F7719C /* gui_control_multixy.h in Headers */ = {isa = PBXBuildFile; fileRef = 571B2BC522E28AFF00F7719C /* gui_control_multixy.h */; };
+		571B2BC822E28AFF00F7719C /* gui_control_multixy.c in Sources */ = {isa = PBXBuildFile; fileRef = 571B2BC622E28AFF00F7719C /* gui_control_multixy.c */; };
+		571B2BCB22E28B0A00F7719C /* gui_control_trackball.h in Headers */ = {isa = PBXBuildFile; fileRef = 571B2BC922E28B0A00F7719C /* gui_control_trackball.h */; };
+		571B2BCC22E28B0A00F7719C /* gui_control_trackball.c in Sources */ = {isa = PBXBuildFile; fileRef = 571B2BCA22E28B0A00F7719C /* gui_control_trackball.c */; };
 		5723445F223308A100EC1DBC /* gui_draggable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5723445D223308A100EC1DBC /* gui_draggable.h */; };
 		57234460223308A100EC1DBC /* gui_draggable.c in Sources */ = {isa = PBXBuildFile; fileRef = 5723445E223308A100EC1DBC /* gui_draggable.c */; };
 		57319ADF21B35EDF00DDB8C5 /* gui_anim_mgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 57319ADD21B35EDF00DDB8C5 /* gui_anim_mgr.h */; };
@@ -111,6 +129,24 @@
 		570A1DEE228742DB00FCB278 /* gui_ios_dpad_button.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_ios_dpad_button.c; sourceTree = "<group>"; };
 		570A1DEF228742DB00FCB278 /* gui_ios_dpad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_ios_dpad.c; sourceTree = "<group>"; };
 		570A1DF0228742DB00FCB278 /* gui_ios_dpad_button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_ios_dpad_button.h; sourceTree = "<group>"; };
+		571B2BA922E28A6900F7719C /* gui_control_fader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_control_fader.h; sourceTree = "<group>"; };
+		571B2BAA22E28A6900F7719C /* gui_control_fader.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_control_fader.c; sourceTree = "<group>"; };
+		571B2BAD22E28A7A00F7719C /* gui_control_multifader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_control_multifader.h; sourceTree = "<group>"; };
+		571B2BAE22E28A7A00F7719C /* gui_control_multifader.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_control_multifader.c; sourceTree = "<group>"; };
+		571B2BB122E28A9000F7719C /* gui_control_pushbutton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_control_pushbutton.h; sourceTree = "<group>"; };
+		571B2BB222E28A9000F7719C /* gui_control_pushbutton.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_control_pushbutton.c; sourceTree = "<group>"; };
+		571B2BB522E28A9B00F7719C /* gui_control_togglebutton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_control_togglebutton.h; sourceTree = "<group>"; };
+		571B2BB622E28A9B00F7719C /* gui_control_togglebutton.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_control_togglebutton.c; sourceTree = "<group>"; };
+		571B2BB922E28AB200F7719C /* gui_control_led.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_control_led.h; sourceTree = "<group>"; };
+		571B2BBA22E28AB200F7719C /* gui_control_led.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_control_led.c; sourceTree = "<group>"; };
+		571B2BBD22E28AC000F7719C /* gui_control_multipush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_control_multipush.h; sourceTree = "<group>"; };
+		571B2BBE22E28AC000F7719C /* gui_control_multipush.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_control_multipush.c; sourceTree = "<group>"; };
+		571B2BC122E28AF000F7719C /* gui_control_xy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_control_xy.h; sourceTree = "<group>"; };
+		571B2BC222E28AF000F7719C /* gui_control_xy.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_control_xy.c; sourceTree = "<group>"; };
+		571B2BC522E28AFF00F7719C /* gui_control_multixy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_control_multixy.h; sourceTree = "<group>"; };
+		571B2BC622E28AFF00F7719C /* gui_control_multixy.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_control_multixy.c; sourceTree = "<group>"; };
+		571B2BC922E28B0A00F7719C /* gui_control_trackball.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_control_trackball.h; sourceTree = "<group>"; };
+		571B2BCA22E28B0A00F7719C /* gui_control_trackball.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_control_trackball.c; sourceTree = "<group>"; };
 		5723445D223308A100EC1DBC /* gui_draggable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_draggable.h; sourceTree = "<group>"; };
 		5723445E223308A100EC1DBC /* gui_draggable.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_draggable.c; sourceTree = "<group>"; };
 		57319ADD21B35EDF00DDB8C5 /* gui_anim_mgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_anim_mgr.h; sourceTree = "<group>"; };
@@ -417,16 +453,28 @@
 			children = (
 				57BB16AD2250319000094859 /* gui_button.c */,
 				57BB16BC2250319100094859 /* gui_button.h */,
-				57C9DE1A225F80EC00BED15B /* gui_control_colorwell.c */,
-				57C9DE1B225F80EC00BED15B /* gui_control_colorwell.h */,
 				57BB16BB2250319000094859 /* gui_control_checkbox.c */,
 				57BB16AE2250319000094859 /* gui_control_checkbox.h */,
+				57C9DE1A225F80EC00BED15B /* gui_control_colorwell.c */,
+				57C9DE1B225F80EC00BED15B /* gui_control_colorwell.h */,
 				57BB16B22250319000094859 /* gui_control_dropdown.c */,
 				57BB16A72250319000094859 /* gui_control_dropdown.h */,
+				571B2BAA22E28A6900F7719C /* gui_control_fader.c */,
+				571B2BA922E28A6900F7719C /* gui_control_fader.h */,
 				57BB16A82250319000094859 /* gui_control_label.c */,
 				57BB16B72250319000094859 /* gui_control_label.h */,
+				571B2BBA22E28AB200F7719C /* gui_control_led.c */,
+				571B2BB922E28AB200F7719C /* gui_control_led.h */,
+				571B2BAE22E28A7A00F7719C /* gui_control_multifader.c */,
+				571B2BAD22E28A7A00F7719C /* gui_control_multifader.h */,
+				571B2BBE22E28AC000F7719C /* gui_control_multipush.c */,
+				571B2BBD22E28AC000F7719C /* gui_control_multipush.h */,
+				571B2BC622E28AFF00F7719C /* gui_control_multixy.c */,
+				571B2BC522E28AFF00F7719C /* gui_control_multixy.h */,
 				57BB16B42250319000094859 /* gui_control_progress.c */,
 				57BB16A22250319000094859 /* gui_control_progress.h */,
+				571B2BB222E28A9000F7719C /* gui_control_pushbutton.c */,
+				571B2BB122E28A9000F7719C /* gui_control_pushbutton.h */,
 				57BB16A12250319000094859 /* gui_control_rgba.c */,
 				57BB16B52250319000094859 /* gui_control_rgba.h */,
 				57BB16B82250319000094859 /* gui_control_seq.c */,
@@ -435,8 +483,14 @@
 				57BB16BA2250319000094859 /* gui_control_slider.h */,
 				57BB16B62250319000094859 /* gui_control_textfield.c */,
 				57BB16A92250319000094859 /* gui_control_textfield.h */,
+				571B2BB622E28A9B00F7719C /* gui_control_togglebutton.c */,
+				571B2BB522E28A9B00F7719C /* gui_control_togglebutton.h */,
+				571B2BCA22E28B0A00F7719C /* gui_control_trackball.c */,
+				571B2BC922E28B0A00F7719C /* gui_control_trackball.h */,
 				57BB16B92250319000094859 /* gui_control_vseq.c */,
 				57BB16AB2250319000094859 /* gui_control_vseq.h */,
+				571B2BC222E28AF000F7719C /* gui_control_xy.c */,
+				571B2BC122E28AF000F7719C /* gui_control_xy.h */,
 				57BB16B02250319000094859 /* gui_icon.c */,
 				57BB16A32250319000094859 /* gui_icon.h */,
 				57BB16AF2250319000094859 /* r_control_onscreenbutton.c */,
@@ -452,13 +506,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				571B2BCB22E28B0A00F7719C /* gui_control_trackball.h in Headers */,
 				57BB16BF2250319100094859 /* gui_icon.h in Headers */,
 				575E7BD9204D018E00C80D64 /* gui_widget.h in Headers */,
 				57BB16CA2250319100094859 /* gui_control_checkbox.h in Headers */,
 				57BB16C12250319100094859 /* r_control_onscreenbutton.h in Headers */,
 				575E7C08204D018E00C80D64 /* gui_modal.h in Headers */,
 				57BB16D62250319100094859 /* gui_control_slider.h in Headers */,
+				571B2BB722E28A9B00F7719C /* gui_control_togglebutton.h in Headers */,
 				575E7BD0204D018E00C80D64 /* g_widget_console.h in Headers */,
+				571B2BBF22E28AC000F7719C /* gui_control_multipush.h in Headers */,
 				57334D5822492DCB00DF59F2 /* g_debug_stresstest.h in Headers */,
 				573DDF5A20E32A84008CD64B /* gui_widget_valueviewer.h in Headers */,
 				57BB16D12250319100094859 /* gui_control_rgba.h in Headers */,
@@ -476,6 +533,8 @@
 				575E7BDD204D018E00C80D64 /* gui_tooltip.h in Headers */,
 				575E7BDC204D018E00C80D64 /* gui_activity.h in Headers */,
 				5753707F20730ECC00349C85 /* gui.h in Headers */,
+				571B2BB322E28A9000F7719C /* gui_control_pushbutton.h in Headers */,
+				571B2BBB22E28AB200F7719C /* gui_control_led.h in Headers */,
 				57D1E5532257C0AC008C0D4B /* gui_interaction.h in Headers */,
 				575E7C00204D018E00C80D64 /* gui_notifications.h in Headers */,
 				575E7C0B204D018E00C80D64 /* gui_panel.h in Headers */,
@@ -483,15 +542,19 @@
 				575E7BE0204D018E00C80D64 /* gui_menu_radial.h in Headers */,
 				575E7BDF204D018E00C80D64 /* gui_comp_rline.h in Headers */,
 				57C9DE1D225F80ED00BED15B /* gui_control_colorwell.h in Headers */,
+				571B2BC722E28AFF00F7719C /* gui_control_multixy.h in Headers */,
 				57319ADF21B35EDF00DDB8C5 /* gui_anim_mgr.h in Headers */,
 				5723445F223308A100EC1DBC /* gui_draggable.h in Headers */,
+				571B2BC322E28AF000F7719C /* gui_control_xy.h in Headers */,
 				575E7C0A204D018E00C80D64 /* gui_component.h in Headers */,
 				57BB16C52250319100094859 /* gui_control_textfield.h in Headers */,
 				575E7BD3204D018E00C80D64 /* gui_settings.h in Headers */,
 				575E7BE5204D018E00C80D64 /* gui_menu_item.h in Headers */,
 				57BB16D82250319100094859 /* gui_button.h in Headers */,
 				575E7BCE204D018E00C80D64 /* gui_anim.h in Headers */,
+				571B2BAF22E28A7A00F7719C /* gui_control_multifader.h in Headers */,
 				57BB16D32250319100094859 /* gui_control_label.h in Headers */,
+				571B2BAB22E28A6900F7719C /* gui_control_fader.h in Headers */,
 				5708A9FE208FF2AD00A9E776 /* gui_vblit_stepseq.h in Headers */,
 				575E7BD7204D018E00C80D64 /* gui_aviewer.h in Headers */,
 				57BB16C82250319100094859 /* gui_control_seq.h in Headers */,
@@ -583,25 +646,34 @@
 				575E7BE1204D018E00C80D64 /* gui_menu_item.c in Sources */,
 				57BB16D52250319100094859 /* gui_control_vseq.c in Sources */,
 				57BB16D42250319100094859 /* gui_control_seq.c in Sources */,
+				571B2BB422E28A9000F7719C /* gui_control_pushbutton.c in Sources */,
 				57BB16C62250319100094859 /* gui_control_slider.c in Sources */,
 				57D1E5542257C0AC008C0D4B /* gui_interaction.c in Sources */,
 				575E7BCF204D018E00C80D64 /* gui_anim.c in Sources */,
 				57F8E2A82128F691005614E7 /* gui.c in Sources */,
+				571B2BCC22E28B0A00F7719C /* gui_control_trackball.c in Sources */,
 				575E7C03204D018E00C80D64 /* gui_panel.c in Sources */,
 				575E7BDB204D018E00C80D64 /* gui_tooltip.c in Sources */,
 				579F9BD1223750F300BF3880 /* gui_log.c in Sources */,
+				571B2BBC22E28AB200F7719C /* gui_control_led.c in Sources */,
 				57BB16CC2250319100094859 /* gui_icon.c in Sources */,
 				575E7C09204D018E00C80D64 /* g_gui.c in Sources */,
+				571B2BC822E28AFF00F7719C /* gui_control_multixy.c in Sources */,
 				57BB16C42250319100094859 /* gui_control_label.c in Sources */,
 				57BB16D72250319100094859 /* gui_control_checkbox.c in Sources */,
 				57334D5D2249337B00DF59F2 /* g_debug_visualizer.c in Sources */,
 				575E7BFE204D018E00C80D64 /* g_widget_clock.c in Sources */,
 				57BB16CB2250319100094859 /* r_control_onscreenbutton.c in Sources */,
 				575E7BE3204D018E00C80D64 /* gui_menu_radial.c in Sources */,
+				571B2BB022E28A7A00F7719C /* gui_control_multifader.c in Sources */,
 				575E7C07204D018E00C80D64 /* gui_notifications.c in Sources */,
+				571B2BB822E28A9B00F7719C /* gui_control_togglebutton.c in Sources */,
+				571B2BC022E28AC000F7719C /* gui_control_multipush.c in Sources */,
 				575E7BD1204D018E00C80D64 /* gui_widget.c in Sources */,
 				57334D5922492DCB00DF59F2 /* g_debug_stresstest.c in Sources */,
 				575E7BD5204D018E00C80D64 /* g_widget_console.c in Sources */,
+				571B2BAC22E28A6900F7719C /* gui_control_fader.c in Sources */,
+				571B2BC422E28AF000F7719C /* gui_control_xy.c in Sources */,
 				57A1A1E22289A63D00D37979 /* gui_ios_dpad_nav.c in Sources */,
 				57234460223308A100EC1DBC /* gui_draggable.c in Sources */,
 				57BB16C92250319100094859 /* gui_button.c in Sources */,

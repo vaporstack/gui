@@ -14,6 +14,7 @@ typedef struct GLabel
 {
 	char* text;
 	char* localtext;
+	bool vertical;
 } GLabel;
 
 GuiComponent* gui_control_label_create(Gui* gui, const char* label);

@@ -47,11 +47,145 @@ extern AppSettings app_settings;
 
 // static struct map_t* gui_items = NULL;
 
+//	todo: migrate this from r4 core to gui core?
+InputDelegate gui_input;
+
 void _gui_render_component(Gui* gui, struct GuiComponent*);
 void _gui_render_components(Gui* gui, GuiComponent*);
 
 static struct vector_t guis;
 static bool	    guis_initialized = false;
+
+
+#pragma mark logic
+
+static void begin(GuiComponent* cmp, double x, double y)
+{
+	
+}
+
+static void update(GuiComponent* cmp, double x, double y)
+{
+	
+}
+
+
+static void end(GuiComponent* cmp, double x, double y)
+{
+	
+}
+//
+//static void draw(GuiComponent* cmp)
+//{
+//
+//}
+
+static void layout(GuiComponent* cmp)
+{
+	
+}
+
+#pragma mark input
+
+#pragma mark desktop
+
+static void mouse_motion(struct InputDelegate* delegate, double x, double y)
+{
+}
+
+static void mouse_button(struct InputDelegate* delegate, int button, int action,
+			 int mods)
+{
+	if ( button > 0 )
+	return;
+	
+	GuiComponent* cmp = delegate->parent;
+	Gui* root = cmp->root;
+	
+	//gui_find_pointerfocus(root, , <#double y#>)
+	
+
+}
+
+static void key(struct InputDelegate* delegate, int key, int scan, int action, int mods)
+{
+}
+
+static void char_cb(struct InputDelegate* delegate, unsigned c)
+{
+}
+
+#pragma mark touch
+
+static void touch_cancel(struct InputDelegate* delegate, double x, double y, double r)
+{
+}
+
+static void touch_began(struct InputDelegate* delegate, double x, double y, double r)
+{
+}
+
+static void touch_ended(struct InputDelegate* delegate, double x, double y, double r)
+{
+}
+
+static void touch_move(struct InputDelegate* delegate, double x, double y,
+		       double r)
+{
+}
+
+#pragma mark tablet
+
+static void tablet_proximity(bool v)
+{
+}
+
+static void tablet_motion_rich(struct InputDelegate* delegate, double x,
+			       double y, int button, double pressure,
+			       double rotation, double tilt_x, double tilt_y,
+			       double tangential)
+{
+}
+
+static void tablet_drag_rich(struct InputDelegate* delegate, double x, double y,
+			     int button, double pressure, double rotation,
+			     double tilt_x, double tilt_y, double tangential)
+{
+}
+
+static void tablet_down_rich(struct InputDelegate* delegate, double x, double y,
+			     int button, double pressure, double rotation,
+			     double tilt_x, double tilt_y, double tangential)
+{
+}
+
+static void tablet_up_rich(struct InputDelegate* delegate, double x, double y,
+			   int button, double pressure, double rotation,
+			   double tilt_x, double tilt_y, double tangential)
+{
+}
+
+#pragma mark core
+
+static void setup_delegate(InputDelegate* del)
+{
+	del->mouse_button       = mouse_button;
+	del->mouse_motion       = mouse_motion;
+	del->touch_move		= touch_move;
+	del->touch_began	= touch_began;
+	del->touch_cancel       = touch_cancel;
+	del->touch_ended	= touch_ended;
+	del->tablet_motion_rich = tablet_motion_rich;
+	del->tablet_proximity   = tablet_proximity;
+	del->tablet_down_rich   = tablet_down_rich;
+	del->tablet_up_rich     = tablet_up_rich;
+	del->tablet_drag_rich   = tablet_drag_rich;
+	del->supports_handoff   = true;
+	del->char_cb		= char_cb;
+	del->key		= key;
+	del->name		= "a input boilerplate";
+}
+
 
 static void on_resize(Gui* gui, double x, double y)
 {
@@ -74,6 +208,9 @@ Gui* gui_create(const char* name)
 	gui->root	  = root;
 	gui->notifications = NULL;
 	gui->scale_retina = 1;
+	gui->del = gui_input;
+	setup_delegate(&gui->del);
+	
 	//gui->anim_mgr      = gui_anim_mgr_create(root);
 
 	// gui->resize = &on_resize;
@@ -474,9 +611,10 @@ double gui_default_ui(Gui* gui)
 		l_warning("can't default, no UI\n");
 		return 32;
 	}
-<<<<<<< Updated upstream
+	
 	gui_ui_unit =  gui->scale_retina * 1 * G_UI_BTN_SIZE * gui_get_global_scale();
-=======
+
+	
 	double ret = gui->scale_retina;
 	if ( ret == 0 )
 	{
@@ -491,7 +629,7 @@ double gui_default_ui(Gui* gui)
 	}
 	gui_ui_unit = gui->scale_retina * 1 * G_UI_BTN_SIZE * gui_get_global_scale();
 	
->>>>>>> Stashed changes
+	
 	return gui_ui_unit;
 }
 
