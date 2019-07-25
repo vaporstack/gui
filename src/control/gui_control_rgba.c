@@ -88,13 +88,15 @@ void destroy(GuiComponent* cmp)
 
 static void draw(GuiComponent* cmp)
 {
+	drw_color_save();
 	gui_component_draw(cmp);
 	GRGBAAdjustor* info = cmp->data;
 
 	drw_fill_set(true);
 	drw_color_c16(*info->color_ptr);
 	drw_square(cmp->bounds.size.x * .5);
-	drw_color_pop();
+	drw_color_restore();
+	
 	drw_fill_pop();
 
 	drw_color(0, .5, .5, 1);
