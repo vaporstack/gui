@@ -165,6 +165,7 @@ void	  gui_component_fit_to_children(GuiComponent* cmp);
 void	  gui_component_layout_simple_buttons(GuiComponent* cmp);
 void	  gui_component_update_size(GuiComponent* cmp);
 void	  gui_component_fit_to_root(GuiComponent* cmp, bool preserve_ar);
+void	gui_component_scale(GuiComponent* cmp, double sc);
 //void	gui_component_activate(GuiComponent* cmp, void* input_delegate);
 //void gui_component_deactivate(GuiComponent* cmp);
 //double g_default_ui_size(void* gui);

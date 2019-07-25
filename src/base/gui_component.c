@@ -213,7 +213,11 @@ void gui_component_draw(GuiComponent* cmp)
 			Gui* gui = cmp->root;
 			if (gui->debug && cmp->name)
 			{
+				drw_push();
+				drw_translate2f(cmp->bounds.size.x * .5, cmp->bounds.size.y * .5);
 				drw_type_draw(cmp->name);
+				drw_pop();
+				
 			}
 			else
 			{

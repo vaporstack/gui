@@ -210,6 +210,7 @@ Gui* gui_create(const char* name)
 	gui->scale_retina = 1;
 	gui->del = gui_input;
 	setup_delegate(&gui->del);
+	
 	//gui->anim_mgr      = gui_anim_mgr_create(root);
 
 	// gui->resize = &on_resize;
@@ -610,7 +611,10 @@ double gui_default_ui(Gui* gui)
 		l_warning("can't default, no UI\n");
 		return 32;
 	}
+	
+	gui_ui_unit =  gui->scale_retina * 1 * G_UI_BTN_SIZE * gui_get_global_scale();
 
+	
 	double ret = gui->scale_retina;
 	if ( ret == 0 )
 	{
@@ -624,6 +628,7 @@ double gui_default_ui(Gui* gui)
 		
 	}
 	gui_ui_unit = gui->scale_retina * 1 * G_UI_BTN_SIZE * gui_get_global_scale();
+	
 	
 	return gui_ui_unit;
 }

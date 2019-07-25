@@ -277,6 +277,8 @@ static void draw_horizontal(GuiComponent* cmp)
 	drw_fill_set(true);
 	drw_circle(v*.85);
 	drw_fill_pop();
+
+	
 	//drw_color_pop();
 	
 	drw_circle(v);
