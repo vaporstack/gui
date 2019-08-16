@@ -25,9 +25,10 @@ static void move(GuiComponent* cmp, double x, double y)
 	pad->current.x = x;
 	pad->current.y = y;
 }
+
 static void update(GuiComponent* cmp)
 {
-	printf(".");
+	//printf(".");
 }
 
 static void end(GuiComponent* cmp, double x, double y)
