@@ -18,7 +18,6 @@
 #include <r4/src/input/r_input.h>
 #include <wsh/wsh.h>
 
-
 //#include "../geo/r_rect.h"
 #include <stdbool.h>
 //#include "../input/r_input.h"
@@ -90,7 +89,7 @@ typedef struct GuiComponent
 	bool		    enabled;
 	bool		    bypass;
 	bool		    hover;
-	bool sealed;
+	bool		    sealed;
 	bool		    selected;
 	bool		    on;
 	bool		    draggable;
@@ -106,6 +105,7 @@ typedef struct GuiComponent
 	void (*update)(struct GuiComponent*);
 	void (*layout)(struct GuiComponent*);
 	void (*activate)(struct GuiComponent*);
+	void (*resize)(struct GuiComponent*, double x, double y);
 	bool (*find_focus)(struct GuiComponent*, double x, double y);
 	void (*destroy)(struct GuiComponent*);
 	void*	 animation_attrs;
@@ -115,7 +115,7 @@ typedef struct GuiComponent
 	void*	 art;
 	void*	 art2;
 	void*	 drag;
-	void* attr;
+	void*	 attr;
 
 	int		      num_children;
 	struct GuiComponent** children;
@@ -153,19 +153,33 @@ void	  gui_component_move(void* gui, GuiComponent* cmp, double x, double y);
 void	  gui_component_child_add(GuiComponent* cmp, GuiComponent* sub);
 void	  gui_component_child_remove(GuiComponent* cmp, GuiComponent* sub);
 void	  gui_component_child_remove_index(GuiComponent* cmp, int index);
-void	gui_component_children_clear(GuiComponent* cmp);
+void	  gui_component_children_clear(GuiComponent* cmp);
 
-void	  gui_component_hide(GuiComponent* cmp);
-void	  gui_component_show(GuiComponent* cmp);
-void	  gui_component_layout(GuiComponent* cmp);
-void	  gui_component_layout_children(GuiComponent* cmp);
-void	  gui_component_layout_vertical(GuiComponent* cmp);
-void	  gui_component_layout_horizontal(GuiComponent* cmp);
-void	  gui_component_fit_to_children(GuiComponent* cmp);
-void	  gui_component_layout_simple_buttons(GuiComponent* cmp);
-void	  gui_component_update_size(GuiComponent* cmp);
-void	  gui_component_fit_to_root(GuiComponent* cmp, bool preserve_ar);
-void	gui_component_scale(GuiComponent* cmp, double sc);
+void gui_component_hide(GuiComponent* cmp);
+void gui_component_show(GuiComponent* cmp);
+void gui_component_layout(GuiComponent* cmp);
+void gui_component_layout_children(GuiComponent* cmp);
+void gui_component_layout_vertical(GuiComponent* cmp);
+void gui_component_layout_horizontal(GuiComponent* cmp);
+void gui_component_fit_to_children(GuiComponent* cmp);
+void gui_component_layout_simple_buttons(GuiComponent* cmp);
+void gui_component_update_size(GuiComponent* cmp);
+void gui_component_fit_to_root(GuiComponent* cmp, bool preserve_ar);
+void gui_component_scale(GuiComponent* cmp, double sc);
+
+void gui_component_hide(GuiComponent* cmp);
+void gui_component_show(GuiComponent* cmp);
+void gui_component_layout(GuiComponent* cmp);
+void gui_component_layout_self(GuiComponent* cmp);
+void gui_component_layout_children(GuiComponent* cmp);
+void gui_component_layout_vertical(GuiComponent* cmp);
+void gui_component_layout_horizontal(GuiComponent* cmp);
+void gui_component_fit_to_children(GuiComponent* cmp);
+void gui_component_layout_simple_buttons(GuiComponent* cmp);
+void gui_component_update_size(GuiComponent* cmp);
+void gui_component_fit_to_root(GuiComponent* cmp, bool preserve_ar);
+void gui_component_scale(GuiComponent* cmp, double sc);
+
 //void	gui_component_activate(GuiComponent* cmp, void* input_delegate);
 //void gui_component_deactivate(GuiComponent* cmp);
 //double g_default_ui_size(void* gui);

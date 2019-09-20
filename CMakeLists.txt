@@ -23,7 +23,7 @@ set (${project_name}_VERSION_PATCH 1)
 option(BuildGUILibrary "Build the gui library for embedding or linking" ON)
 option(BuildGUITest "BuildTest" ON)
 option(BuildGUIDocumentation "BuildDocumentation" OFF)
-option(BuildGUIDemo "BuildDemo" ON)
+option(BuildGUIDemo "BuildDemo" OFF)
 
 if(${BuildGUITest})
   add_subdirectory("test")

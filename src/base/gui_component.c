@@ -40,7 +40,7 @@ extern AppSettings app_settings;
  */
 
 ///static void layout_children(GuiComponent* cmp);
-static void layout_self_in_container(GuiComponent* cmp);
+void gui_component_layout_self(GuiComponent* cmp);
 
 void gui_component_update_size(GuiComponent* cmp)
 {
@@ -62,7 +62,7 @@ static void default_layout(GuiComponent* cmp)
 
 	//where do I go
 	if (cmp->parent)
-		layout_self_in_container(cmp);
+		gui_component_layout_self(cmp);
 
 	//	where do my children go
 	if (cmp->container)
@@ -107,10 +107,15 @@ void gui_component_draw(GuiComponent* cmp)
 
 	drw_translate(cmp->bounds.pos.x, cmp->bounds.pos.y, 0);
 	double sz = cmp->bounds.size.x;
-	
-	
-	double al = 1 ;
-	if ( gui_alpha_mult )
+<<<<<<< Updated upstream
+
+	double al = 1;
+	if (gui_alpha_mult)
+=======
+
+	double al = 1;
+	if (gui_alpha_mult)
+>>>>>>> Stashed changes
 		al = *gui_alpha_mult;
 
 	//printf("%f %f\n", cmp->bounds.size.x, cmp->bounds.size.y);
@@ -217,7 +222,10 @@ void gui_component_draw(GuiComponent* cmp)
 				drw_translate2f(cmp->bounds.size.x * .5, cmp->bounds.size.y * .5);
 				drw_type_draw(cmp->name);
 				drw_pop();
-				
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
 			}
 			else
 			{
@@ -251,23 +259,22 @@ void gui_component_draw(GuiComponent* cmp)
 void gui_component_draw_border(GuiComponent* cmp)
 {
 	if (!cmp->visible)
-			return;
-	
+		return;
+
 	int pad = gui_default_ui(cmp->root) * .3333;
-	
-	pad =  0;
+
+	pad = 0;
 	drw_push();
 	drw_translate2f(cmp->bounds.pos.x - pad, cmp->bounds.pos.y - pad);
-	
-		//	performance hacks
-		//if ( !gui->borderless)
-		drw_rect(0, 0, cmp->bounds.size.x + (pad * 2), cmp->bounds.size.y + (pad * 2));
-	
-		drw_pop();
-		//drw_alpha_pop();
-		//gui_component_draw_children(cmp);
-//	}
 
+	//	performance hacks
+	//if ( !gui->borderless)
+	drw_rect(0, 0, cmp->bounds.size.x + (pad * 2), cmp->bounds.size.y + (pad * 2));
+
+	drw_pop();
+	//drw_alpha_pop();
+	//gui_component_draw_children(cmp);
+	//	}
 }
 
 void gui_component_draw_edge(GuiComponent* cmp)
@@ -307,7 +314,11 @@ void gui_component_draw_bordered(GuiComponent* cmp)
 {
 	if (!cmp->visible)
 		return;
-	
+<<<<<<< Updated upstream
+
+=======
+
+>>>>>>> Stashed changes
 	double pad = gui_ui_unit * .3333;
 	//int pad = gui_default_ui(cmp->root) * .3333;
 
@@ -343,7 +354,11 @@ void gui_component_draw_bordered(GuiComponent* cmp)
 RRect g_create_default_bounds(void* data)
 {
 	// Gui* gui = (Gui*)data;
-	RRect  b;
+<<<<<<< Updated upstream
+	RRect b;
+=======
+	RRect b;
+>>>>>>> Stashed changes
 	//double sz = gui_default_ui(data);
 	double sz = gui_ui_unit;
 	//	double sz = R_UI_BTN_SIZE * app_settings.scale_retina * HC_RET;
@@ -428,7 +443,7 @@ GuiComponent* gui_component_create(void* data)
 	comp->data		   = NULL;
 	comp->on		   = true;
 	comp->container		   = false;
-	comp->sealed = false;
+	comp->sealed		   = false;
 	comp->visible		   = true;
 	comp->hidden		   = false;
 	comp->children		   = NULL;
@@ -463,17 +478,30 @@ GuiComponent* gui_component_create(void* data)
 	// comp->delegate =
 	return comp;
 }
-void	gui_component_children_clear(GuiComponent* cmp)
+<<<<<<< Updated upstream
+void gui_component_children_clear(GuiComponent* cmp)
 {
 	for (int i = 0; i < cmp->num_children; i++)
-		{
-			GuiComponent* child = cmp->children[i];
-			gui_component_destroy(child);
-		}
-	free (cmp->children);
-	cmp->children = NULL;
+	{
+		GuiComponent* child = cmp->children[i];
+		gui_component_destroy(child);
+	}
+	free(cmp->children);
+	cmp->children     = NULL;
 	cmp->num_children = 0;
 
+=======
+void gui_component_children_clear(GuiComponent* cmp)
+{
+	for (int i = 0; i < cmp->num_children; i++)
+	{
+		GuiComponent* child = cmp->children[i];
+		gui_component_destroy(child);
+	}
+	free(cmp->children);
+	cmp->children = NULL;
+	cmp->num_children = 0;
+>>>>>>> Stashed changes
 }
 
 void gui_component_destroy(GuiComponent* comp)
@@ -569,14 +597,14 @@ void gui_component_size(GuiComponent* cmp, double x, double y)
 	cmp->bounds.size.y = y;
 }
 
-static void delete_child(GuiComponent*parent, int index)
+static void delete_child(GuiComponent* parent, int index)
 {
 	gui_log("deleting");
 	GuiComponent* victim = parent->children[index];
-	
+
 	//gui_component_destroy(victim);
 	victim = NULL;
-	
+
 	for (int i = index; i < parent->num_children - 1; i++)
 	{
 		parent->children[index] = parent->children[index + 1];
@@ -587,7 +615,6 @@ static void delete_child(GuiComponent*parent, int index)
 void gui_component_child_remove(GuiComponent* parent, GuiComponent* child)
 {
 
-	
 	int index = -1;
 	for (int i = 0; i < parent->num_children; i++)
 	{
@@ -606,9 +633,9 @@ void gui_component_child_remove(GuiComponent* parent, GuiComponent* child)
 	//free(test_item);
 }
 
-void	  gui_component_child_remove_index(GuiComponent* cmp, int index)
+void gui_component_child_remove_index(GuiComponent* cmp, int index)
 {
-	if ( index == -1 )
+	if (index == -1)
 	{
 		index = cmp->num_children - 1;
 	}
@@ -669,73 +696,119 @@ void gui_component_child_add(GuiComponent* parent, GuiComponent* child)
  }
  */
 
-static void layout_self_in_container(GuiComponent* cmp)
+void gui_component_layout_self(GuiComponent* cmp)
 {
 	//gui_fb_h;
 	//new infra for left handed right handedness
 	GuiComponent* parent = cmp->parent;
+
 	double pw = cmp->parent->bounds.size.x;
 	double ph = cmp->parent->bounds.size.y;
+
 	//double prevx = cmp->bounds.pos.x;
 	//	double prevy = cmp->bounds.pos.y;
 
 	double x, y, w, h;
 	x = y = 0;
-	w = h = 16;
+
+	w = h     = 16;
 	double sz = -1;
-	if ( gui_ui_unit )
+	if (gui_ui_unit)
 		sz = gui_ui_unit;
 	else
 		sz = gui_default_ui(cmp->root);
-	
-	
-	switch (cmp->orientation.horizontal) {
-		case GUI_H_ORIENTATION_FILL:
-			
-			break;
-		case GUI_H_ORIENTATION_LEFT:
-			x = parent->bounds.pos.x;
-			break;
-		case GUI_H_ORIENTATION_RIGHT:
-			x = parent->bounds.pos.x - cmp->bounds.size.x;
-			break;
-			
-		default:
-			break;
+
+	switch (cmp->orientation.horizontal)
+	{
+	case GUI_H_ORIENTATION_FILL:
+
+		break;
+	case GUI_H_ORIENTATION_LEFT:
+		x = parent->bounds.pos.x;
+		break;
+	case GUI_H_ORIENTATION_RIGHT:
+		x = parent->bounds.pos.x - cmp->bounds.size.x;
+		break;
+
+	default:
+		break;
 	}
-	
+
 	switch (cmp->orientation.vertical)
 	{
-		case GUI_V_ORIENTATION_BOTTOM:
-			y = parent->bounds.pos.y;
-			break;
-		case GUI_V_ORIENTATION_TOP:
-			y = parent->bounds.pos.y - cmp->bounds.size.y;
-			break;
-			
+	case GUI_V_ORIENTATION_BOTTOM:
+		y = parent->bounds.pos.y;
+		break;
+	case GUI_V_ORIENTATION_TOP:
+		y = parent->bounds.pos.y - cmp->bounds.size.y;
+		break;
 	}
-	
-	
+
 	gui_component_set(cmp, x, y);
 	/*
+=======
+	w = h     = 16;
+	double sz = -1;
+	if (gui_ui_unit)
+		sz = gui_ui_unit;
+	else
+		sz = gui_default_ui(cmp->root);
+
+	//	fills are simple
+>>>>>>> Stashed changes
 	if (cmp->orientation.horizontal == GUI_H_ORIENTATION_FILL)
 	{
-		cmp->bounds.pos.x  = cmp->parent->bounds.pos.x;
+
 		cmp->bounds.size.x = cmp->parent->bounds.size.x;
-	
+<<<<<<< Updated upstream
+
 		//cmp->x		   = cmp->parent->x;
+=======
+>>>>>>> Stashed changes
 	}
 	if (cmp->orientation.vertical == GUI_V_ORIENTATION_FILL)
 	{
-		cmp->bounds.pos.y  = cmp->parent->bounds.pos.y;
+
 		cmp->bounds.size.y = cmp->parent->bounds.size.y;
-		//cmp->y		   = cmp->parent->y;
+	}
+	// if (cmp->orientation.horizontal == GUI_H_ORIENTATION_FILL && cmp->orientation.vertical == GUI_V_ORIENTATION_FILL)
+	// {
+	// 	//already done? neat!
+	// }
+
+	switch (cmp->orientation.horizontal)
+	{
+	case GUI_H_ORIENTATION_FILL:
+		cmp->bounds.pos.x = cmp->parent->bounds.pos.x;
+		break;
+	case GUI_H_ORIENTATION_LEFT:
+		x = parent->bounds.pos.x;
+		break;
+	case GUI_H_ORIENTATION_RIGHT:
+		x = parent->bounds.pos.x - cmp->bounds.size.x;
+		break;
+
+	default:
+		break;
 	}
 
-	if (cmp->orientation.horizontal == GUI_H_ORIENTATION_FILL && cmp->orientation.vertical == GUI_V_ORIENTATION_FILL)
+	switch (cmp->orientation.vertical)
 	{
-		//already done? neat!
+	case GUI_V_ORIENTATION_FILL:
+		cmp->bounds.pos.y = cmp->parent->bounds.pos.y;
+		break;
+
+	case GUI_V_ORIENTATION_BOTTOM:
+		y = parent->bounds.pos.y;
+		break;
+	case GUI_V_ORIENTATION_TOP:
+		y = parent->bounds.pos.y - cmp->bounds.size.y;
+		break;
 	}
+
+	gui_component_set(cmp, x, y);
+	/*
+
 	else
 	{
 
@@ -772,7 +845,11 @@ static void layout_self_in_container(GuiComponent* cmp)
 		// gui_component_move(cmp, prevx, prevy);
 	}
 */
-	
+<<<<<<< Updated upstream
+
+=======
+
+>>>>>>> Stashed changes
 	//other stuff?
 }
 
@@ -799,22 +876,48 @@ void gui_component_layout(GuiComponent* cmp)
 		printf("unnec function call here maybe\n");
 		return;
 	}
-	
+<<<<<<< Updated upstream
+
+=======
+
+>>>>>>> Stashed changes
 	//	where do my children go
 	if (cmp->container)
 		gui_component_layout_children(cmp);
 
 	//	where do i fit in
-	if ( !cmp->layout && cmp->parent)
+<<<<<<< Updated upstream
+	if (!cmp->layout && cmp->parent)
 	{
 		layout_self_in_container(cmp);
-		
-	}else{
+	}
+	else
+	{
 		if (cmp->layout)
 			cmp->layout(cmp);
 	}
 	//	custom overrides
-	
+
+=======
+	if (!cmp->layout && cmp->parent)
+	{
+		gui_component_layout_self(cmp);
+	}
+	else
+	{
+		//		if ( 0 == strcmp("gui_component_layout", __func__))
+		//		{
+		//			return;
+		//
+		//
+		//		}
+		if (cmp->layout)
+		{
+			cmp->layout(cmp);
+		}
+	}
+	//	custom overrides
+>>>>>>> Stashed changes
 }
 
 //static void apply_layout_h(GuiComponent*)
@@ -874,12 +977,20 @@ void gui_component_layout_horizontal(GuiComponent* comp)
 
 void gui_component_layout_vertical(GuiComponent* cmp)
 {
-	if ( cmp->num_children == 0 )
+<<<<<<< Updated upstream
+	if (cmp->num_children == 0)
+=======
+	if (cmp->num_children == 0)
+>>>>>>> Stashed changes
 	{
 		l_warning("Can't layout with NULL children eh");
 		return;
 	}
-	
+<<<<<<< Updated upstream
+
+=======
+
+>>>>>>> Stashed changes
 	double w   = cmp->bounds.size.x;
 	double h   = cmp->bounds.size.y;
 	double pad = PHI_I * gui_default_ui(cmp->root);
@@ -958,7 +1069,7 @@ void gui_component_layout_simple_buttons(GuiComponent* cmp)
 	{
 		gui_component_size(cmp->children[i], sz, sz);
 	}
-	layout_self_in_container(cmp);
+	gui_component_layout_self(cmp);
 
 	gui_component_layout_horizontal(cmp);
 }
@@ -973,16 +1084,18 @@ GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double x, doub
 	if (cont->hidden)
 		return NULL;
 
-	if ( cont->sealed )
+	if (cont->sealed)
 	{
-		if ( r_rect_within(cont->bounds, x, y))
+		if (r_rect_within(cont->bounds, x, y))
 			return cont;
-	}else{
-	
+	}
+	else
+	{
+
 		for (int i = 0; i < cont->num_children; ++i)
 		{
-			GuiComponent* sub  = cont->children[i];
-			if ( !sub->sealed )
+			GuiComponent* sub = cont->children[i];
+			if (!sub->sealed)
 			{
 				GuiComponent* sub2 = gui_component_find_pointerfocus(sub, x, y);
 
@@ -991,7 +1104,7 @@ GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double x, doub
 					return sub2;
 				}
 			}
-			
+
 			if (sub->find_focus)
 			{
 				if (sub->find_focus(sub, x, y))
@@ -1018,7 +1131,7 @@ GuiComponent* gui_component_find_pointerfocus(GuiComponent* cont, double x, doub
 			}
 		}
 	}
-	
+
 	if (!cont->enabled)
 	{
 		return NULL;

@@ -49,7 +49,14 @@ void _update(GuiComponent* comp)
 
 			printf("not within. (return)\n");
 			InputDelegate* del = &comp->delegate;
-			del->control_return(del);
+			if (!del->control_return)
+			{
+				l_warning("No return function defined!\n");
+			}
+			else
+			{
+				del->control_return(del);
+			}
 		}
 		if (dist2d(cmp->x, cmp->y, cmp->x, cmp->y) <
 		    cmp->ina_radius * app_settings.scale_retina)
@@ -202,7 +209,7 @@ GuiComponent* gui_menu_radial_create(void* gui)
 	cmp->draw	 = &draw;
 	cmp->update       = &_update;
 	cmp->enabled      = false;
-	cmp->name = "radial menu";
+	cmp->name	 = "radial menu";
 	cmp->data	 = gui_menu_radial_create_attr();
 	return cmp;
 }

@@ -95,6 +95,8 @@
 		579F9BD1223750F300BF3880 /* gui_log.c in Sources */ = {isa = PBXBuildFile; fileRef = 579F9BCF223750F300BF3880 /* gui_log.c */; };
 		57A1A1E12289A63D00D37979 /* gui_ios_dpad_nav.h in Headers */ = {isa = PBXBuildFile; fileRef = 57A1A1DF2289A63D00D37979 /* gui_ios_dpad_nav.h */; };
 		57A1A1E22289A63D00D37979 /* gui_ios_dpad_nav.c in Sources */ = {isa = PBXBuildFile; fileRef = 57A1A1E02289A63D00D37979 /* gui_ios_dpad_nav.c */; };
+		57AA04E123355CF9005A0456 /* gui_layout_ring.h in Headers */ = {isa = PBXBuildFile; fileRef = 57AA04DF23355CF9005A0456 /* gui_layout_ring.h */; };
+		57AA04E223355CF9005A0456 /* gui_layout_ring.c in Sources */ = {isa = PBXBuildFile; fileRef = 57AA04E023355CF9005A0456 /* gui_layout_ring.c */; };
 		57BB16BD2250319100094859 /* gui_control_rgba.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BB16A12250319000094859 /* gui_control_rgba.c */; };
 		57BB16BE2250319100094859 /* gui_control_progress.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16A22250319000094859 /* gui_control_progress.h */; };
 		57BB16BF2250319100094859 /* gui_icon.h in Headers */ = {isa = PBXBuildFile; fileRef = 57BB16A32250319000094859 /* gui_icon.h */; };
@@ -216,6 +218,8 @@
 		579F9BCF223750F300BF3880 /* gui_log.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_log.c; sourceTree = "<group>"; };
 		57A1A1DF2289A63D00D37979 /* gui_ios_dpad_nav.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_ios_dpad_nav.h; sourceTree = "<group>"; };
 		57A1A1E02289A63D00D37979 /* gui_ios_dpad_nav.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_ios_dpad_nav.c; sourceTree = "<group>"; };
+		57AA04DF23355CF9005A0456 /* gui_layout_ring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui_layout_ring.h; sourceTree = "<group>"; };
+		57AA04E023355CF9005A0456 /* gui_layout_ring.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = gui_layout_ring.c; sourceTree = "<group>"; };
 		57BB16A12250319000094859 /* gui_control_rgba.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gui_control_rgba.c; sourceTree = "<group>"; };
 		57BB16A22250319000094859 /* gui_control_progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_control_progress.h; sourceTree = "<group>"; };
 		57BB16A32250319000094859 /* gui_icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui_icon.h; sourceTree = "<group>"; };
@@ -326,6 +330,7 @@
 				575E7BCB204D018E00C80D64 /* debug */,
 				575E7B93204D018E00C80D64 /* etc */,
 				5708A9FA208FF28F00A9E776 /* ext */,
+				57AA04DE23355CED005A0456 /* layout */,
 				575E7B9B204D018E00C80D64 /* menu */,
 				570A1DEB228742DB00FCB278 /* platform */,
 				575E7BBB204D018E00C80D64 /* vbl */,
@@ -456,6 +461,15 @@
 			path = grdn;
 			sourceTree = "<group>";
 		};
+		57AA04DE23355CED005A0456 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				57AA04DF23355CF9005A0456 /* gui_layout_ring.h */,
+				57AA04E023355CF9005A0456 /* gui_layout_ring.c */,
+			);
+			path = layout;
+			sourceTree = "<group>";
+		};
 		57BB16A02250319000094859 /* control */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,6 +540,10 @@
 				57BB16C12250319100094859 /* r_control_onscreenbutton.h in Headers */,
 				575E7C08204D018E00C80D64 /* gui_modal.h in Headers */,
 				57BB16D62250319100094859 /* gui_control_slider.h in Headers */,
+<<<<<<< Updated upstream
+=======
+				57AA04E123355CF9005A0456 /* gui_layout_ring.h in Headers */,
+>>>>>>> Stashed changes
 				571B2BB722E28A9B00F7719C /* gui_control_togglebutton.h in Headers */,
 				575E7BD0204D018E00C80D64 /* g_widget_console.h in Headers */,
 				571B2BBF22E28AC000F7719C /* gui_control_multipush.h in Headers */,
@@ -652,6 +670,10 @@
 				575E7BDE204D018E00C80D64 /* gui_comp_rline.c in Sources */,
 				575E7C04204D018E00C80D64 /* gui_component.c in Sources */,
 				57BB16D22250319100094859 /* gui_control_textfield.c in Sources */,
+<<<<<<< Updated upstream
+=======
+				57AA04E223355CF9005A0456 /* gui_layout_ring.c in Sources */,
+>>>>>>> Stashed changes
 				571A679D22EA7C7D0038CB67 /* gui_control_encoder.c in Sources */,
 				575E7BE4204D018E00C80D64 /* gui_menu.c in Sources */,
 				570A1DF3228742DB00FCB278 /* gui_ios_dpad.c in Sources */,
