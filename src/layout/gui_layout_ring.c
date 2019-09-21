@@ -52,12 +52,16 @@ void gui_layout_ring(GuiComponent* cmp)
 	unsigned n   = cmp->num_children;
 	double   amt = M_PI / n * 2;
 	double   w   = cmp->bounds.size.x;
+	double h = cmp->bounds.size.y;
+	
+	double bigger = (w > h) ? w : h;
+	
 	for (unsigned i = 0; i < n; i++)
 	{
 		GuiComponent* child = cmp->children[i];
 		double	r     = amt * i;
-		double	dx    = cos(r) * w * .5;
-		double	dy    = sin(r) * w * .5;
+		double	dx    = cos(r) * bigger * .5;
+		double	dy    = sin(r) * bigger * .5;
 
 		gui_component_set(child, dx, dy);
 	}

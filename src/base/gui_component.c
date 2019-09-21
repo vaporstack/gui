@@ -107,15 +107,10 @@ void gui_component_draw(GuiComponent* cmp)
 
 	drw_translate(cmp->bounds.pos.x, cmp->bounds.pos.y, 0);
 	double sz = cmp->bounds.size.x;
-<<<<<<< Updated upstream
 
 	double al = 1;
-	if (gui_alpha_mult)
-=======
 
-	double al = 1;
 	if (gui_alpha_mult)
->>>>>>> Stashed changes
 		al = *gui_alpha_mult;
 
 	//printf("%f %f\n", cmp->bounds.size.x, cmp->bounds.size.y);
@@ -222,10 +217,6 @@ void gui_component_draw(GuiComponent* cmp)
 				drw_translate2f(cmp->bounds.size.x * .5, cmp->bounds.size.y * .5);
 				drw_type_draw(cmp->name);
 				drw_pop();
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 			}
 			else
 			{
@@ -314,11 +305,7 @@ void gui_component_draw_bordered(GuiComponent* cmp)
 {
 	if (!cmp->visible)
 		return;
-<<<<<<< Updated upstream
 
-=======
-
->>>>>>> Stashed changes
 	double pad = gui_ui_unit * .3333;
 	//int pad = gui_default_ui(cmp->root) * .3333;
 
@@ -354,11 +341,9 @@ void gui_component_draw_bordered(GuiComponent* cmp)
 RRect g_create_default_bounds(void* data)
 {
 	// Gui* gui = (Gui*)data;
-<<<<<<< Updated upstream
+
 	RRect b;
-=======
-	RRect b;
->>>>>>> Stashed changes
+
 	//double sz = gui_default_ui(data);
 	double sz = gui_ui_unit;
 	//	double sz = R_UI_BTN_SIZE * app_settings.scale_retina * HC_RET;
@@ -478,7 +463,7 @@ GuiComponent* gui_component_create(void* data)
 	// comp->delegate =
 	return comp;
 }
-<<<<<<< Updated upstream
+
 void gui_component_children_clear(GuiComponent* cmp)
 {
 	for (int i = 0; i < cmp->num_children; i++)
@@ -489,19 +474,6 @@ void gui_component_children_clear(GuiComponent* cmp)
 	free(cmp->children);
 	cmp->children     = NULL;
 	cmp->num_children = 0;
-
-=======
-void gui_component_children_clear(GuiComponent* cmp)
-{
-	for (int i = 0; i < cmp->num_children; i++)
-	{
-		GuiComponent* child = cmp->children[i];
-		gui_component_destroy(child);
-	}
-	free(cmp->children);
-	cmp->children = NULL;
-	cmp->num_children = 0;
->>>>>>> Stashed changes
 }
 
 void gui_component_destroy(GuiComponent* comp)
@@ -721,7 +693,8 @@ void gui_component_layout_self(GuiComponent* cmp)
 	switch (cmp->orientation.horizontal)
 	{
 	case GUI_H_ORIENTATION_FILL:
-
+		x		   = parent->bounds.pos.x;
+		cmp->bounds.size.x = parent->bounds.size.x;
 		break;
 	case GUI_H_ORIENTATION_LEFT:
 		x = parent->bounds.pos.x;
@@ -736,6 +709,10 @@ void gui_component_layout_self(GuiComponent* cmp)
 
 	switch (cmp->orientation.vertical)
 	{
+	case GUI_V_ORIENTATION_FILL:
+		y		   = parent->bounds.pos.y;
+		cmp->bounds.size.y = parent->bounds.size.y;
+			break;
 	case GUI_V_ORIENTATION_BOTTOM:
 		y = parent->bounds.pos.y;
 		break;
@@ -845,11 +822,7 @@ void gui_component_layout_self(GuiComponent* cmp)
 		// gui_component_move(cmp, prevx, prevy);
 	}
 */
-<<<<<<< Updated upstream
 
-=======
-
->>>>>>> Stashed changes
 	//other stuff?
 }
 
@@ -876,29 +849,13 @@ void gui_component_layout(GuiComponent* cmp)
 		printf("unnec function call here maybe\n");
 		return;
 	}
-<<<<<<< Updated upstream
 
-=======
-
->>>>>>> Stashed changes
 	//	where do my children go
 	if (cmp->container)
 		gui_component_layout_children(cmp);
 
 	//	where do i fit in
-<<<<<<< Updated upstream
-	if (!cmp->layout && cmp->parent)
-	{
-		layout_self_in_container(cmp);
-	}
-	else
-	{
-		if (cmp->layout)
-			cmp->layout(cmp);
-	}
-	//	custom overrides
 
-=======
 	if (!cmp->layout && cmp->parent)
 	{
 		gui_component_layout_self(cmp);
@@ -916,8 +873,6 @@ void gui_component_layout(GuiComponent* cmp)
 			cmp->layout(cmp);
 		}
 	}
-	//	custom overrides
->>>>>>> Stashed changes
 }
 
 //static void apply_layout_h(GuiComponent*)
@@ -977,20 +932,13 @@ void gui_component_layout_horizontal(GuiComponent* comp)
 
 void gui_component_layout_vertical(GuiComponent* cmp)
 {
-<<<<<<< Updated upstream
+
 	if (cmp->num_children == 0)
-=======
-	if (cmp->num_children == 0)
->>>>>>> Stashed changes
 	{
 		l_warning("Can't layout with NULL children eh");
 		return;
 	}
-<<<<<<< Updated upstream
 
-=======
-
->>>>>>> Stashed changes
 	double w   = cmp->bounds.size.x;
 	double h   = cmp->bounds.size.y;
 	double pad = PHI_I * gui_default_ui(cmp->root);
